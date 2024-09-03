@@ -1,0 +1,141 @@
+(defpoll clock_hour :interval "5s" "date +\%I")
+(defpoll clock_minute :interval "5s" "date +\%M")
+(defpoll clock_day :interval "1h" "date +\"%a %b %d\"")
+(defpoll memory :interval "2s" "./memory.sh")
+(defpoll cpu :interval "2s" "./cpu.sh")
+(defpoll vol :interval "3s" "pulsemixer --get-volume | awk '{print $1}'")
+(defpoll ip :interval "3s" "./ipaddr.sh")
+(defpoll shares :interval "10m" "python ~/.config/bspwm/stocks.py")
+(defpoll kb_batt :interval "5m" "./kb_batt.sh")
+(defpoll batt :interval "5m" "./batt.sh")
+;; (defpoll qan :interval "15m" "python ~/.config/bspwm/price.py qan.ax")
+
+(defwidget main []
+           (centerbox
+             :class "wrapper"
+             :orientation "v"
+             (box :orientation "v" :space-evenly "false"
+                  (clock_module)
+                  (workspaces)
+                  )
+             (box :orientation "v" :height "300")
+             (stats)
+             ))
+
+(defwidget clock_module []
+           (box :class "module clock" :orientation "v" 
+                (label :text clock_hour :class "clock_hour" )
+                (label :text clock_minute :class "clock_minute")
+                (label :text clock_day :class "clock_day")
+                )
+           )
+
+(defwidget stats []
+           (box :orientation "v" :space-evenly false :valign "end" :class "stats"
+                (stocks)
+                (ipaddr)
+                (batt)
+                (keyboard_batt)
+                (volume)
+                (mem)
+                (cpu)
+                ))
+
+(defwidget mem []
+           (box :class "module" :orientation "v" :width "70"
+                (label :class "statlabel" :text "mem")
+                (circular-progress :value memory
+                                   :class "statbar"
+                                   :thickness 5
+                                   :start-at 25
+                                   (label :class "statval" :text memory :width "40")
+                                   )
+                ))
+
+(defwidget ipaddr []
+           (box :orientation "v" :width "50"
+                (label :class "ipaddr" :text ip))
+           )
+
+
+(defwidget stocks []
+           (box :orientation "v" :width "50"
+                (label :class "stocks" :text shares))
+           )
+
+
+;; (defwidget qanchart []
+;;            (graph :value qan
+;;                   :thickness 2
+;;                   :time-range "3d"
+;;                   :dynamic true
+;;                   ))
+
+(defwidget cpu []
+           (box :class "module" :orientation "v" :width "70"
+                (label :class "statlabel" :text "cpu")
+                (circular-progress :value cpu
+                                   :class "statbar"
+                                   :thickness 5
+                                   :start-at 25
+                                   (label :class "statval" :text cpu :width "40")
+                                   )
+                ))
+
+
+(defwidget volume []
+           (box :class "module" :orientation "v" :width "60"
+                (label :class "statlabel" :text "vol")
+                (circular-progress :value vol
+                                   :class "statbar"
+                                   :thickness 5
+                                   :start-at 25
+                                   (label :class "statval" :text vol :width "40")
+                                   )
+                ))
+
+
+(defwidget batt []
+           (box :class "module" :orientation "v" :width "60"
+                (label :class "statlabel" :text "batt")
+                (circular-progress :value batt
+                                   :class "statbar"
+                                   :thickness 5
+                                   :start-at 25
+                                   (label :class "statval" :text batt :width "40")
+                                   )
+                ))
+
+
+(defwidget keyboard_batt []
+           (box :class "module" :orientation "v" :width "60"
+                (label :class "statlabel" :text "kb")
+                (circular-progress :value kb_batt
+                                   :class "statbar"
+                                   :thickness 5
+                                   :start-at 25
+                                   (label :class "statval" :text kb_batt :width "40")
+                                   )
+                ))
+
+
+(defwidget workspaces []
+           (literal :content workspace)
+           )
+(deflisten workspace "./workspaces.sh")
+
+
+(defwindow sidebar
+           :monitor 0
+           :geometry (geometry :x "-5px"
+                               :y "0%"
+                               :width "70px"
+                               :height "96%"
+                               :anchor "center right")
+           :windowtype "dock"
+           :reserve (struts :distance "75px" :side "right")
+           :stacking "fg"
+           :wm-ignore "false"
+           (main)
+           )
+
