@@ -13,6 +13,7 @@
     bat
     ripgrep
     nodejs_20
+    lazygit
   ];
 
   home.file = {
@@ -59,7 +60,8 @@
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   imports = [
-    ./modules/neovim.nix
-    ./modules/dotfiles.nix
+    ./modules/user/neovim.nix
+    ./modules/user/dotfiles.nix
+    ./modules/user/zsh.nix
   ];
 }

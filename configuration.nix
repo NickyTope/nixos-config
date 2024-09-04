@@ -17,6 +17,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicky = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "Nicky Tope";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
@@ -34,6 +35,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

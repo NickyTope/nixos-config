@@ -6,7 +6,7 @@
   ];
 
   xdg.configFile.nvim = {
-    source = ../../dotfiles/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink /home/nicky/code/nixos-config/dotfiles/nvim;
     recursive = true;
   };
 }

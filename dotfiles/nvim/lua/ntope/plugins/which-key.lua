@@ -112,7 +112,6 @@ return {
 				{ "<leader>wG", '"gyiW:g/<c-r>g/norm ', desc = "operate on lines containing WORD" },
 				{ "<leader>W", "<c-w>=", desc = "even window ratio" },
 				{ "<leader>v", '"+p', desc = "Paste system clip" },
-				{ "<leader>y", extensions.neoclip.default, desc = "Yank list" },
 			})
 		end,
 	},
