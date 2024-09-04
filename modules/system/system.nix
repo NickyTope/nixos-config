@@ -5,6 +5,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "amd_pstate=guided" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   powerManagement = {
     enable = true;
