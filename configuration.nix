@@ -50,6 +50,22 @@
     wget
     font-manager
     feh
+    flameshot
+    simplescreenrecorder
+    xclip
+    xorg.xrandr
+    libnotify
+    xdg-utils
+    cmake
+    jq
+    gimp
+    colorpicker
+    dunst
+    pass
+    passExtensions.pass-otp
+    passff-host
+    gnupg
+    pinentry-curses
     inputs.wezterm.packages.${pkgs.system}.default
   ];
 

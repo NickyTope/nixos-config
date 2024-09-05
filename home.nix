@@ -17,6 +17,10 @@
   ];
 
   home.file = {
+    ".gnupg/gpg.conf".text = ''
+      pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+      use-agent
+      '';
   };
 
   home.sessionVariables = {
