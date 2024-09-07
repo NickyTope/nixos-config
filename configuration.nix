@@ -25,6 +25,16 @@
     ];
   };
 
+  security.sudo.extraRules= [
+    {  users = [ "nicky" ];
+      commands = [
+         { command = "ALL" ;
+           options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        }
+      ];
+    }
+  ];
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -54,6 +64,7 @@
     flameshot
     simplescreenrecorder
     xclip
+    fuchsia-cursor
     xorg.xrandr
     libnotify
     xdg-utils

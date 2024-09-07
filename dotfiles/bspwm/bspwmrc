@@ -3,6 +3,8 @@
 killall sxhkd
 sxhkd &
 
+xsetroot -cursor_name left_ptr
+
 # timesync seems to start only after being queried ???
 timedatectl timesync-status &
 

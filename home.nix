@@ -30,6 +30,10 @@
 
   gtk = {
     enable = true;
+    cursorTheme = {
+      name = "Fuchsia";
+      package = pkgs.fuchsia-cursor;
+    };
     iconTheme = {
       name = "Adwaita-dark";
       package = pkgs.adwaita-icon-theme;
