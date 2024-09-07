@@ -9,6 +9,8 @@
     (nerdfonts.override { fonts = ["Hermit" "JetBrainsMono" "Noto" ]; })
     fira-code
     roboto-mono
+    icomoon-feather
+    material-icons
     stylua
     bat
     ripgrep

@@ -22,7 +22,7 @@ if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
   fi
 fi
 
-if [ "$HOSTNAME" == "miniarch" ]; then
+if [ "$HOSTNAME" == "mininix" ]; then
   if [ $count == 1 ]
   then
     bspc monitor ^1 -d term api webfront config five web chat win nine ten

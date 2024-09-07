@@ -3,16 +3,16 @@
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "amd_pstate=guided" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "schedutil";
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "mininix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

@@ -44,6 +44,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # eww
+    killall
     polybar
     rofi
     vim
@@ -69,7 +70,11 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     pinentry-curses
     pinentry-gtk2
     pinentry-rofi
-    python3
+    (python3.withPackages (python-pkgs: [
+      # select Python packages here
+      python-pkgs.pandas
+      python-pkgs.requests
+    ]))
     inputs.wezterm.packages.${pkgs.system}.default
   ];
 
