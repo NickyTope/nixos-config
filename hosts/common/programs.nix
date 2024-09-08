@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -50,6 +50,8 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
       python-pkgs.requests
     ]))
     inputs.wezterm.packages.${pkgs.system}.default
+    zoom-us
+    slack
   ];
 
 }
