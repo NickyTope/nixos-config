@@ -5,7 +5,10 @@
 - nvidia / amd imports
 - nix shell implementation for node environments at work
 
-## Next steps
+## example setups
 
-- copy in polybar config
-- xfce themes
+- https://github.com/gabrieldlima/dotfiles
+- https://github.com/dustinlyons/nixos-config
+- https://github.com/JRMurr/NixOsConfig
+
+## Next steps
