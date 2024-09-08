@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ./zsh.nix
+    ./neovim.nix
+    ./wezterm.nix
+    ./dotfiles.nix
+  ];
+
   home.username = "nicky";
   home.homeDirectory = "/home/nicky";
   home.stateVersion = "24.11";
@@ -11,15 +18,21 @@
     roboto-mono
     icomoon-feather
     material-icons
-    stylua
     bat
     ripgrep
     nodejs_20
     lazygit
+    stylua
+    lua-language-server
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.git = {
@@ -35,12 +48,12 @@
       package = pkgs.fuchsia-cursor;
     };
     iconTheme = {
-      name = "Adwaita-dark";
-      package = pkgs.adwaita-icon-theme;
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
     };
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.adwaita-icon-theme;
+      name = "Nightfox-Dark";
+      package = pkgs.nightfox-gtk-theme;
     };
   };
 
@@ -62,9 +75,4 @@
 
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
-  imports = [
-    ./modules/user/neovim.nix
-    ./modules/user/dotfiles.nix
-    ./modules/user/zsh.nix
-  ];
 }

@@ -19,7 +19,7 @@
     nixosConfigurations.mininix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./hosts/mininix/default.nix
         inputs.home-manager.nixosModules.default
       ];
     };
