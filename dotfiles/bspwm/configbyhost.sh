@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
   echo "Surface Book setup"

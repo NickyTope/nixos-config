@@ -41,6 +41,8 @@
     userEmail = "nicky.tope@gmail.com";
   };
 
+  programs.mpv.enable = true;
+
   gtk = {
     enable = true;
     cursorTheme = {
@@ -69,10 +71,19 @@
     udiskie = {
       enable = true;
     };
+
+    gnome-keyring = {
+      enable = true;
+      components = ["secrets" "pkcs11" "ssh"];
+    };
+
+    clipmenu = {
+      enable = true;
+      launcher = "rofi";
+    };
   };
 
   programs.home-manager.enable = true;
-
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
 }

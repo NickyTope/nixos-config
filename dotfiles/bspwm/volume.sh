@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ $# -eq 1 ]; then
-  pulsemixer --change-volume $1
+  pw-volume change "$1"
 fi
 
 NOTIFY_ID=1337
 
-VOLUME=$(pulsemixer --get-volume | awk '{print $1}')
+VOLUME=$(pw-volume status | jq .percentage)
 
 ICON=audio-volume-low
 if [ "$VOLUME" -ge "70" ]; then

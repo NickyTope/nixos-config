@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 
 big=$(xrandr --listmonitors | grep 5120/ | wc -l)

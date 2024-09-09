@@ -191,10 +191,10 @@ super + o ; {f,s,z,t}
 
 # Volume
 XF86AudioLowerVolume
-	/home/nicky/.config/bspwm/volume.sh -2
+	/home/nicky/code/nixos-config/dotfiles/bspwm/volume.sh -2%
 
 XF86AudioRaiseVolume
-	/home/nicky/.config/bspwm/volume.sh +2
+	/home/nicky/code/nixos-config/dotfiles/bspwm/volume.sh +2%
 
 XF86AudioMute
 	ponymix toggle
@@ -209,4 +209,4 @@ XF86MonBrightnessDown
 
 # clipboard
 ctrl + alt + v
-  sleep 0 && roficlip -font "hasklig 10"
+  clipmenu

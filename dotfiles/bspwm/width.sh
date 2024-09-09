@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 totalwidth=($(bspc query -T -n @/ | jq -r .rectangle.width))
 wincount=3

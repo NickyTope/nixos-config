@@ -34,6 +34,14 @@
     bspwm
     sxhkd
     xdotool
+    xdg-desktop-portal-gtk
+    qt5ct
+    dracula-qt5-theme
+    xclip
+    xcolor
+    xorg.xrandr
+    xdg-utils
+    pavucontrol
   ];
 
 }

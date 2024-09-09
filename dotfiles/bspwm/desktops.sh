@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
 count=0
 for monitor in $(bspc query -M); do

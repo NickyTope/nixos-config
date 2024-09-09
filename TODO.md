@@ -4,6 +4,7 @@
 
 - nvidia / amd imports
 - nix shell implementation for node environments at work
+- secrets management gpg, ssh, openai
 
 ## example setups
 
@@ -16,24 +17,17 @@
 
 Look at the way zaneyos writes his nvim config using builtins.readFile inside the extraConfig sections.
 
+try nixvim
+
+sxhkd bindings
+
 zsh - try starship?
 
 Can you disable xfwm4, panel, etc from config?
 
 Apps:
 
-- clipster
-- rofi-clip
-- rofi-emoji
-- colorpicker
-- flameshot
 - keyring - libgnome-keyring
-- libreoffice
-- volume control - pavucontrol
-- simplescreenrecorder
-- meld
-- mpv
-- qt5 theming
 - xdg-desktop-portal-gtk
 
 ## work - oryxnix
@@ -49,5 +43,3 @@ Apps:
 - system76-oled
 - system76-keyboard-configurator
 - system76-driver ... etc
-- restfox
-- teams

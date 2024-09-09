@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # https://imgur.com/gallery/[id]
 # galleries=("rBarn" "TzfPU" "Gshpb" "T2kpv")

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
 

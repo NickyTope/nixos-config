@@ -18,7 +18,15 @@
     killall
     polybar
     rofi
+    rofi-emoji
+    colorpicker
+    flameshot
     vim
+    libreoffice
+    meld
+    volumeicon
+    pw-volume
+    maim
     wget
     font-manager
     feh
@@ -26,11 +34,8 @@
     zoxide
     flameshot
     simplescreenrecorder
-    xclip
     fuchsia-cursor
-    xorg.xrandr
     libnotify
-    xdg-utils
     cmake
     jq
     gimp

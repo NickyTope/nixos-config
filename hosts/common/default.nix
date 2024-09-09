@@ -44,6 +44,13 @@
     #media-session.enable = true;
   };
 
+  services.libinput = {
+    enable = true;
+    mouse = {
+      naturalScrolling = true;
+    };
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
