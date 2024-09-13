@@ -8,7 +8,12 @@
   ];
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    extraHosts = ''
+      127.0.0.1 dev-client.isw.net.au dev-server.isw.net.au
+      '';
+  };
 
   # Set your time zone.
   time.timeZone = "Australia/Hobart";

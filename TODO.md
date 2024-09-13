@@ -17,18 +17,19 @@
 
 Look at the way zaneyos writes his nvim config using builtins.readFile inside the extraConfig sections.
 
-try nixvim
+try nixvim \*\* it's a lot of work to port your config here
 
 sxhkd bindings
 
 zsh - try starship?
 
 Can you disable xfwm4, panel, etc from config?
+yes, but how to autostart bspwm?
 
 Apps:
 
-- keyring - libgnome-keyring
-- xdg-desktop-portal-gtk
+rslsync
+https://github.com/nix-community/home-manager/issues/3830
 
 ## work - oryxnix
 

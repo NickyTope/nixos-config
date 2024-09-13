@@ -31,7 +31,6 @@
     font-manager
     feh
     fzf
-    zoxide
     flameshot
     simplescreenrecorder
     fuchsia-cursor
@@ -57,6 +56,8 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     inputs.wezterm.packages.${pkgs.system}.default
     zoom-us
     slack
+    mongodb-compass
+    zed-editor
   ];
 
 }

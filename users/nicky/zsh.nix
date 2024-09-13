@@ -1,20 +1,25 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+    };
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
       gs="git status";
       gaa="git add . --all";
       gc="git commit";
-      gk="gitk";
       gg="lazygit";
       gpp="git pull --rebase && git push";
       gpl="git pull --rebase --autostash";
       gps="git push";
       conf="cd ~/.config";
       nconf="conf && nvim";
-      x="startx";
       n="nvim";
       ":q"="exit";
       wk="cd ~/Documents/Notes/ && nvim";
@@ -30,6 +35,11 @@
       top="bpytop";
       ttq="curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.author]'|tt -oneshot -quotes -";
       ttd="tt -n 10 -oneshot -showwpm -w 10 -csv >> ~/wpm.csv";
+      "-"="cd -";
+      ".."="cd ..";
+      "..."="cd ../..";
+      "rebuild"="sudo nixos-rebuild switch --flake ~/code/nixos-config";
+      "la"="ls -la --color";
     };
 
     sessionVariables = {
@@ -46,13 +56,19 @@
     };
 
     enableCompletion = true;
+    autosuggestion.enable = true;
+    autocd = true;
+    cdpath = [ "$HOME/code" "$HOME/.config" ];
+
+    history = {
+      extended = true;
+      append = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      path = "$HOME/.zsh_history";
+    };
 
     plugins = [
-      {                                                                                   
-        name = "powerlevel10k";                                                           
-        src = pkgs.zsh-powerlevel10k;                                                     
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";                         
-      }
       {
         name = "zsh-autosuggestions";
         src = pkgs.zsh-autosuggestions;
@@ -71,64 +87,15 @@
     ];
 
     initExtra = ''
-source ~/.p10k.zsh
-
-# ▌ ▘  ▗       
-# ▛▌▌▛▘▜▘▛▌▛▘▌▌
-# ▌▌▌▄▌▐▖▙▌▌ ▙▌
-           # ▄▌
-# History
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-      # ▗      
-# ▛▘▌▌▛▘▜▘▛▌▛▛▌
-# ▙▖▙▌▄▌▐▖▙▌▌▌▌
-
-setopt auto_cd
-cdpath=($HOME/code $HOME/.config)
-[[ -f ~/.env.sh ]] && source ~/.env.sh
-
-# alt+.
-bindkey '\e.' insert-last-word
-
-function subdir_do() {
-  for d in ./*/ ; do (echo "=== $d ===" && cd "$d" && "$@") ; done
-}
-
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
-
-function fzfz() {
-  cd $(z | awk '{print $2}' | fzf --scheme=path --tac)
-  local precmd
-  for precmd in $precmd_functions; do
-    $precmd
-  done
-  zle reset-prompt
-}
-
-zle -N fzfz
-bindkey '^g' fzfz # <c-g>
+      bindkey  fzf-cd-widget
     '';
 
   };
 
   home.sessionPath = [
-      "/home/nicky/go"
-      "/home/nicky/.cargo/bin"
-      "/home/nicky/bin"
-      "/home/nicky/.local/bin"
-    ];
-
+    "/home/nicky/go"
+    "/home/nicky/.cargo/bin"
+    "/home/nicky/bin"
+    "/home/nicky/.local/bin"
+  ];
 }

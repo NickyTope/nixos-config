@@ -18,6 +18,8 @@
     variant = "";
   };
 
+  services.gnome.gnome-keyring.enable = true;
+
   services = {
     picom = {
       enable = true;
@@ -27,14 +29,16 @@
     };
   };
 
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
   environment.systemPackages = with pkgs; [
     xorg.xrandr
     bspwm
     sxhkd
     xdotool
-    xdg-desktop-portal-gtk
     qt5ct
     dracula-qt5-theme
     xclip
