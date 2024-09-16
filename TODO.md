@@ -21,8 +21,6 @@ try nixvim \*\* it's a lot of work to port your config here
 
 sxhkd bindings
 
-zsh - try starship?
-
 Can you disable xfwm4, panel, etc from config?
 yes, but how to autostart bspwm?
 
@@ -30,6 +28,8 @@ Apps:
 
 rslsync
 https://github.com/nix-community/home-manager/issues/3830
+
+bun ??
 
 ## work - oryxnix
 
