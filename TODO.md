@@ -4,7 +4,6 @@
 
 - nvidia / amd imports
 - nix shell implementation for node environments at work
-- secrets management gpg, ssh, openai
 
 ## example setups
 
@@ -29,7 +28,11 @@ Apps:
 rslsync
 https://github.com/nix-community/home-manager/issues/3830
 
-bun ??
+secrets:
+
+- openai key
+- key pair for pass
+- ssh key
 
 ## work - oryxnix
 
