@@ -97,5 +97,6 @@
     "/home/nicky/.cargo/bin"
     "/home/nicky/bin"
     "/home/nicky/.local/bin"
+    "/home/nicky/.cache/.bun/bin"
   ];
 }

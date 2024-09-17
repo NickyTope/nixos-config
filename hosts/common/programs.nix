@@ -58,6 +58,10 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     slack
     mongodb-compass
     zed-editor
+    qmk
+    qmk_hid
   ];
+
+  hardware.keyboard.qmk.enable = true;
 
 }

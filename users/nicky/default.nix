@@ -21,6 +21,7 @@
     bat
     ripgrep
     nodejs_20
+    bun
     lazygit
     stylua
     lua-language-server
