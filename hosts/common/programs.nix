@@ -47,7 +47,6 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     gnupg
     pinentry-curses
     pinentry-gtk2
-    pinentry-rofi
     (python3.withPackages (python-pkgs: [
       # select Python packages here
       python-pkgs.pandas

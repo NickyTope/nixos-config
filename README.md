@@ -1,18 +1,17 @@
 # --nixos-config--
 
+# secrets setup
+
+get key from proton-pass and put in $HOME/.config/sops/age/keys.txt
+
+edit / add secrets with:
+
+```
+nixos-config
+sops users/nicky/secrets.yaml
+```
+
 # pass setup
-
-$HOME/.gnupg/gpg-agent.conf
-
-```
-pinentry-program /run/current-system/sw/bin/pinentry-rofi
-```
-
-reload gpg-agent
-
-```
-gpg-connect-agent reloadagent /bye
-```
 
 import keys
 

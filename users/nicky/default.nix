@@ -6,6 +6,8 @@
     ./neovim.nix
     ./wezterm.nix
     ./dotfiles.nix
+    ./secrets.nix
+    ./openai.nix
   ];
 
   home.username = "nicky";
@@ -27,6 +29,10 @@
     lua-language-server
   ];
 
+  home.file.".gnupg/gpg-agent.conf".text = ''
+    use-agent
+  '';
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -40,6 +46,16 @@
     enable = true;
     userName = "Nicky Tope";
     userEmail = "nicky.tope@gmail.com";
+  };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/github";
+      };
+    };
   };
 
   programs.mpv.enable = true;

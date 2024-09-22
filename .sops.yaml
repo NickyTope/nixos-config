@@ -1,0 +1,7 @@
+keys:
+  - &nicky age1waywxc48w8y9zzt9q5fcdyp7fqw8jc2w0e6qvunmrlxlsmh6jgtqkk59tc
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+      - age:
+          - *nicky
