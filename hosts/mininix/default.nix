@@ -7,6 +7,12 @@
   ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.bluetooth.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    blueman
+    bluetuith
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
