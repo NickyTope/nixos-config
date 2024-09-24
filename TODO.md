@@ -28,11 +28,13 @@ Apps:
 rslsync
 https://github.com/nix-community/home-manager/issues/3830
 
-secrets:
+pass-update
 
-- openai key
-- key pair for pass
-- ssh key
+zsh
+
+- fzf keybindings disable alt+c
+- search on up arrow
+- alt .
 
 ## work - oryxnix
 
