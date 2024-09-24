@@ -35,6 +35,7 @@ zsh
 - fzf keybindings disable alt+c
 - search on up arrow
 - alt .
+- zoxide or similar on c-g
 
 ## work - oryxnix
 
