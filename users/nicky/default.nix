@@ -29,17 +29,12 @@
     lua-language-server
   ];
 
-  home.file.".gnupg/gpg-agent.conf".text = ''
+  home.file.".gnupg/gpg.conf".text = ''
     use-agent
   '';
 
   home.sessionVariables = {
     EDITOR = "nvim";
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.git = {

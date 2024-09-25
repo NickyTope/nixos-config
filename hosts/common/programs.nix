@@ -40,7 +40,7 @@
     gimp
     colorpicker
     dunst
-    (pass.withExtensions (ext: with ext; [pass-otp]))
+    (pass.withExtensions (ext: with ext; [pass-otp pass-update]))
     (firefox.override { nativeMessagingHosts = [(passff-host.overrideAttrs (old: { dontStrip = true; patchPhase = ''
 sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
 ''; }))]; })

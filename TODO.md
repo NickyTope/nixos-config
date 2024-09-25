@@ -28,15 +28,6 @@ Apps:
 rslsync
 https://github.com/nix-community/home-manager/issues/3830
 
-pass-update
-
-zsh
-
-- fzf keybindings disable alt+c
-- search on up arrow
-- alt .
-- zoxide or similar on c-g
-
 ## work - oryxnix
 
 - eww

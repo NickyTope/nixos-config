@@ -8,6 +8,19 @@
     };
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = false;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -87,7 +100,32 @@
     ];
 
     initExtra = ''
-      bindkey  fzf-cd-widget
+      . ${pkgs.fzf}/share/fzf/completion.zsh
+      # . ${pkgs.fzf}/share/fzf/key-bindings.zsh
+      # alt+.
+      bindkey '\e.' insert-last-word
+
+      # Bind up arrow to search backward through history
+      bindkey '^[[A' history-substring-search-up
+
+      # Bind down arrow to search forward through history
+      bindkey '^[[B' history-substring-search-down
+
+      function subdir_do() {
+        for d in ./*/ ; do (echo "=== $d ===" && cd "$d" && "$@") ; done
+      }
+
+      function fzfz() {
+        cd $(zoxide query --list | fzf --scheme=path --tac)
+        local precmd
+        for precmd in $precmd_functions; do
+          $precmd
+        done
+        zle reset-prompt
+      }
+
+      zle -N fzfz
+      bindkey '^g' fzfz # <c-g>
     '';
 
   };
