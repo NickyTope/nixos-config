@@ -11,6 +11,7 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "nightfox"
+config.audible_bell = "Disabled"
 
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
