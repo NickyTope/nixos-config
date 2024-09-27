@@ -11,12 +11,11 @@
 - https://github.com/dustinlyons/nixos-config
 - https://github.com/JRMurr/NixOsConfig
 - https://gitlab.com/Zaney/zaneyos
+- https://github.com/rafaelrc7/dotfiles
 
 ## Next steps
 
-Look at the way zaneyos writes his nvim config using builtins.readFile inside the extraConfig sections.
-
-try nixvim \*\* it's a lot of work to port your config here
+look at rafaelrc7 dotfiles, his neovim config seems like a good middle ground
 
 sxhkd bindings
 
