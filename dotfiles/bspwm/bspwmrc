@@ -48,7 +48,6 @@ volumeicon &
 # udiskie &
 
 if [ "$HOSTNAME" = "nt-oryx" ]; then
-  notify-send "nt-oryx"
   # eww daemon &
   # eww open sidebar &
   sudo system76-power profile battery
