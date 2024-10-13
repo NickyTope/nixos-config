@@ -59,6 +59,7 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     zed-editor
     qmk
     qmk_hid
+    btop
   ];
 
   hardware.keyboard.qmk.enable = true;

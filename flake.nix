@@ -28,5 +28,12 @@
         inputs.home-manager.nixosModules.default
       ];
     };
+    nixosConfigurations.nt-oryx = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/nt-oryx/default.nix
+        inputs.home-manager.nixosModules.default
+      ];
+    };
   };
 }

@@ -16,7 +16,7 @@
   "guard.nvim": { "branch": "main", "commit": "8b34592089f56502a7757fd563f2743a446f6334" },
   "helm-ls": { "branch": "master", "commit": "74c5712ad621e7263ff55b8e78305959efb993b8" },
   "hlargs.nvim": { "branch": "main", "commit": "9adab9f2a3270c6413b808405479caaf972be953" },
-  "lazy.nvim": { "branch": "main", "commit": "48b52b5cfcf8f88ed0aff8fde573a5cc20b1306d" },
+  "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lsp-status.nvim": { "branch": "master", "commit": "54f48eb5017632d81d0fd40112065f1d062d0629" },
   "lspkind-nvim": { "branch": "master", "commit": "cff4ae321a91ee3473a92ea1a8c637e3a9510aec" },
   "lua-timeago": { "branch": "master", "commit": "5594b852482656e2205f4e4394e6e2c93560d6c8" },
