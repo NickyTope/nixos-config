@@ -37,29 +37,29 @@ bspc rule -a "scratchterm" state=floating rectangle=1600x800+0+0 center=on
 
 bspc config external_rules_command ~/.config/bspwm/external_rules.sh
 
+
 # ~/.config/polybar/launch.sh &
 ~/code/nixos-config/dotfiles/polybar/launch.sh &
 ~/code/nixos-config/dotfiles/bspwm/setwall.sh &
+killall volumeicon
 volumeicon &
-picom &
-killall udiskie
-udiskie &
-if [ "$HOSTNAME" = "miniarch" ]; then
-  eww daemon &
-  eww open sidebar &
-elif [ "$HOSTNAME" = "nt-oryx" ]; then
-  eww daemon &
-  eww open sidebar &
+# picom &
+# killall udiskie
+# udiskie &
+
+if [ "$HOSTNAME" = "nt-oryx" ]; then
+  notify-send "nt-oryx"
+  # eww daemon &
+  # eww open sidebar &
   sudo system76-power profile battery
-  sudo xbacklight -set 25
+  light -S 60
   sudo sys76-kb set -c purple -b 90
   # sudo dex -a &
   # disable monitor blanking and screensaver
   xset -dpms
   xset s off
-  systemctl --user start rslsync &
-elif [ "$HOSTNAME" = "nixos" ]; then
-
+  # systemctl --user start rslsync &
 fi
+
 ~/.config/bspwm/welcome.sh &
 echo "rc complete"

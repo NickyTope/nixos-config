@@ -81,6 +81,8 @@
     enableSSHSupport = true;
   };
 
+  programs.light.enable = true;
+
   # List services that you want to enable:
 
 

@@ -46,6 +46,7 @@
     xorg.xrandr
     xdg-utils
     pavucontrol
+    xorg.xbacklight
   ];
 
 }

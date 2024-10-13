@@ -66,7 +66,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Nicky Tope";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" ];
     packages = with pkgs; [
       gcc
     ];
