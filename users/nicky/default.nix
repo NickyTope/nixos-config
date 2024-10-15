@@ -42,6 +42,10 @@
     enable = true;
     userName = "Nicky Tope";
     userEmail = "nicky.tope@gmail.com";
+    extraConfig = {
+      pull.rebase = true;
+      core.editor = "nvim";
+    };
   };
 
   programs.ssh = {
