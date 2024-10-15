@@ -21,6 +21,10 @@
     ];
   };
 
+  programs.ripgrep = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
