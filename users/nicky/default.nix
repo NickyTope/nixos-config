@@ -2,13 +2,14 @@
 
 {
   imports = [
-    ./zsh.nix
-    ./neovim.nix
-    ./wezterm.nix
+    ./cloud.nix
     ./dotfiles.nix
-    ./secrets.nix
-    ./openai.nix
+    ./neovim.nix
     ./nodejs.nix
+    ./openai.nix
+    ./secrets.nix
+    ./wezterm.nix
+    ./zsh.nix
   ];
 
   home.username = "nicky";
