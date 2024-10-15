@@ -131,7 +131,7 @@
   };
 
   home.sessionPath = [
-    "/home/nicky/go"
+    "/home/nicky/go/bin/"
     "/home/nicky/.cargo/bin"
     "/home/nicky/bin"
     "/home/nicky/.local/bin"

@@ -49,6 +49,8 @@
     blueman
     bluetuith
     lshw
+    lm_sensors
+    go
   ];
 
   # Bootloader.
@@ -91,5 +93,15 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+
+
+  services.resilio = {
+    enable = true;
+    deviceName = "oryx";
+    enableWebUI = true;
+    httpListenAddr = "0.0.0.0";
+    httpListenPort = 8888;
+  };
+
 
 }

@@ -10,7 +10,14 @@
     background = pkgs.nixos-artwork.wallpapers.binary-red.gnomeFilePath;
     greeters.slick.enable = true;
   };
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager.xfce = {
+    enable = true;
+    enableScreensaver = false;
+
+    # better work out how to autostart bspwm first!
+    # enableXfwm = false;
+    # noDesktop = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -24,7 +31,7 @@
     picom = {
       enable = true;
       fade = true;
-      shadow = true;
+      shadow = false;
       fadeDelta = 4;
     };
   };
@@ -47,6 +54,7 @@
     xdg-utils
     pavucontrol
     xorg.xbacklight
+    i3lock-fancy-rapid
   ];
 
 }

@@ -167,7 +167,7 @@ super + shift + m
   
 # Lock
 ctrl + alt + l
-  i3lock-fancy-multimonitor -p -n
+  i3lock 3 pixel
 
 # Screenshots
 super + {alt,shift,ctrl} + p

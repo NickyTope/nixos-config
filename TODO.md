@@ -29,14 +29,6 @@ https://github.com/nix-community/home-manager/issues/3830
 
 ## work - oryxnix
 
-- eww
-- bluetooth
+- eww ??
 - ibmcloud
-- mongo compass
 - kubectl
-- nvidia
-- firmware-manager system76
-- system76-power
-- system76-oled
-- system76-keyboard-configurator
-- system76-driver ... etc

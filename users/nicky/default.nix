@@ -8,6 +8,7 @@
     ./dotfiles.nix
     ./secrets.nix
     ./openai.nix
+    ./nodejs.nix
   ];
 
   home.username = "nicky";
@@ -22,7 +23,6 @@
     material-icons
     bat
     ripgrep
-    nodejs_20
     bun
     lazygit
     stylua
