@@ -9,6 +9,7 @@
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       openai = { };
+      notes-share = { };
       github = { path = "/home/nicky/.ssh/github"; };
       github-pub = { path = "/home/nicky/.ssh/github.pub"; };
     };

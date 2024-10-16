@@ -51,6 +51,7 @@
     lshw
     lm_sensors
     go
+    resilio-sync
   ];
 
   # Bootloader.
@@ -98,9 +99,19 @@
   services.resilio = {
     enable = true;
     deviceName = "oryx";
-    enableWebUI = true;
-    httpListenAddr = "0.0.0.0";
-    httpListenPort = 8888;
+    sharedFolders = [
+      {
+        directory = "/home/nicky/Documents/Notes";
+        knownHosts = [ ];
+        searchLAN = true;
+        secretFile = "/home/nicky/.config/sops-nix/secrets/notes-share";
+        useDHT = false;
+        useRelayServer = true;
+        useSyncTrash = true;
+        useTracker = true;
+      }
+    ];
+
   };
 
 
