@@ -51,7 +51,6 @@
     lshw
     lm_sensors
     go
-    resilio-sync
   ];
 
   # Bootloader.
@@ -95,24 +94,11 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-
-  services.resilio = {
+  services.syncthing = {
     enable = true;
-    deviceName = "oryx";
-    sharedFolders = [
-      {
-        directory = "/home/nicky/Documents/Notes";
-        knownHosts = [ ];
-        searchLAN = true;
-        secretFile = "/home/nicky/.config/sops-nix/secrets/notes-share";
-        useDHT = false;
-        useRelayServer = true;
-        useSyncTrash = true;
-        useTracker = true;
-      }
-    ];
-
+    user = "nicky";
+    dataDir = "/home/nicky/Documents";    # Default folder for new synced folders
+    configDir = "/home/nicky/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
   };
-
 
 }
