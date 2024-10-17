@@ -76,6 +76,22 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = {
+      name = "qtct";
+    };
+    style = {
+      name = "Dracula";
+      package = pkgs.dracula-qt5-theme;
+    };
+  };
+
+  home.file.".icons/default/index.theme".text = ''
+    [Icon Theme]
+    Inherits=Fuchsia
+    '';
+
   # Screen lock
   services = {
     screen-locker = {

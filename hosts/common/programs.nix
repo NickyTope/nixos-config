@@ -55,8 +55,10 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     inputs.wezterm.packages.${pkgs.system}.default
     zoom-us
     slack
+    teams-for-linux
     mongodb-compass
     zed-editor
+    bitwarden-desktop
     qmk
     qmk_hid
     btop

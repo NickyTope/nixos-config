@@ -8,7 +8,13 @@
   services.xserver.displayManager.lightdm = {
     enable = true;
     background = pkgs.nixos-artwork.wallpapers.binary-red.gnomeFilePath;
-    greeters.slick.enable = true;
+    greeters.slick = {
+      enable = true;
+      cursorTheme = {
+        name = "Fuchsia";
+        package = pkgs.fuchsia-cursor;
+      };
+    };
   };
   services.xserver.desktopManager.xfce = {
     enable = true;
