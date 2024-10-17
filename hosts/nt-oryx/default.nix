@@ -8,7 +8,13 @@
 
   # boot.kernelParams = [ "module_blacklist=i915" ];
 
-  hardware.system76.enableAll = true;
+  hardware.system76 = {
+    enableAll = true;
+    firmware-daemon.enable = true;
+    kernel-modules.enable = true;
+    power-daemon.enable = true;
+  };
+
   hardware.bluetooth.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
@@ -50,7 +56,6 @@
     bluetuith
     lshw
     lm_sensors
-    go
   ];
 
   # Bootloader.
