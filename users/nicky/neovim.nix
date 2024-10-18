@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 
 {
   programs.neovim = {
@@ -8,6 +8,7 @@
     vimdiffAlias = true;
     withNodeJs = true;
     defaultEditor = true;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
 
   xdg.configFile.nvim = {
