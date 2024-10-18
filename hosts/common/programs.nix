@@ -63,6 +63,7 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
     qmk_hid
     btop
     go
+    fastfetch
   ];
 
   hardware.keyboard.qmk.enable = true;

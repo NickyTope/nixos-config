@@ -64,6 +64,7 @@
   boot.initrd.kernelModules = [ "nvidia" ];
 
   networking.hostName = "nt-oryx"; # Define your hostname.
+  networking.enableIPv6 = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
