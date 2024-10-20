@@ -42,9 +42,16 @@
     enable = true;
     userName = "Nicky Tope";
     userEmail = "nicky.tope@gmail.com";
+    aliases = {
+      br = "!f() { git submodule foreach \"git checkout $1 || :\" && git checkout $1; }; f";
+      compare = "!f() { echo showing commits in $1 that are not in $2; git --no-pager log --oneline $2..$1; }; f";
+      compare-all = "!f() { git submodule foreach \"git compare $1 $2 || :\"; echo CORE; git compare $1 $2; }; f";
+      npm = "git submodule foreach npm i && npm i";
+    };
     extraConfig = {
-      pull.rebase = true;
+      pull.rebase = false;
       core.editor = "nvim";
+      merge.tool = "meld";
     };
   };
 
