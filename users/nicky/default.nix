@@ -65,14 +65,18 @@
     };
   };
 
+  home.pointerCursor = {
+    package = pkgs.fuchsia-cursor;
+    name = "Fuchsia";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   programs.mpv.enable = true;
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      name = "Fuchsia";
-      package = pkgs.fuchsia-cursor;
-    };
     iconTheme = {
       name = "Dracula";
       package = pkgs.dracula-icon-theme;
@@ -86,7 +90,7 @@
   qt = {
     enable = true;
     platformTheme = {
-      name = "qtct";
+      name = "gtk3";
     };
     style = {
       name = "Dracula";

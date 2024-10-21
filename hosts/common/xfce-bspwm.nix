@@ -13,6 +13,7 @@
       cursorTheme = {
         name = "Fuchsia";
         package = pkgs.fuchsia-cursor;
+        size = 16;
       };
     };
   };
@@ -52,7 +53,6 @@
     bspwm
     sxhkd
     xdotool
-    qt5ct
     dracula-qt5-theme
     xclip
     xcolor
