@@ -1,12 +1,15 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../common
   ];
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
   hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -17,8 +20,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "amd_pstate=guided" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.kernelParams = ["amd_pstate=guided"];
+  boot.initrd.kernelModules = ["amdgpu"];
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "schedutil";
@@ -31,12 +34,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
   virtualisation.docker.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -51,11 +52,9 @@
 
   # List services that you want to enable:
 
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
 }

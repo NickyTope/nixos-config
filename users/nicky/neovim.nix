@@ -1,6 +1,15 @@
-{ pkgs, config, inputs, ... }:
-
 {
+  pkgs,
+  config,
+  inputs,
+  ...
+}: {
+  # TODO: add other lsp servers here
+  home.packages = with pkgs; [
+    nixd
+    alejandra
+  ];
+
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -16,4 +25,3 @@
     recursive = true;
   };
 }
-

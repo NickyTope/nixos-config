@@ -12,6 +12,7 @@ return {
 		ft("yaml"):fmt("prettier")
 		ft("scss"):fmt("lsp")
 		ft("css"):fmt("lsp")
+		ft("nix"):fmt("lsp")
 
 		vim.g.guard_config = {
 			-- format on write to buffer

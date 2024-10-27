@@ -1,7 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
-
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Install firefox.
   programs.firefox.enable = true;
   programs.zsh.enable = true;
@@ -9,7 +11,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -41,9 +43,16 @@
     colorpicker
     dunst
     (pass.withExtensions (ext: with ext; [pass-otp pass-update]))
-    (firefox.override { nativeMessagingHosts = [(passff-host.overrideAttrs (old: { dontStrip = true; patchPhase = ''
-sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
-''; }))]; })
+    (firefox.override {
+      nativeMessagingHosts = [
+        (passff-host.overrideAttrs (old: {
+          dontStrip = true;
+          patchPhase = ''
+            sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
+          '';
+        }))
+      ];
+    })
     gnupg
     pinentry-curses
     pinentry-gtk2
@@ -68,5 +77,4 @@ sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pas
   ];
 
   hardware.keyboard.qmk.enable = true;
-
 }

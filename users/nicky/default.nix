@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./cloud.nix
     ./dotfiles.nix
@@ -17,7 +20,7 @@
   home.stateVersion = "24.11";
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = ["Hermit" "JetBrainsMono" "Noto" ]; })
+    (nerdfonts.override {fonts = ["Hermit" "JetBrainsMono" "Noto"];})
     fira-code
     roboto-mono
     icomoon-feather
@@ -101,7 +104,7 @@
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
     Inherits=Fuchsia
-    '';
+  '';
 
   # Screen lock
   services = {
@@ -128,6 +131,5 @@
   };
 
   programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
-
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 }

@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-
-{
-
+{pkgs, ...}: {
   # installed from flake
   # programs.wezterm.enable = true;
 

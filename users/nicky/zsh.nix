@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.starship = {
     enable = true;
     settings = {
@@ -28,35 +30,35 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      gs="git status";
-      gaa="git add . --all";
-      gc="git commit";
-      gg="lazygit";
-      gpp="git pull --rebase && git push";
-      gpl="git pull --rebase --autostash";
-      gps="git push";
-      conf="cd ~/.config";
-      nconf="conf && nvim";
-      n="nvim";
-      ":q"="exit";
-      wk="cd ~/Documents/Notes/ && nvim";
-      docker-rmq="docker ps -a -q -f status=exited | xargs docker rm";
-      keys="~/.config/sxhkd/keys.sh";
-      nkeys="n ~/.config/sxhkd/sxhkdrc";
-      lspbuninstall="bun add --global @babel/cli @babel/core @babel/node concurrently dockerfile-language-server-nodejs eslint eslint_d neovim nodemon prettier stylelint stylelint-lsp tslib typescript vim-language-server vscode-css-languageserver-bin vscode-json-languageserver cssmodules-language-server @tailwindcss/language-server vscode-langservers-extracted emmet-ls @vtsls/language-server";
-      ssh="TERM=linux ssh";
-      ls="ls --color";
-      shares="python ~/.config/bspwm/stocks.py";
-      fact="curl --no-progress-meter https://uselessfacts.jsph.pl/api/v2/facts/random\?language\=en | jq .text";
-      pandoc="docker run --rm -v \"`pwd`:/data\" -v \"/usr/share/fonts/TTF:/fonts\" pandoc/extra";
-      top="bpytop";
-      ttq="curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.author]'|tt -oneshot -quotes -";
-      ttd="tt -n 10 -oneshot -showwpm -w 10 -csv >> ~/wpm.csv";
-      "-"="cd -";
-      ".."="cd ..";
-      "..."="cd ../..";
-      "rebuild"="sudo nixos-rebuild switch --flake ~/code/nixos-config";
-      "la"="ls -la --color";
+      gs = "git status";
+      gaa = "git add . --all";
+      gc = "git commit";
+      gg = "lazygit";
+      gpp = "git pull --rebase && git push";
+      gpl = "git pull --rebase --autostash";
+      gps = "git push";
+      conf = "cd ~/.config";
+      nconf = "conf && nvim";
+      n = "nvim";
+      ":q" = "exit";
+      wk = "cd ~/Documents/Notes/ && nvim";
+      docker-rmq = "docker ps -a -q -f status=exited | xargs docker rm";
+      keys = "~/.config/sxhkd/keys.sh";
+      nkeys = "n ~/.config/sxhkd/sxhkdrc";
+      lspbuninstall = "bun add --global @babel/cli @babel/core @babel/node concurrently dockerfile-language-server-nodejs eslint eslint_d neovim nodemon prettier stylelint stylelint-lsp tslib typescript vim-language-server vscode-css-languageserver-bin vscode-json-languageserver cssmodules-language-server @tailwindcss/language-server vscode-langservers-extracted emmet-ls @vtsls/language-server";
+      ssh = "TERM=linux ssh";
+      ls = "ls --color";
+      shares = "python ~/.config/bspwm/stocks.py";
+      fact = "curl --no-progress-meter https://uselessfacts.jsph.pl/api/v2/facts/random\?language\=en | jq .text";
+      pandoc = "docker run --rm -v \"`pwd`:/data\" -v \"/usr/share/fonts/TTF:/fonts\" pandoc/extra";
+      top = "bpytop";
+      ttq = "curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.author]'|tt -oneshot -quotes -";
+      ttd = "tt -n 10 -oneshot -showwpm -w 10 -csv >> ~/wpm.csv";
+      "-" = "cd -";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/code/nixos-config";
+      "la" = "ls -la --color";
     };
 
     sessionVariables = {
@@ -75,7 +77,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     autocd = true;
-    cdpath = [ "$HOME/code" "$HOME/.config" ];
+    cdpath = ["$HOME/code" "$HOME/.config"];
 
     history = {
       extended = true;
@@ -130,7 +132,6 @@
       zle -N fzfz
       bindkey '^g' fzfz # <c-g>
     '';
-
   };
 
   home.sessionPath = [

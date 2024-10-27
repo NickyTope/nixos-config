@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -45,7 +43,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   environment.systemPackages = with pkgs; [
@@ -62,6 +60,4 @@
     xorg.xbacklight
     i3lock-fancy-rapid
   ];
-
 }
-

@@ -23,6 +23,31 @@ return {
 
 		local lsp = require("lspconfig")
 
+		lsp.nixd.setup({
+			on_attach = function(client, bufnr)
+				my_attach(client)
+			end,
+			cmd = { "nixd" },
+			settings = {
+				nixd = {
+					nixpkgs = {
+						expr = "import <nixpkgs> { }",
+					},
+					formatting = {
+						command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+					},
+					-- options = {
+					--   nixos = {
+					--       expr = '(builtins.getFlake "/PATH/TO/FLAKE").nixosConfigurations.CONFIGNAME.options',
+					--   },
+					--   home_manager = {
+					--       expr = '(builtins.getFlake "/PATH/TO/FLAKE").homeConfigurations.CONFIGNAME.options',
+					--   },
+					-- },
+				},
+			},
+		})
+
 		lsp.eslint.setup({
 			on_attach = function(client, bufnr)
 				my_attach(client)

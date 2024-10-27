@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   xdg.configFile.wezterm = {
     source = ../../dotfiles/wezterm;
     recursive = true;
@@ -40,6 +38,4 @@
     source = ../../dotfiles/rslsync;
     recursive = true;
   };
-
 }
-

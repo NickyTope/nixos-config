@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../common
@@ -16,7 +19,7 @@
   };
 
   hardware.bluetooth.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -50,7 +53,6 @@
     };
   };
 
-
   environment.systemPackages = with pkgs; [
     blueman
     bluetuith
@@ -61,7 +63,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = [ "nvidia" ];
+  boot.initrd.kernelModules = ["nvidia"];
 
   networking.hostName = "nt-oryx"; # Define your hostname.
   networking.enableIPv6 = false;
@@ -71,12 +73,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
   virtualisation.docker.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -93,7 +93,6 @@
 
   # List services that you want to enable:
 
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -103,8 +102,7 @@
   services.syncthing = {
     enable = true;
     user = "nicky";
-    dataDir = "/home/nicky/Documents";    # Default folder for new synced folders
-    configDir = "/home/nicky/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
+    dataDir = "/home/nicky/Documents"; # Default folder for new synced folders
+    configDir = "/home/nicky/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
   };
-
 }

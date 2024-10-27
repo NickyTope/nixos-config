@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     wezterm = {
       url = "github:wez/wezterm/main?dir=nix";
       # inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +22,11 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
     nixosConfigurations.mininix = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [

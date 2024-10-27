@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./xfce-bspwm.nix
     ./programs.nix
@@ -12,7 +15,7 @@
     networkmanager.enable = true;
     extraHosts = ''
       127.0.0.1 dev-client.isw.net.au dev-server.isw.net.au
-      '';
+    '';
   };
 
   # Set your time zone.
@@ -66,24 +69,26 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Nicky Tope";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "rslsync" ];
+    extraGroups = ["networkmanager" "wheel" "docker" "video" "rslsync"];
     packages = with pkgs; [
       gcc
     ];
   };
 
-  security.sudo.extraRules= [
-    {  users = [ "nicky" ];
+  security.sudo.extraRules = [
+    {
+      users = ["nicky"];
       commands = [
-         { command = "ALL" ;
-           options= [ "NOPASSWD" ]; # "SETENV" # Adding the following could be a good idea
+        {
+          command = "ALL";
+          options = ["NOPASSWD"]; # "SETENV" # Adding the following could be a good idea
         }
       ];
     }
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       nicky = import ../../users/nicky;
     };
@@ -96,5 +101,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
