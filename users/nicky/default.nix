@@ -93,7 +93,7 @@
       name = "gtk3";
     };
     style = {
-      name = "Dracula";
+      name = "Fusion";
       package = pkgs.dracula-qt5-theme;
     };
   };
