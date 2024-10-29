@@ -209,4 +209,4 @@ XF86MonBrightnessDown
 
 # clipboard
 ctrl + alt + v
-  clipcat-menu
+  clipcat-menu --rofi-menu-length=10 --rofi-line-length=100 --rofi-extra-arguments="-dmenu -i -lines 10 -width 100"

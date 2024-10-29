@@ -57,4 +57,11 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+
+  services.syncthing = {
+    enable = true;
+    user = "nicky";
+    dataDir = "/home/nicky/Documents"; # Default folder for new synced folders
+    configDir = "/home/nicky/.config/syncthing"; # Folder for Syncthing's settings and keys
+  };
 }

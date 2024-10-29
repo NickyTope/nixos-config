@@ -2,7 +2,6 @@
 
 ## Config for multi machines
 
-- nvidia / amd imports
 - nix shell implementation for node environments at work
 
 ## example setups
@@ -24,11 +23,4 @@ yes, but how to autostart bspwm?
 
 Apps:
 
-rslsync
-https://github.com/nix-community/home-manager/issues/3830
-
-## work - oryxnix
-
 - eww ??
-- ibmcloud
-- kubectl

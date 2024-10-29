@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   xdg.configFile."clipcat/clipcatd.toml".text = ''
-    daemonize = true
+    daemonize = false
     pid_file = "/run/user/1000/clipcatd.pid"
     primary_threshold_ms = 5000
     max_history = 5000
@@ -16,7 +16,7 @@
 
     [watcher]
     enable_clipboard = true
-    enable_primary = true
+    enable_primary = false
     enable_secondary = false
     sensitive_x11_atoms = ["x-kde-passwordManagerHint"]
     filter_text_min_length = 1
@@ -52,12 +52,12 @@
     # clipcatctl connects to server via unix domain socket if `server_endpoint` is a file path like:
     # "/run/user/<user-id>/clipcat/grpc.sock".
     # clipcatctl connects to server via http if `server_endpoint` is a URL like: "http://127.0.0.1:45045".
-    server_endpoint = "/run/user/<user-id>/clipcat/grpc.sock"
+    server_endpoint = "/run/user/1000/clipcat/grpc.sock"
 
     [log]
     # Emit log message to a log file.
     # Delete this line to disable emitting to a log file.
-    file_path = "/path/to/log/file"
+    # file_path = "/path/to/log/file"
     # Emit log message to systemd-journald
     emit_journald = true
     # Emit log message to stdout.
@@ -69,11 +69,11 @@
   '';
 
   xdg.configFile."clipcat/clipcat-menu.toml".text = ''
-        # Server endpoint
+    # Server endpoint
     # clipcat-menu connects to server via unix domain socket if `server_endpoint` is a file path like:
     # "/run/user/<user-id>/clipcat/grpc.sock".
     # clipcat-menu connects to server via http if `server_endpoint` is a URL like: "http://127.0.0.1:45045".
-    server_endpoint = "/run/user/<user-id>/clipcat/grpc.sock"
+    server_endpoint = "/run/user/1000/clipcat/grpc.sock"
 
     # The default finder to invoke when no "--finder=<finder>" option provided.
     finder = "rofi"
@@ -135,13 +135,13 @@
   systemd.user.services.clipcatd = {
     Unit = {
       Description = "Clipcat daemon";
-      After = ["graphical-session.target"];
     };
     Service = {
-      User = "nicky";
-      ExecStart = "${pkgs.clipcat}/bin/clipcatd";
-      Restart = "always";
-      RestartSec = 5;
+      ExecStart = "${pkgs.clipcat}/bin/clipcatd --no-daemon --replace";
+      ExecStop = "rm -f %t/clipcat/grpc.sock";
+    };
+    Install = {
+      WantedBy = ["graphical-session.target"];
     };
   };
 }
