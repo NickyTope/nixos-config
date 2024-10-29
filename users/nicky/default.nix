@@ -11,6 +11,7 @@
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
+    ./rofi.nix
     ./secrets.nix
     ./wezterm.nix
     ./zsh.nix

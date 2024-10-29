@@ -19,8 +19,6 @@
     # eww
     killall
     polybar
-    rofi
-    rofi-emoji
     colorpicker
     flameshot
     vim

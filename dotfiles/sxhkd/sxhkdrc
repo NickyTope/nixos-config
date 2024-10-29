@@ -159,7 +159,7 @@ super + ctrl + a
 
 # Pass otp
 ctrl + alt + t
-  ~/.config/bspwm/otpmenu.sh
+  rofi-pass
 
 # screenlayout
 super + shift + m
