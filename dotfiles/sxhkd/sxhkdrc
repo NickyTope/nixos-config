@@ -209,4 +209,4 @@ XF86MonBrightnessDown
 
 # clipboard
 ctrl + alt + v
-  clipmenu
+  clipcat-menu

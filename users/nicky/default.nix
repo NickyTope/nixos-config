@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./clipcat.nix
     ./cloud.nix
     ./dotfiles.nix
     ./neovim.nix
@@ -124,11 +125,15 @@
       components = ["secrets" "pkcs11" "ssh"];
     };
 
-    clipmenu = {
-      enable = true;
-      launcher = "rofi";
-    };
+    # clipmenu = {
+    #   enable = true;
+    #   launcher = "rofi";
+    # };
   };
+
+  # home.sessionVariables = {
+  #   CM_MAX_CLIPS = 10000;
+  # };
 
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;

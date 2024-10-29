@@ -74,6 +74,7 @@
     go
     fastfetch
     zathura
+    clipcat
   ];
 
   hardware.keyboard.qmk.enable = true;
