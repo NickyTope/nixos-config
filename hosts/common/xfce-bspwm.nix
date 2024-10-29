@@ -46,6 +46,13 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
+  };
+
+  programs.file-roller.enable = true;
+
   environment.systemPackages = with pkgs; [
     xorg.xrandr
     bspwm
