@@ -75,7 +75,7 @@ if [ "$HOSTNAME" == "nt-oryx" ]; then
 
   [ "$count" -eq "1" ] && return
 
-  dp1=$(xrandr --listmonitors | grep "DP-1" | wc -l)
+  dp1=$(xrandr --listmonitors | grep -sw "DP-1" | wc -l)
   hdmi=$(xrandr --listmonitors | grep "HDMI-0" | wc -l)
 
   if [ "$dp1" -eq "1" ]; then

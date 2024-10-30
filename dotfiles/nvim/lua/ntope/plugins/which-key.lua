@@ -52,8 +52,10 @@ return {
 			end
 
 			wk.add({
-				{ "gd", builtin.lsp_definitions, desc = "Goto Definition" },
-				{ "gt", builtin.lsp_type_definitions, desc = "Goto Type Definition" },
+				-- { "gd", builtin.lsp_definitions, desc = "Goto Definition" },
+				-- { "gt", builtin.lsp_type_definitions, desc = "Goto Type Definition" },
+				{ "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
+				{ "gt", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
 				{ "g<Enter>", cmd("vsp | lua vim.lsp.buf.definition()"), desc = "Goto def in split" },
 				{ "<leader><leader>", cmd("b#"), desc = "Previous file" },
 				{ "<leader><Enter>", cmd("vsp #"), desc = "Split previous file" },
