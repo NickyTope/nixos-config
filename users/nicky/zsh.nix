@@ -4,7 +4,7 @@
     settings = {
       add_newline = true;
       character = {
-        success_symbol = "[>](bold purple)";
+        success_symbol = "[](bold blue)[](yellow)";
         error_symbol = "[](bold red)";
         vimcmd_symbol = "[](bold green)";
       };

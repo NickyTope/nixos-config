@@ -41,7 +41,7 @@
     port = 45047
 
     [desktop_notification]
-    enable = true
+    enable = false
     icon = "accessories-clipboard"
     timeout_ms = 2000
     long_plaintext_length = 2000

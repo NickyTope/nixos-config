@@ -12,7 +12,12 @@
 
   # Enable networking
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      insertNameservers = [
+        "1.1.1.1"
+      ];
+    };
     extraHosts = ''
       127.0.0.1 dev-client.isw.net.au dev-server.isw.net.au
     '';
