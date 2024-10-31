@@ -1,12 +1,21 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   programs.starship = {
     enable = true;
     settings = {
       add_newline = true;
+      character = {
+        success_symbol = "[>](bold purple)";
+        error_symbol = "[](bold red)";
+        vimcmd_symbol = "[](bold green)";
+      };
+      battery.display = [
+        {
+          threshold = 30;
+          style = "bold yellow";
+          discharging_symbol = "󰁽";
+          charging_symbol = "󰂉";
+        }
+      ];
     };
   };
 

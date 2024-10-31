@@ -11,5 +11,6 @@ in {
     google-cloud
     ibmcloud-cli
     kubectl
+    gh
   ];
 }
