@@ -15,7 +15,8 @@
     networkmanager = {
       enable = true;
       insertNameservers = [
-        "1.1.1.1"
+        "8.8.8.8"
+        "45.248.78.99"
       ];
     };
     extraHosts = ''
