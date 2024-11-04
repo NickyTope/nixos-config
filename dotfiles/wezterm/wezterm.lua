@@ -12,6 +12,7 @@ end
 
 config.color_scheme = "nightfox"
 config.audible_bell = "Disabled"
+config.check_for_updates = false
 
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true

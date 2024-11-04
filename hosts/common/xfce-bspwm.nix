@@ -43,7 +43,16 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-xapp
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common = {
+        default = ["gtk"];
+      };
+    };
   };
 
   programs.thunar = {

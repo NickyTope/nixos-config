@@ -175,7 +175,7 @@ super + {alt,shift,ctrl} + p
 
 # Color Picker
 super + alt + c
-  xcolor | xclip -selection clipboard
+  pick-colour-picker
 
 # Share prices
 super + alt + s

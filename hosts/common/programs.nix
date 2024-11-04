@@ -19,7 +19,6 @@
     # eww
     killall
     polybar
-    colorpicker
     flameshot
     vim
     libreoffice
@@ -38,7 +37,6 @@
     cmake
     jq
     gimp
-    colorpicker
     dunst
     (pass.withExtensions (ext: with ext; [pass-otp pass-update]))
     (firefox.override {
@@ -73,6 +71,7 @@
     fastfetch
     zathura
     clipcat
+    pick-colour-picker
   ];
 
   hardware.keyboard.qmk.enable = true;
