@@ -61,6 +61,7 @@
       # select Python packages here
       python-pkgs.pandas
       python-pkgs.requests
+      python-pkgs.python-lsp-server
     ]))
     inputs.wezterm.packages.${pkgs.system}.default
     zoom-us

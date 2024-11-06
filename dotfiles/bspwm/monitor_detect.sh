@@ -46,7 +46,7 @@ if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
 
 fi
 
-if [ "$HOSTNAME" == "miniarch" ]; then
+if [ "$(hostname)" == "miniarch" ]; then
 
   readarray -t monitors <<<$(xrandr --listmonitors | grep "+" | awk '{ print $4 }')
   count=${#monitors[@]}
@@ -69,7 +69,7 @@ if [ "$HOSTNAME" == "miniarch" ]; then
 
 fi
 
-if [ "$HOSTNAME" == "nt-oryx" ]; then
+if [ "$(hostname)" == "nt-oryx" ]; then
   readarray -t monitors <<<$(xrandr --listmonitors | grep "+" | awk '{ print $4 }')
   count=${#monitors[@]}
 

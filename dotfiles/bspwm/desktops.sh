@@ -6,7 +6,7 @@ for monitor in $(bspc query -M); do
   let count++
 done
 
-if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
+if [ "$(hostname)" == "nt-arch-sfc" ]; then
   if [ $count == 1 ]
   then
     bspc monitor ^1 -d term api webfront config five web chat win nine ten
@@ -22,7 +22,7 @@ if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
   fi
 fi
 
-if [ "$HOSTNAME" == "mininix" ]; then
+if [ "$(hostname)" == "mininix" ]; then
   if [ $count == 1 ]
   then
     bspc monitor ^1 -d term api webfront config five web chat win nine ten
@@ -33,7 +33,7 @@ if [ "$HOSTNAME" == "mininix" ]; then
   fi
 fi
 
-if [ "$HOSTNAME" == "nt-oryx" ]; then
+if [ "$(hostname)" == "nt-oryx" ]; then
   echo "Oryx setup with $count monitors"
   if [ $count == 1 ]
   then

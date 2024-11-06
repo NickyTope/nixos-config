@@ -73,7 +73,6 @@ The following files have system specific config that may need customising
 bspwm/bspwmrc
 bspwm/desktops.sh
 bspwm/monitor_detect.sh
-bspwm/configbyhost.sh
 
 ### apps
 

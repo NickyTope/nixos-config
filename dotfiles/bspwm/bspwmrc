@@ -10,8 +10,8 @@ timedatectl timesync-status &
 
 ~/.config/bspwm/desktops.sh
 
-bspc config border_width         1
-bspc config window_gap          12
+bspc config border_width         2
+bspc config window_gap          10
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
@@ -47,7 +47,7 @@ volumeicon &
 # killall udiskie
 # udiskie &
 
-if [ "$HOSTNAME" = "nt-oryx" ]; then
+if [ "$(hostname)" = "nt-oryx" ]; then
   # eww daemon &
   # eww open sidebar &
   sudo system76-power profile battery
