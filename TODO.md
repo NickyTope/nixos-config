@@ -14,13 +14,12 @@
 
 ## Next steps
 
-look at rafaelrc7 dotfiles, his neovim config seems like a good middle ground
+home assistant?
+https://mynixos.com/nixpkgs/options/services.home-assistant
 
-sxhkd bindings
+raspberry pi?
+https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi
 
-Can you disable xfwm4, panel, etc from config?
-yes, but how to autostart bspwm?
 
-Apps:
-
-- eww ??
+Remote Desktop
+https://nixos.wiki/wiki/Remote_Desktop
