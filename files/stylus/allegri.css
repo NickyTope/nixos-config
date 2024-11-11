@@ -1,0 +1,9 @@
+@-moz-document url-prefix("https://allegri.isw.net.au/verse") {
+div#main.seq-window {
+    height: calc(100% - 55px);
+}
+
+.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot.header-today .date-text {
+    background-color: #6657A6 !important;
+}
+}
