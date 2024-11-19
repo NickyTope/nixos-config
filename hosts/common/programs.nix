@@ -18,6 +18,19 @@
     trusted-public-keys = ["wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="];
   };
 
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["Hermit" "JetBrainsMono" "Noto"];})
+      fira-code
+      roboto-mono
+      icomoon-feather
+      material-icons
+    ];
+    fontDir = {
+      enable = true;
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

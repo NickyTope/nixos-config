@@ -1,9 +1,113 @@
 @-moz-document url-prefix("https://allegri.isw.net.au/verse") {
-div#main.seq-window {
-    height: calc(100% - 55px);
+:root {
+  /* Primary Colors */
+  --nightfox-bg: #192330;
+  --nightfox-bg-alt: #212e3f;
+  --nightfox-fg: #cdcecf;
+  --nightfox-fg-muted: #aeafb0;
+
+  /* Accent Colors */
+  --nightfox-blue: #719cd6;
+  --nightfox-blue-alt: #86abdc;
+  --nightfox-green: #81b29a;
+  --nightfox-red: #c94f6d;
+  --nightfox-yellow: #dbc074;
+  --nightfox-orange: #f4a261;
+  --nightfox-purple: #9d79d6;
+
+  /* Borders and Highlights */
+  --nightfox-border: #2b3b51;
+  --nightfox-highlight: #63cdcf;
+
+  /* Shadows */
+  --nightfox-shadow: rgba(0, 0, 0, 0.5);
+  /* Standard shadow */
+  --background: #192330;
+  --foreground: #cdcecf;
+  --selection_background: #2b3b51;
+  --selection_foreground: #cdcecf;
+  --cursor_text_color: #192330;
+  --url_color: #81b29a;
+
+  --color1: #c94f6d;
+  --color2: #81b29a;
+  --color3: #dbc074;
+  --color4: #719cd6;
+  --color5: #9d79d6;
+  --color6: #63cdcf;
+  --color7: #dfdfe0;
+
+  /* # bright */
+  --color8: #575860;
+  --color9: #d16983;
+  --color10: #8ebaa4;
+  --color11: #e0c989;
+  --color12: #86abdc;
+  --color13: #baa1e2;
+  --color14: #7ad5d6;
+  --color15: #e4e4e5;
+
+  --base00: #192330;
+  --base01: #212e3f;
+  --base02: #29394f;
+  --base03: #575860;
+  --base04: #71839b;
+  --base05: #cdcecf;
+  --base06: #aeafb0;
+  --base07: #e4e4e5;
+  --base08: #c94f6d;
+  --base09: #f4a261;
+  --base0A: #dbc074;
+  --base0B: #81b29a;
+  --base0C: #63cdcf;
+  --base0D: #719cd6;
+  --base0E: #9d79d6;
+  --base0F: #d67ad2;
 }
 
-.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot.header-today .date-text {
-    background-color: #6657A6 !important;
+div#main.seq-window {
+  height: calc(100% - 55px);
+}
+
+.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot.header-today .date-text,
+.seq-msg-row.selected {
+  background-color: var(--nightfox-purple) !important;
+}
+
+.seq-msg-row.selected:not(.checked)::before {
+  border-left: 4px solid var(--nightfox-highlight);
+}
+
+body,
+div.set-side-bar,
+div.folder-tray,
+div.left-header,
+div.preview-panel,
+div.preview-panel *,
+body,
+div.set-side-bar,
+div.folder-tray,
+div.left-header,
+div.preview-panel,
+div.preview-panel *,
+.seq-window div.seq-header,
+.seq-window div.seq-header {
+  background-color: var(--nightfox-bg);
+  border-color: var(--nightfox-border);
+  color: var(--nightfox-fg);
+}
+
+.seq-mcv div.inbox-container,
+.seq-msg-row *,
+input,
+.preview-panel .action-bar,
+.seq-search-container .seq-search-bar {
+  background-color: var(--nightfox-bg-alt) !important;
+  border-color: var(--nightfox-border);
+  color: var(--nightfox-fg) !important;
+}
+
+.seq-msg-row dl.msg-info {
+  padding-left: 4px;
 }
 }

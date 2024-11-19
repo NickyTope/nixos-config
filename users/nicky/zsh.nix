@@ -59,7 +59,7 @@
       ls = "ls --color";
       shares = "python ~/.config/bspwm/stocks.py";
       fact = "curl --no-progress-meter https://uselessfacts.jsph.pl/api/v2/facts/random\?language\=en | jq .text";
-      pandoc = "docker run --rm -v \"`pwd`:/data\" -v \"/usr/share/fonts/TTF:/fonts\" pandoc/extra";
+      pandoc = "docker run --rm -v \"`pwd`:/data\" -v \"/run/current-system/sw/share/X11/fonts:/fonts\" pandoc/extra";
       top = "bpytop";
       ttq = "curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.author]'|tt -oneshot -quotes -";
       ttd = "tt -n 10 -oneshot -showwpm -w 10 -csv >> ~/wpm.csv";

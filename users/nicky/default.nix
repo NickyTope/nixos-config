@@ -20,13 +20,10 @@
   home.username = "nicky";
   home.homeDirectory = "/home/nicky";
   home.stateVersion = "24.11";
-  fonts.fontconfig.enable = true;
+  fonts = {
+    fontconfig.enable = true;
+  };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["Hermit" "JetBrainsMono" "Noto"];})
-    fira-code
-    roboto-mono
-    icomoon-feather
-    material-icons
     bat
     ripgrep
     bun
