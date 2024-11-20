@@ -78,6 +78,11 @@ div#main.seq-window {
   border-left: 4px solid var(--nightfox-highlight);
 }
 
+* {
+  border-color: var(--base03) !important;
+  outline-color: var(--base02) !important;
+}
+
 body,
 div.set-side-bar,
 div.folder-tray,
@@ -91,7 +96,13 @@ div.left-header,
 div.preview-panel,
 div.preview-panel *,
 .seq-window div.seq-header,
-.seq-window div.seq-header {
+.seq-window .seq-footer,
+.calendar-Container, .set-notification-colors,
+.calendarDate,
+.keyset.inbox.show-focus-count .focus-count, .keyset.needs-attention.show-focus-count .focus-count, .keyset.waiting-for.show-focus-count .focus-count,
+.socpimMailingList .socpimNameBtn,
+.seq-mcv .message-display-settings .threads-state,
+.cal-grid-view .grid-view-header .grid-view-header-dates .s-cv-grid {
   background-color: var(--nightfox-bg);
   border-color: var(--nightfox-border);
   color: var(--nightfox-fg);
@@ -101,13 +112,44 @@ div.preview-panel *,
 .seq-msg-row *,
 input,
 .preview-panel .action-bar,
-.seq-search-container .seq-search-bar {
+.seq-search-container .seq-search-bar,
+.preview-panel.threaded > .content .read-content > .read-view, .preview-panel.threaded > .content .thread-info,
+div.thread-info,
+.seq-mcv div.resizable-divider,
+.seq-window .calendar-footer,
+.set-base,
+.eventBar,
+.has-unread.preview-panel .thread-info .subject,
+.seq-search-container,
+.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot {
   background-color: var(--nightfox-bg-alt) !important;
   border-color: var(--nightfox-border);
   color: var(--nightfox-fg) !important;
 }
 
+.cal-grid-view .cal-entry-view .s-cv-entry-innerframe, .cal-grid-view .cal-entry-view.s-cv-entry,
+.cal-grid-view .cal-entry-view .s-cv-entry-innerframe, .cal-grid-view .cal-entry-view.s-cv-entry *,
+.cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .entry-view-container,
+.cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .s-cv-entry-innerframe.s-cv-text {
+  background-color: var(--selection_background);
+  color: var(--base07) !important;
+}
+
+div.triage-actions {
+  background-color: initial;
+}
+
 .seq-msg-row dl.msg-info {
   padding-left: 4px;
+}
+
+.seq-msg-row::after,
+:not(.focused):not(:hover):not(:focus).seq-msg-row .divider::after {
+  border-top: 1px solid var(--nightfox-border)
+}
+
+
+a svg, button svg, body.dijit_a11y svg {
+  fill: var(--nightfox-fg) !important;
 }
 }
