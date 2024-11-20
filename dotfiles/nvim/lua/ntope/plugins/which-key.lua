@@ -67,7 +67,7 @@ return {
 				{ "<leader>f", builtin.live_grep, desc = "Find in files" },
 				{ "<leader>F", builtin.grep_string, desc = "Find word" },
 				{ "<leader>g", group = "Git" },
-				{ "<leader>gs", cmd("Neogit kind=floating"), desc = "Git status" },
+				{ "<leader>gs", cmd("LazyGit"), desc = "Git status" },
 				{ "<leader>gb", cmd("GitBlameToggle"), desc = "Toggle inline blame" },
 				{ "<leader>gg", builtin.git_commits, desc = "git commits" },
 				{ "<leader>h", builtin.help_tags, desc = "Help tags" },
