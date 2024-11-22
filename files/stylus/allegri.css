@@ -1,4 +1,4 @@
-@-moz-document url-prefix("https://allegri.isw.net.au/verse") {
+@-moz-document domain("allegri.isw.net.au") {
 :root {
   /* Primary Colors */
   --nightfox-bg: #192330;
@@ -66,11 +66,35 @@
 }
 
 div#main.seq-window {
-  height: calc(100% - 55px);
+  height: calc(100% - 30px);
+    top: 30px;
 }
 
+.ics-scbanner .nav-icon {
+    height: 30px !important;
+    width: 80px !important;
+    filter: invert(60%);
+}
+
+.ics-scbanner {
+  background-image: -webkit-linear-gradient(-45deg, var(--nightfox-bg), var(--nightfox-purple) 300%);
+  border-bottom: 0 !important;
+  height: 20px;
+}
+
+.ics-scbanner * {
+  color: var(--nightfox-purple) !important;
+  fill: var(--nightfox-purple) !important;
+}
+
+.ics-scbanner > .navmenu:hover::after, .ics-scbanner > a:hover::after, .ics-scbanner > button:hover::after, .ics-scbanner > .selected::after {
+  border-bottom-color: var(--nightfox-red) !important;
+}
+
+
 .cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot.header-today .date-text,
-.seq-msg-row.selected {
+.seq-msg-row.selected,
+.bar.event.alldayevent, .bar.event.anniversary, .bar.event.meeting, .eventPopup .alldayevent::before, .eventPopup .anniversary::before, .eventPopup .meeting::before, .eventPopup .reminder::before {
   background-color: var(--nightfox-purple) !important;
 }
 
@@ -81,7 +105,16 @@ div#main.seq-window {
 * {
   border-color: var(--base03) !important;
   outline-color: var(--base02) !important;
+  background-color: transparent;
 }
+
+.seq-msg-row .divider, .seq-msg-row .dueDateDivider,
+h1, h2, h3, h4,
+.people-set .initials,
+.calendarDate .calendarToday {
+  color: var(--nightfox-purple) !important;
+}
+
 
 body,
 div.set-side-bar,
@@ -102,10 +135,18 @@ div.preview-panel *,
 .keyset.inbox.show-focus-count .focus-count, .keyset.needs-attention.show-focus-count .focus-count, .keyset.waiting-for.show-focus-count .focus-count,
 .socpimMailingList .socpimNameBtn,
 .seq-mcv .message-display-settings .threads-state,
-.cal-grid-view .grid-view-header .grid-view-header-dates .s-cv-grid {
-  background-color: var(--nightfox-bg);
-  border-color: var(--nightfox-border);
-  color: var(--nightfox-fg);
+.seq-mcv,
+.cal-grid-view .grid-view-header .grid-view-header-dates .s-cv-grid,
+.eventDetailContainer,
+.left-form, .s-mailbody-notice, .s-mailbody-notice *,
+.cal-grid-view .grid-view-header .header-today .s-cv-text,
+.socpimComposeView.has-action-bar .socpimToolbarCtrl.action-bar, .socpimComposeView.has-action-bar .socpimToolbarCtrl.action-bar *,
+.socpimComposeView .socpimComposeDialog .socpimDialogFooter, .socpimComposeView .socpimComposeDialog .socpimDialogFooter *,
+.dockable.quickAddPanel.has-action-bar .action-bar,
+.datepickerContainer::before {
+  background-color: var(--nightfox-bg) !important;
+  border-color: var(--nightfox-border) !important;
+  color: var(--nightfox-fg) !important;
 }
 
 .seq-mcv div.inbox-container,
@@ -121,7 +162,21 @@ div.thread-info,
 .eventBar,
 .has-unread.preview-panel .thread-info .subject,
 .seq-search-container,
-.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot {
+.cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot,
+.seq-mcv .left-form,
+iframe, .s-stack, body, .s-basicpanel, .s-infoarea-notice, .s-infoarea-notice *,
+td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemname,
+.cal-grid-view .grid-view-header .grid-view-header-left, .cal-grid-view .grid-view-header .grid-view-header-left-dual,
+.cal-grid-view,
+.s-toppanel *,
+.cke .cke_top, .cke .cke_top *,
+.footerRow, .footerRow *,
+.displayNameField .oti-view .displayed .socpimListLabel, .displayNameField .oti-view .displayed .socpimListLabel *,
+.chiclet, .chiclet *,
+.quickAddView, .quickAddView *,
+.datepickerContainer,
+.ics-scbanner .navmenu .navsimplelist, .ics-scbanner .navmenu .navsimplelist *,
+.people-set .ic-bizcard-section1 .action {
   background-color: var(--nightfox-bg-alt) !important;
   border-color: var(--nightfox-border);
   color: var(--nightfox-fg) !important;
@@ -130,13 +185,48 @@ div.thread-info,
 .cal-grid-view .cal-entry-view .s-cv-entry-innerframe, .cal-grid-view .cal-entry-view.s-cv-entry,
 .cal-grid-view .cal-entry-view .s-cv-entry-innerframe, .cal-grid-view .cal-entry-view.s-cv-entry *,
 .cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .entry-view-container,
-.cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .s-cv-entry-innerframe.s-cv-text {
+.cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .s-cv-entry-innerframe.s-cv-text,
+.grayEventBar,
+.cal-grid-view .s-cv-timeslot .grid-row-nowork {
   background-color: var(--selection_background);
   color: var(--base07) !important;
 }
 
+.miniCreateEvent .dateTimeRow, .miniCreateEvent .dateTimeRow *,
+.seq-window .seq-header .create-button,
+.seq-window .compose-button,
+body.dijit_a11y .seq-window .outgoing-button,
+body.dijit_a11y button,
+.dockable.docked-compose.has-action-bar .title-and-content > .action-bar,
+.dockable.docked-compose.has-action-bar .title-and-content > .action-bar *,
+.add-folder-view .add-folder-button,
+.datepickerContainer .dijitCalendarMonthContainer .dijitCalendarCurrentMonthLabel {
+  color: var(--nightfox-blue);
+  background-color: var(--selection-background);
+}
+
+button {
+  color: var(--nightfox-red);
+}
+
+div.action-bar * {
+  color: var(--nightfox-green) !important;
+}
+
 div.triage-actions {
   background-color: initial;
+}
+
+.dijit_a11y .ics-scbanner .navsimplelist > li a:focus, .dijit_a11y .ics-scbanner .navsimplelist > li a:hover {
+  outline: 1px solid var(--nightfox-purple) !important;
+  color: var(--nightfox-purple) !important;
+  outline-offset: -3px;
+}
+
+.datepickerContainer table tr.dijitCalendarWeekTemplate td.dijitCalendarCurrentDate span,
+.datepickerContainer table tr.dijitCalendarWeekTemplate td.dijitCalendarCurrentDate.dijitCalendarSelectedDate span::after {
+    background: none;
+    color: var(--nightfox-purple);
 }
 
 .seq-msg-row dl.msg-info {
@@ -151,5 +241,9 @@ div.triage-actions {
 
 a svg, button svg, body.dijit_a11y svg {
   fill: var(--nightfox-fg) !important;
+}
+
+.calendar-Container button {
+  border-radius: 50%;
 }
 }
