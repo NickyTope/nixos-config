@@ -115,6 +115,9 @@ h1, h2, h3, h4,
   color: var(--nightfox-purple) !important;
 }
 
+.seq-msg-row.unread * {
+  color: var(--nightfox-blue) !important;
+}
 
 body,
 div.set-side-bar,

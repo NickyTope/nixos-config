@@ -58,6 +58,7 @@
     bluetuith
     lshw
     lm_sensors
+    postscript-lexmark
   ];
 
   # Bootloader.
