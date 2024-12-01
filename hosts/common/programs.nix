@@ -92,6 +92,7 @@
     zathura
     clipcat
     pick-colour-picker
+    xournalpp
   ];
 
   hardware.keyboard.qmk.enable = true;

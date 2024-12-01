@@ -1,12 +1,10 @@
 @-moz-document domain("allegri.isw.net.au") {
 :root {
-  /* Primary Colors */
+  /* Theme Colors */
   --nightfox-bg: #192330;
   --nightfox-bg-alt: #212e3f;
   --nightfox-fg: #cdcecf;
   --nightfox-fg-muted: #aeafb0;
-
-  /* Accent Colors */
   --nightfox-blue: #719cd6;
   --nightfox-blue-alt: #86abdc;
   --nightfox-green: #81b29a;
@@ -14,55 +12,23 @@
   --nightfox-yellow: #dbc074;
   --nightfox-orange: #f4a261;
   --nightfox-purple: #9d79d6;
-
-  /* Borders and Highlights */
+  --nightfox-purple-rgb: 157 121 214;
   --nightfox-border: #2b3b51;
   --nightfox-highlight: #63cdcf;
-
-  /* Shadows */
-  --nightfox-shadow: rgba(0, 0, 0, 0.5);
-  /* Standard shadow */
-  --background: #192330;
-  --foreground: #cdcecf;
   --selection_background: #2b3b51;
-  --selection_foreground: #cdcecf;
-  --cursor_text_color: #192330;
-  --url_color: #81b29a;
 
-  --color1: #c94f6d;
-  --color2: #81b29a;
-  --color3: #dbc074;
-  --color4: #719cd6;
-  --color5: #9d79d6;
-  --color6: #63cdcf;
-  --color7: #dfdfe0;
-
-  /* # bright */
-  --color8: #575860;
-  --color9: #d16983;
-  --color10: #8ebaa4;
-  --color11: #e0c989;
-  --color12: #86abdc;
-  --color13: #baa1e2;
-  --color14: #7ad5d6;
-  --color15: #e4e4e5;
-
-  --base00: #192330;
-  --base01: #212e3f;
-  --base02: #29394f;
-  --base03: #575860;
-  --base04: #71839b;
-  --base05: #cdcecf;
-  --base06: #aeafb0;
-  --base07: #e4e4e5;
-  --base08: #c94f6d;
-  --base09: #f4a261;
-  --base0A: #dbc074;
-  --base0B: #81b29a;
-  --base0C: #63cdcf;
-  --base0D: #719cd6;
-  --base0E: #9d79d6;
-  --base0F: #d67ad2;
+  /* used variables */
+  --link-colour: var(--nightfox-red);
+  --highlight-bg: rgb(var(--nightfox-purple-rgb) / 0.4);
+  --bg: var(--nightfox-bg);
+  --fg: var(--nightfox-fg);
+  --border-colour: var(--nightfox-border);
+  --bg-alt: var(--nightfox-bg-alt);
+  --primary: var(--nightfox-purple);
+  --secondary: var(--nightfox-blue);
+  --tertiary: var(--nightfox-green);
+  --button-bg: var(--selection_background);
+  
 }
 
 div#main.seq-window {
@@ -77,46 +43,59 @@ div#main.seq-window {
 }
 
 .ics-scbanner {
-  background-image: -webkit-linear-gradient(-45deg, var(--nightfox-bg), var(--nightfox-purple) 300%);
+  background-image: -webkit-linear-gradient(-45deg, var(--bg), var(--primary) 300%);
   border-bottom: 0 !important;
   height: 20px;
 }
 
-.ics-scbanner * {
-  color: var(--nightfox-purple) !important;
-  fill: var(--nightfox-purple) !important;
+a {
+  color: var(--link-colour);
+}
+
+.ics-scbanner *,
+dd.nextMeetingSubject {
+  color: var(--primary) !important;
+  fill: var(--primary) !important;
 }
 
 .ics-scbanner > .navmenu:hover::after, .ics-scbanner > a:hover::after, .ics-scbanner > button:hover::after, .ics-scbanner > .selected::after {
-  border-bottom-color: var(--nightfox-red) !important;
+  border-bottom-color: var(--link-colour) !important;
 }
 
 
 .cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot.header-today .date-text,
 .seq-msg-row.selected,
 .bar.event.alldayevent, .bar.event.anniversary, .bar.event.meeting, .eventPopup .alldayevent::before, .eventPopup .anniversary::before, .eventPopup .meeting::before, .eventPopup .reminder::before {
-  background-color: var(--nightfox-purple) !important;
+  background-color: var(--highlight-bg) !important;
 }
 
 .seq-msg-row.selected:not(.checked)::before {
-  border-left: 4px solid var(--nightfox-highlight);
+  border-left: 4px solid var(--secondary);
 }
 
 * {
-  border-color: var(--base03) !important;
-  outline-color: var(--base02) !important;
+  border-color: var(--border-colour) !important;
+  outline-color: var(--border-colour) !important;
   background-color: transparent;
+}
+
+.seq-msg-row > .avatar .initials,
+.seq-msg-row.appointment .view-icon, .seq-msg-row.notice .view-icon,
+.seq-mcv div.inbox-container, .seq-msg-row *, input, .preview-panel .action-bar, .seq-search-container .seq-search-bar, .preview-panel.threaded > .content .read-content > .read-view, .preview-panel.threaded > .content .thread-info, div.thread-info, .seq-mcv div.resizable-divider, .seq-window .calendar-footer, .set-base, .eventBar, .has-unread.preview-panel .thread-info .subject, .seq-search-container, .cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot, .seq-mcv .left-form, iframe, .s-stack, body, .s-basicpanel, .s-infoarea-notice, .s-infoarea-notice *, td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemname, .cal-grid-view .grid-view-header .grid-view-header-left, .cal-grid-view .grid-view-header .grid-view-header-left-dual, .cal-grid-view, .s-toppanel *, .cke .cke_top, .cke .cke_top *, .footerRow, .footerRow *, .displayNameField .oti-view .displayed .socpimListLabel, .displayNameField .oti-view .displayed .socpimListLabel *, .chiclet, .chiclet *, .quickAddView, .quickAddView *, .datepickerContainer, .ics-scbanner .navmenu .navsimplelist, .ics-scbanner .navmenu .navsimplelist *, .people-set .ic-bizcard-section1 .action {
+  color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  fill: var(--secondary) !important;
 }
 
 .seq-msg-row .divider, .seq-msg-row .dueDateDivider,
 h1, h2, h3, h4,
 .people-set .initials,
 .calendarDate .calendarToday {
-  color: var(--nightfox-purple) !important;
+  color: var(--primary) !important;
 }
 
 .seq-msg-row.unread * {
-  color: var(--nightfox-blue) !important;
+  color: var(--secondary) !important;
 }
 
 body,
@@ -146,10 +125,11 @@ div.preview-panel *,
 .socpimComposeView.has-action-bar .socpimToolbarCtrl.action-bar, .socpimComposeView.has-action-bar .socpimToolbarCtrl.action-bar *,
 .socpimComposeView .socpimComposeDialog .socpimDialogFooter, .socpimComposeView .socpimComposeDialog .socpimDialogFooter *,
 .dockable.quickAddPanel.has-action-bar .action-bar,
-.datepickerContainer::before {
-  background-color: var(--nightfox-bg) !important;
-  border-color: var(--nightfox-border) !important;
-  color: var(--nightfox-fg) !important;
+.datepickerContainer::before,
+.s-mailinfo-label-notice, .s-mailbody-notice-itemname, .s-form-label, .s-calendar-entry-sublabel, .s-label-light, .s-outline-text, .s-datepick-cell-normal, .s-section-label, .s-form-names, .s-form-names-disabled, .s-mailbody-edit, .s-rtefontselector, .s-toolbar-text {
+  background-color: var(--bg) !important;
+  border-color: var(--border-colour) !important;
+  color: var(--fg) !important;
 }
 
 .seq-mcv div.inbox-container,
@@ -179,10 +159,11 @@ td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemna
 .quickAddView, .quickAddView *,
 .datepickerContainer,
 .ics-scbanner .navmenu .navsimplelist, .ics-scbanner .navmenu .navsimplelist *,
-.people-set .ic-bizcard-section1 .action {
-  background-color: var(--nightfox-bg-alt) !important;
-  border-color: var(--nightfox-border);
-  color: var(--nightfox-fg) !important;
+.people-set .ic-bizcard-section1 .action,
+.notification, .notification * {
+  background-color: var(--bg-alt) !important;
+  border-color: var(--border-colour);
+  color: var(--fg) !important;
 }
 
 .cal-grid-view .cal-entry-view .s-cv-entry-innerframe, .cal-grid-view .cal-entry-view.s-cv-entry,
@@ -191,8 +172,8 @@ td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemna
 .cal-grid-view .cal-entry-view.s-cv-entry-unprocessed .s-cv-entry-innerframe.s-cv-text,
 .grayEventBar,
 .cal-grid-view .s-cv-timeslot .grid-row-nowork {
-  background-color: var(--selection_background);
-  color: var(--base07) !important;
+  background-color: var(--button-bg);
+  color: var(--fg) !important;
 }
 
 .miniCreateEvent .dateTimeRow, .miniCreateEvent .dateTimeRow *,
@@ -204,32 +185,34 @@ body.dijit_a11y button,
 .dockable.docked-compose.has-action-bar .title-and-content > .action-bar *,
 .add-folder-view .add-folder-button,
 .datepickerContainer .dijitCalendarMonthContainer .dijitCalendarCurrentMonthLabel {
-  color: var(--nightfox-blue);
-  background-color: var(--selection-background);
+  color: var(--secondary);
+  background-color: var(--button-bg);
 }
 
 button {
-  color: var(--nightfox-red);
+  color: var(--link-colour);
 }
 
 div.action-bar * {
-  color: var(--nightfox-green) !important;
+  color: var(--tertiary) !important;
+  background-color: var(--bg-alt) !important;
 }
 
-div.triage-actions {
-  background-color: initial;
+div.triage-actions,
+div.mail-read-view.collapsed-mail-read-view {
+  background-color: initial !important;
 }
 
 .dijit_a11y .ics-scbanner .navsimplelist > li a:focus, .dijit_a11y .ics-scbanner .navsimplelist > li a:hover {
-  outline: 1px solid var(--nightfox-purple) !important;
-  color: var(--nightfox-purple) !important;
+  outline: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
   outline-offset: -3px;
 }
 
 .datepickerContainer table tr.dijitCalendarWeekTemplate td.dijitCalendarCurrentDate span,
 .datepickerContainer table tr.dijitCalendarWeekTemplate td.dijitCalendarCurrentDate.dijitCalendarSelectedDate span::after {
     background: none;
-    color: var(--nightfox-purple);
+    color: var(--primary);
 }
 
 .seq-msg-row dl.msg-info {
@@ -238,15 +221,16 @@ div.triage-actions {
 
 .seq-msg-row::after,
 :not(.focused):not(:hover):not(:focus).seq-msg-row .divider::after {
-  border-top: 1px solid var(--nightfox-border)
+  border-top: 1px solid var(--border-colour)
 }
 
 
 a svg, button svg, body.dijit_a11y svg {
-  fill: var(--nightfox-fg) !important;
+  fill: var(--fg) !important;
 }
 
-.calendar-Container button {
+.calendar-Container button,
+.view-icon * {
   border-radius: 50%;
 }
 }

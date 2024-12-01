@@ -70,6 +70,7 @@ return {
 				{ "<leader>gs", cmd("LazyGit"), desc = "Git status" },
 				{ "<leader>gb", cmd("GitBlameToggle"), desc = "Toggle inline blame" },
 				{ "<leader>gg", builtin.git_commits, desc = "git commits" },
+				{ "<leader>gh", cmd("!gh browse %"), desc = "GitHub browse" },
 				{ "<leader>h", builtin.help_tags, desc = "Help tags" },
 				{ "<leader>i", toggle_name, desc = "Info (showfilename)" },
 				{ "<leader>j", "J", desc = "join lines" },
