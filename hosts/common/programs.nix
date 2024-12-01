@@ -19,9 +19,10 @@
   };
 
   fonts = {
+    enableDefaultFonts = true;
     packages = with pkgs; [
       (nerdfonts.override {fonts = ["Hermit" "JetBrainsMono" "Noto"];})
-      fira-code
+      fira-code-nerdfont
       roboto-mono
       icomoon-feather
       material-icons
