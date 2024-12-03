@@ -53,7 +53,10 @@ a {
 }
 
 .ics-scbanner *,
-dd.nextMeetingSubject {
+dd.nextMeetingSubject,
+.socpimComposeView *,
+.socpimComposeView *::before,
+.oti-view .displayed .oti-text {
   color: var(--primary) !important;
   fill: var(--primary) !important;
 }
@@ -81,7 +84,7 @@ dd.nextMeetingSubject {
 
 .seq-msg-row > .avatar .initials,
 .seq-msg-row.appointment .view-icon, .seq-msg-row.notice .view-icon,
-.seq-mcv div.inbox-container, .seq-msg-row *, input, .preview-panel .action-bar, .seq-search-container .seq-search-bar, .preview-panel.threaded > .content .read-content > .read-view, .preview-panel.threaded > .content .thread-info, div.thread-info, .seq-mcv div.resizable-divider, .seq-window .calendar-footer, .set-base, .eventBar, .has-unread.preview-panel .thread-info .subject, .seq-search-container, .cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot, .seq-mcv .left-form, iframe, .s-stack, body, .s-basicpanel, .s-infoarea-notice, .s-infoarea-notice *, td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemname, .cal-grid-view .grid-view-header .grid-view-header-left, .cal-grid-view .grid-view-header .grid-view-header-left-dual, .cal-grid-view, .s-toppanel *, .cke .cke_top, .cke .cke_top *, .footerRow, .footerRow *, .displayNameField .oti-view .displayed .socpimListLabel, .displayNameField .oti-view .displayed .socpimListLabel *, .chiclet, .chiclet *, .quickAddView, .quickAddView *, .datepickerContainer, .ics-scbanner .navmenu .navsimplelist, .ics-scbanner .navmenu .navsimplelist *, .people-set .ic-bizcard-section1 .action {
+.seq-mcv div.inbox-container, .seq-msg-row *, input, .preview-panel .action-bar, .seq-search-container .seq-search-bar, .preview-panel.threaded > .content .read-content > .read-view, .preview-panel.threaded > .content .thread-info, div.thread-info, .seq-mcv div.resizable-divider, .seq-window .calendar-footer, .set-base, .eventBar, .has-unread.preview-panel .thread-info .subject, .seq-search-container, .cal-grid-view.month-view .grid-view-month-timeslots .month-timeslot, .seq-mcv .left-form, iframe, .s-stack, body, .s-basicpanel, .s-infoarea-notice, .s-infoarea-notice *, td.s-mailbody-notice-itemname + td, span.s-noselecttext.s-mailbody-notice-itemname, .cal-grid-view .grid-view-header .grid-view-header-left, .cal-grid-view .grid-view-header .grid-view-header-left-dual, .cal-grid-view, .s-toppanel *, .cke .cke_top, .cke .cke_top *, .footerRow, .footerRow *, .displayNameField .oti-view .displayed .socpimListLabel, .displayNameField .oti-view .displayed .socpimListLabel *, .chiclet, .chiclet *, .quickAddView, .quickAddView *, .datepickerContainer, .ics-scbanner .navmenu .navsimplelist, .ics-scbanner .navmenu .navsimplelist *, .people-set .ic-bizcard-section1 .action, .nextMeetingLabel, .nextMeetingTime, .nextMeetingLoc, .nextMeetingRoom {
   color: var(--secondary) !important;
   border-color: var(--secondary) !important;
   fill: var(--secondary) !important;

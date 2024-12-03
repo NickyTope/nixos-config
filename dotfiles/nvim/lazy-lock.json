@@ -11,6 +11,7 @@
   "csv.vim": { "branch": "master", "commit": "bddfcbadd788ab11eb3dbba4550a38a412fe3705" },
   "dressing.nvim": { "branch": "master", "commit": "fc78a3ca96f4db9f8893bb7e2fd9823e0780451b" },
   "git-blame.nvim": { "branch": "master", "commit": "2883a7460f611c2705b23f12d58d398d5ce6ec00" },
+  "git-conflict.nvim": { "branch": "main", "commit": "4bbfdd92d547d2862a75b4e80afaf30e73f7bbb4" },
   "groovy.vim": { "branch": "master", "commit": "f121908b6f159d4692517587bf165c5f065fd75f" },
   "guard-collection": { "branch": "main", "commit": "95309915a441307b0f77f7377e87b96f2807dc3b" },
   "guard.nvim": { "branch": "main", "commit": "e1034f65e15e132a90a2f409d8fcd12a5b8833f5" },

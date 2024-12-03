@@ -30,7 +30,32 @@
     lazygit
     stylua
     lua-language-server
+    affine
   ];
+
+  home.file.".local/share/applications/affine.desktop".text = ''
+    [Desktop Entry]
+    Name=AFFiNE
+    Comment=Affine
+    Exec=affine %U
+    Icon=affine
+    Terminal=false
+    Type=Application
+    Categories=Utility;
+    MimeType=x-scheme-handler/affine;
+  '';
+
+  home.file.".local/share/applications/teams-for-linux.desktop".text = ''
+    [Desktop Entry]
+    Name=Teams for Linux
+    Comment=Microsoft Teams
+    Exec=teams-for-linux
+    Icon=teams-for-linux
+    Terminal=false
+    Type=Application
+    Categories=Network;InstantMessaging;Chat
+    MimeType=x-scheme-handler/msteams;
+  '';
 
   home.file.".gnupg/gpg.conf".text = ''
     use-agent
