@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  unstable,
   ...
 }: {
   # Install firefox.
@@ -78,7 +79,7 @@
       python-pkgs.python-lsp-server
     ]))
     inputs.wezterm.packages.${pkgs.system}.default
-    zoom-us
+    unstable.zoom-us
     slack
     teams-for-linux
     mongodb-compass

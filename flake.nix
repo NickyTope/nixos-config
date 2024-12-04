@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -29,29 +30,46 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    unstable = import inputs.nixpkgs-unstable {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+    };
+  in {
     nixosConfigurations.mininix = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        inherit unstable;
+      };
       modules = [
         ./hosts/mininix/default.nix
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            inherit unstable;
+          };
           home-manager.users.nicky = import ./users/nicky;
         }
       ];
     };
     nixosConfigurations.nt-oryx = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        inherit unstable;
+      };
       modules = [
         ./hosts/nt-oryx/default.nix
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            inherit unstable;
+          };
           home-manager.users.nicky = import ./users/nicky;
         }
       ];
