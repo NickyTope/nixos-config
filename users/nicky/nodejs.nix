@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  home.packages = with pkgs; [
-    nodejs_22
+{unstable, ...}: {
+  home.packages = [
+    unstable.nodejs_22
   ];
 
   programs.bun = {

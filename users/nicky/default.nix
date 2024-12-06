@@ -134,6 +134,8 @@
     };
   };
 
+  services.remmina.enable = true;
+
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
     Inherits=Fuchsia
