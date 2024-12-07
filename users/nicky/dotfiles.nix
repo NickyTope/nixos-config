@@ -1,9 +1,4 @@
 {...}: {
-  xdg.configFile.wezterm = {
-    source = ../../dotfiles/wezterm;
-    recursive = true;
-  };
-
   xdg.configFile.bspwm = {
     source = ../../dotfiles/bspwm;
     recursive = true;

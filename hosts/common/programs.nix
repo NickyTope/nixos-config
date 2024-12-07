@@ -78,7 +78,6 @@
       python-pkgs.requests
       python-pkgs.python-lsp-server
     ]))
-    inputs.wezterm.packages.${pkgs.system}.default
     unstable.zoom-us
     slack
     teams-for-linux
