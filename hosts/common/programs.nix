@@ -4,7 +4,9 @@
   inputs,
   unstable,
   ...
-}: {
+}: let
+  lsp = pkgs.callPackage ../../derivations/bun-lsp.nix;
+in {
   # Install firefox.
   programs.firefox.enable = true;
   programs.zsh.enable = true;

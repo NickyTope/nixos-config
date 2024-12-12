@@ -31,6 +31,7 @@ bspc rule -a '*:galculator' state=floating
 bspc rule -a '*:xfce4-appfinder' state=floating
 bspc rule -a '*:.blueman-manager-wrapped' state=floating rectangle=400x800+1380+40 monitor=^1
 bspc rule -a "*:.pick-colour-picker-wrapped" state=floating
+bspc rule -a "AFFiNE" state=floating
 
 bspc rule -a "*:bitwarden" state=floating rectangle=680x500 center=on
 bspc rule -a "scratchterm" state=floating rectangle=1600x800+0+0 center=on

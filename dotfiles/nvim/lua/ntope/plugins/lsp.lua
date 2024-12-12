@@ -36,18 +36,11 @@ return {
 					formatting = {
 						command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
 					},
-					-- options = {
-					--   nixos = {
-					--       expr = '(builtins.getFlake "/PATH/TO/FLAKE").nixosConfigurations.CONFIGNAME.options',
-					--   },
-					--   home_manager = {
-					--       expr = '(builtins.getFlake "/PATH/TO/FLAKE").homeConfigurations.CONFIGNAME.options',
-					--   },
-					-- },
 				},
 			},
 		})
 
+		-- installed from bun global
 		lsp.eslint.setup({
 			on_attach = function(client, bufnr)
 				my_attach(client)
@@ -58,12 +51,15 @@ return {
 			end,
 		})
 
+		-- no nix package for this yet
 		lsp.groovyls.setup({
 			cmd = { "docker", "run", "--rm", "-ia", "stdin", "-ia", "stderr", "-ia", "stdout", "glsp" },
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+		-- installed from bun global
 		lsp.emmet_ls.setup({
 			on_attach = my_attach,
 			filetypes = {
@@ -90,6 +86,7 @@ return {
 			},
 		})
 
+		-- installed from bun global
 		lsp.cssmodules_ls.setup({
 			-- provide your on_attach to bind keymappings
 			on_attach = my_attach,
@@ -99,7 +96,7 @@ return {
 			},
 		})
 
-		-- local sumneko_install = "/home/nicky/apps/lua-language-server/"
+		-- installed from nixpkgs
 		lsp.lua_ls.setup({
 			on_attach = my_attach,
 			on_init = function(client)
@@ -133,8 +130,11 @@ return {
 			},
 		})
 
+		-- installed from bun global
 		lsp.dockerls.setup({ on_attach = my_attach })
+		-- installed from bun global
 		lsp.vimls.setup({ on_attach = my_attach })
+		-- installed from bun global
 		lsp.stylelint_lsp.setup({
 			filetypes = { "css", "scss" },
 			settings = {
@@ -144,6 +144,7 @@ return {
 			},
 		})
 
+		-- installed from bun global
 		lsp.tailwindcss.setup({
 			filetypes = {
 				-- "aspnetcorerazor",
@@ -196,11 +197,13 @@ return {
 			},
 		})
 
+		-- installed from bun global
 		lsp.jsonls.setup({
 			on_attach = my_attach,
 			cmd = { "vscode-json-languageserver", "--stdio" },
 		})
 
+		-- installed from bun global
 		lsp.yamlls.setup({
 			on_attach = my_attach,
 			filetypes = { "yaml" },
@@ -213,19 +216,21 @@ return {
 			},
 		})
 
+		-- installed from nixpkgs
 		lsp.gopls.setup({
 			on_attach = function(client)
 				my_attach(client)
 			end,
 		})
 
-		-- pip install 'python-lsp-server[all]'
+		-- installed from nixpkgs
 		lsp.pylsp.setup({
 			on_attach = function(client)
 				my_attach(client)
 			end,
 		})
 
+		-- installed from nixpkgs
 		lsp.lemminx.setup({
 			cmd = { "/home/nicky/apps/lemminx/lemminx-linux" },
 		})

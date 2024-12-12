@@ -25,11 +25,6 @@
   };
   home.packages = with pkgs; [
     bat
-    ripgrep
-    bun
-    lazygit
-    stylua
-    lua-language-server
     affine
   ];
 

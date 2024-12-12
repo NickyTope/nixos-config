@@ -8,6 +8,12 @@
   home.packages = with pkgs; [
     nixd
     alejandra
+    lua-language-server
+    stylua
+    lazygit
+    gopls
+    python3Packages.python-lsp-server
+    lemminx
   ];
 
   programs.neovim = {
