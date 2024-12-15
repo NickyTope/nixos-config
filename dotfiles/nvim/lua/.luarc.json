@@ -68,5 +68,9 @@
         "/home/nicky/.local/share/nvim/lazy/vim-jsx-improve/after",
         "${3rd}/luv/library",
         "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "Snacks",
+        "vim"
     ]
 }

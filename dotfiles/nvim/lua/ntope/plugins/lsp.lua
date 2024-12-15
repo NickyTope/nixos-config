@@ -56,9 +56,6 @@ return {
 			cmd = { "docker", "run", "--rm", "-ia", "stdin", "-ia", "stderr", "-ia", "stdout", "glsp" },
 		})
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 		-- installed from bun global
 		lsp.emmet_ls.setup({
 			on_attach = my_attach,
@@ -234,6 +231,7 @@ return {
 		lsp.lemminx.setup({
 			cmd = { "/home/nicky/apps/lemminx/lemminx-linux" },
 		})
+
 
 		local config = vim.diagnostic.config()
 		config.underline = true
