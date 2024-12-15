@@ -21,6 +21,7 @@
     };
     extraHosts = ''
       127.0.0.1 dev-client.isw.net.au dev-server.isw.net.au
+      127.0.0.1 mongo minio redis
     '';
   };
 
