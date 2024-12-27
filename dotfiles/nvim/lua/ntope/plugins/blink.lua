@@ -4,10 +4,12 @@ return {
 	-- !Important! Make sure you're using the latest release of LuaSnip
 	-- `main` does not work at the moment
 	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+	lazy = true,
+	event = "InsertEnter",
 	opts = {
-    keymap = {
-      preset = "enter",
-    },
+		keymap = {
+			preset = "enter",
+		},
 		snippets = {
 			expand = function(snippet)
 				require("luasnip").lsp_expand(snippet)
