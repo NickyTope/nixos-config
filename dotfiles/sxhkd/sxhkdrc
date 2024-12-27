@@ -2,10 +2,7 @@
 
 # terminal emulator
 super + Return
-	wezterm
-
-super + shift + Return
-  WINIT_X11_SCALE_FACTOR=1.5 alacritty -vv
+	ghostty
 
 # program launcher
 super + {@space,d}

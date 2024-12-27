@@ -96,6 +96,7 @@ in {
     clipcat
     pick-colour-picker
     xournalpp
+    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   hardware.keyboard.qmk.enable = true;

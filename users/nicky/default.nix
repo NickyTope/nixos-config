@@ -8,12 +8,13 @@
     ./clipcat.nix
     ./cloud.nix
     ./dotfiles.nix
+    ./ghostty.nix
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
     ./rofi.nix
     ./secrets.nix
-    ./wezterm.nix
+    # ./wezterm.nix
     ./zsh.nix
   ];
 

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-id=$(xdotool search --class scratchterm)
+ids=$(xdotool search --classname scratchterm)
 
-if [ "$id" != "" ]
+if [ "$ids" != "" ]
 then
-  bspc node "$id" --flag hidden -f -d $(bspc query -D -d) --follow
+  # for each id, we need to set the flag hidden
+  echo "$ids" | xargs -I{} bspc node {} --flag hidden -f -d $(bspc query -D -d) --follow
 else
   # alacritty --class "scratchterm,scratchterm" &
-  wezterm start --class "scratchterm"
+  # wezterm start --class "scratchterm"
+  ghostty --x11-instance-name=scratchterm
 fi
