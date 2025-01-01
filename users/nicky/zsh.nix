@@ -19,6 +19,8 @@
     };
   };
 
+  home.packages = [pkgs.figlet];
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = false;

@@ -16,25 +16,21 @@ return {
 		words = { enabled = true },
 		dashboard = {
 			sections = {
-				{ section = "header" },
 				{
-					-- spacer
-					pane = 2,
-					padding = 6,
+					section = "terminal",
+					cmd = "basename $(pwd) | figlet -f ~/code/nixos-config/dotfiles/figlet/3d.flf",
+					padding = 1,
+					width = 100,
+					height = 9,
 				},
-				{ section = "keys", gap = 1, padding = 1 },
 				{
-					pane = 2,
 					icon = " ",
-					title = "Recent Files",
 					section = "recent_files",
 					cwd = true,
-					indent = 2,
 					padding = 1,
 				},
-				{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+				{ section = "keys", padding = 1 },
 				{
-					pane = 2,
 					icon = " ",
 					title = "Git Status",
 					section = "terminal",
@@ -45,7 +41,6 @@ return {
 					height = 5,
 					padding = 1,
 					ttl = 5 * 60,
-					indent = 3,
 				},
 				{ section = "startup" },
 			},
