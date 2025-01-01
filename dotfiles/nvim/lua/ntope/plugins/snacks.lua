@@ -20,7 +20,7 @@ return {
 				{
 					-- spacer
 					pane = 2,
-					padding = 5,
+					padding = 6,
 				},
 				{ section = "keys", gap = 1, padding = 1 },
 				{
@@ -28,6 +28,7 @@ return {
 					icon = " ",
 					title = "Recent Files",
 					section = "recent_files",
+					cwd = true,
 					indent = 2,
 					padding = 1,
 				},
