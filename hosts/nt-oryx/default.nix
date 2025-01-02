@@ -100,10 +100,25 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  services.syncthing = {
+  powerManagement.powertop.enable = true;
+  services.thermald.enable = true;
+  services.system76-scheduler.settings.cfsProfiles.enable = true;
+  services.tlp = {
     enable = true;
-    user = "nicky";
-    dataDir = "/home/nicky/Documents"; # Default folder for new synced folders
-    configDir = "/home/nicky/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
+    settings = {
+      # sudo tlp-stat or tlp-stat -s or sudo tlp-stat -p
+      # CPU_BOOST_ON_AC = 1;
+      # CPU_BOOST_ON_BAT = 0;
+      # CPU_HWP_DYN_BOOST_ON_AC = 1;
+      # CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      # CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      # CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      # CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      # CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+      # CPU_SCALING_MIN_FREQ_ON_AC = 400000; # 400 MHz
+      # CPU_SCALING_MAX_FREQ_ON_AC = 5400000; # 5.4 GHz
+      START_CHARGE_THRESH_BAT0 = 75;
+      STOP_CHARGE_THRESH_BAT0 = 81;
+    };
   };
 }
