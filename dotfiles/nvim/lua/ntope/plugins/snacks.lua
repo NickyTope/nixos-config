@@ -18,12 +18,12 @@ return {
 			sections = {
 				{
 					section = "terminal",
-					cmd = "basename $(pwd) | figlet -f ~/code/nixos-config/dotfiles/figlet/3d.flf",
+					cmd = "basename $(pwd) | figlet -f ~/code/nixos-config/dotfiles/figlet/pagga.flf",
+					height = 4,
 					padding = 1,
-					width = 100,
-					height = 9,
 				},
 				{
+					title = "Recent Files",
 					icon = " ",
 					section = "recent_files",
 					cwd = true,
@@ -40,7 +40,6 @@ return {
 					cmd = "git status --short --branch --renames",
 					height = 5,
 					padding = 1,
-					ttl = 5 * 60,
 				},
 				{ section = "startup" },
 			},
