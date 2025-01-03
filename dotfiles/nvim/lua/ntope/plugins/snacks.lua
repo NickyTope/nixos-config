@@ -15,6 +15,7 @@ return {
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
 		dashboard = {
+
 			sections = {
 				{
 					section = "terminal",
@@ -23,7 +24,7 @@ return {
 					padding = 1,
 				},
 				{
-					title = "Recent Files",
+					title = "Recent",
 					icon = " ",
 					section = "recent_files",
 					cwd = true,
@@ -40,6 +41,7 @@ return {
 					cmd = "git status --short --branch --renames",
 					height = 5,
 					padding = 1,
+					ttl = 5 * 60,
 				},
 				{ section = "startup" },
 			},

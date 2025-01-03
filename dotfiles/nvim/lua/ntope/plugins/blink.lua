@@ -28,5 +28,10 @@ return {
 			default = { "lsp", "path", "luasnip", "buffer" },
 			cmdline = {},
 		},
+		completion = {
+			documentation = {
+				auto_show = true,
+			},
+		},
 	},
 }
