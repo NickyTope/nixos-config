@@ -80,7 +80,7 @@ in {
       python-pkgs.requests
       python-pkgs.python-lsp-server
     ]))
-    unstable.zoom-us
+    zoom-us
     slack
     teams-for-linux
     mongodb-compass

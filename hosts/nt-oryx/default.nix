@@ -100,9 +100,10 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  powerManagement.powertop.enable = true;
+  # powerManagement.powertop.enable = true;
   services.thermald.enable = true;
-  services.system76-scheduler.settings.cfsProfiles.enable = true;
+  # services.system76-scheduler.enable = true;
+  # services.system76-scheduler.settings.cfsProfiles.enable = true;
   services.tlp = {
     enable = true;
     settings = {
