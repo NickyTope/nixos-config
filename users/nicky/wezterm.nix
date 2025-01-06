@@ -1,6 +1,8 @@
-{pkgs, ...}: {
+{unstable, ...}: {
   programs.wezterm = {
     enable = true;
+    package = unstable.wezterm;
+    # requires WebGpu front end due to bug
     extraConfig = ''
       return {
         front_end = "WebGpu",
