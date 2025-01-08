@@ -1,12 +1,10 @@
 return {
 	{
 		"saghen/blink.cmp",
-		version = "v0.*",
+		version = "*",
 		-- !Important! Make sure you're using the latest release of LuaSnip
 		-- `main` does not work at the moment
 		dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
-		lazy = true,
-		event = "InsertEnter",
 		opts = {
 			keymap = {
 				-- preset = "enter",
@@ -46,6 +44,7 @@ return {
 			completion = {
 				documentation = {
 					auto_show = true,
+					window = { border = "single" },
 				},
 			},
 		},
