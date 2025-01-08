@@ -48,6 +48,10 @@ div#main.seq-window {
   height: 20px;
 }
 
+.s-datepick-body.s-stack, .s-datepick-header {
+  background-color: var(--primary) !important;
+}
+
 a {
   color: var(--link-colour);
 }
@@ -129,7 +133,8 @@ div.preview-panel *,
 .socpimComposeView .socpimComposeDialog .socpimDialogFooter, .socpimComposeView .socpimComposeDialog .socpimDialogFooter *,
 .dockable.quickAddPanel.has-action-bar .action-bar,
 .datepickerContainer::before,
-.s-mailinfo-label-notice, .s-mailbody-notice-itemname, .s-form-label, .s-calendar-entry-sublabel, .s-label-light, .s-outline-text, .s-datepick-cell-normal, .s-section-label, .s-form-names, .s-form-names-disabled, .s-mailbody-edit, .s-rtefontselector, .s-toolbar-text {
+.s-mailinfo-label-notice, .s-mailbody-notice-itemname, .s-form-label, .s-calendar-entry-sublabel, .s-label-light, .s-outline-text, .s-datepick-cell-normal, .s-section-label, .s-form-names, .s-form-names-disabled, .s-mailbody-edit, .s-rtefontselector, .s-toolbar-text,
+.s-datepick-cell-header {
   background-color: var(--bg) !important;
   border-color: var(--border-colour) !important;
   color: var(--fg) !important;
@@ -235,5 +240,12 @@ a svg, button svg, body.dijit_a11y svg {
 .calendar-Container button,
 .view-icon * {
   border-radius: 50%;
+}
+
+.cke_hc .cke_button_icon {
+  display: block !important;
+}
+.cke_hc .cke_button_label, .cke_button_arrow {
+  display: none;
 }
 }
