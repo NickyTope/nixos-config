@@ -4,6 +4,7 @@
     # unstable.nodejs_22 => 22.11.0
     # pkgs.nodejs_22 => 22.12.0
     pkgs.nodejs_22
+    pkgs.typescript
   ];
 
   programs.bun = {

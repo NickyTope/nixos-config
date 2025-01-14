@@ -56,7 +56,7 @@
       docker-rmq = "docker ps -a -q -f status=exited | xargs docker rm";
       keys = "~/.config/sxhkd/keys.sh";
       nkeys = "n ~/.config/sxhkd/sxhkdrc";
-      lspbuninstall = "bun add --global @babel/cli @babel/core @babel/node concurrently dockerfile-language-server-nodejs eslint eslint_d neovim nodemon prettier stylelint stylelint-lsp tslib typescript vim-language-server vscode-css-languageserver-bin vscode-json-languageserver cssmodules-language-server @tailwindcss/language-server vscode-langservers-extracted emmet-ls @vtsls/language-server yaml-language-server";
+      lspbuninstall = "bun add --global tslib cssmodules-language-server emmet-ls @vtsls/language-server";
       ssh = "TERM=linux ssh";
       ls = "ls --color";
       shares = "python ~/.config/bspwm/stocks.py";

@@ -14,6 +14,18 @@
     gopls
     python3Packages.python-lsp-server
     lemminx
+    nodePackages.eslint
+    eslint_d
+    nodePackages.nodemon
+    nodePackages.prettier
+    stylelint
+    stylelint-lsp
+    vim-language-server
+    vscode-langservers-extracted
+    tailwindcss-language-server
+    emmet-ls
+    yaml-language-server
+    dockerfile-language-server-nodejs
   ];
 
   programs.neovim = {
