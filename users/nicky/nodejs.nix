@@ -1,6 +1,9 @@
-{unstable, ...}: {
+{pkgs, ...}: {
   home.packages = [
-    unstable.nodejs_22
+    # pkgs.nodejs => 20.18.1
+    # unstable.nodejs_22 => 22.11.0
+    # pkgs.nodejs_22 => 22.12.0
+    pkgs.nodejs_22
   ];
 
   programs.bun = {

@@ -2,11 +2,8 @@
   programs.wezterm = {
     enable = true;
     package = unstable.wezterm;
-    # requires WebGpu front end due to bug
     extraConfig = ''
       return {
-        front_end = "WebGpu",
-        webgpu_power_preference = "HighPerformance",
         color_scheme = "nightfox",
         audible_bell = "Disabled",
         check_for_updates = false,

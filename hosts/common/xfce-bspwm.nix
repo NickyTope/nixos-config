@@ -9,8 +9,8 @@
     greeters.slick = {
       enable = true;
       cursorTheme = {
-        name = "Fuchsia";
-        package = pkgs.fuchsia-cursor;
+        name = "phinger-cursors-light";
+        package = pkgs.phinger-cursors;
         size = 16;
       };
     };
