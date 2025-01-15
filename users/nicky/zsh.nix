@@ -56,7 +56,7 @@
       docker-rmq = "docker ps -a -q -f status=exited | xargs docker rm";
       keys = "~/.config/sxhkd/keys.sh";
       nkeys = "n ~/.config/sxhkd/sxhkdrc";
-      lspbuninstall = "bun add --global tslib cssmodules-language-server emmet-ls @vtsls/language-server";
+      lspbuninstall = "bun add --global cssmodules-language-server @vtsls/language-server";
       ssh = "TERM=linux ssh";
       ls = "ls --color";
       shares = "python ~/.config/bspwm/stocks.py";
@@ -86,46 +86,51 @@
     };
 
     enableCompletion = true;
-    autosuggestion.enable = true;
     autocd = true;
-    cdpath = ["$HOME/code" "$HOME/.config"];
+    cdpath = ["$HOME/code"];
 
     history = {
       extended = true;
       append = true;
       ignoreDups = true;
+      ignoreAllDups = true;
       ignoreSpace = true;
+      share = true;
       path = "$HOME/.zsh_history";
     };
 
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
-        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      }
-      {
-        name = "zsh-history-substring-search";
-        src = pkgs.zsh-history-substring-search;
-        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
-      }
-    ];
+    historySubstringSearch = {
+      enable = true;
+      searchUpKey = [
+        "^[[A"
+        "$terminfo[kcuu1]"
+      ];
+      searchDownKey = [
+        "^[[B"
+        "$terminfo[kcud1]"
+      ];
+    };
+
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=red";
+    };
+
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = [
+        "main"
+        "brackets"
+        "pattern"
+        "cursor"
+      ];
+    };
 
     initExtra = ''
       . ${pkgs.fzf}/share/fzf/completion.zsh
       # . ${pkgs.fzf}/share/fzf/key-bindings.zsh
       # alt+.
       bindkey '\e.' insert-last-word
-
-      bindkey "$terminfo[kcuu1]" history-substring-search-up
-      bindkey "$terminfo[kcud1]" history-substring-search-down
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
 
       function subdir_do() {
         for d in ./*/ ; do (echo "=== $d ===" && cd "$d" && "$@") ; done

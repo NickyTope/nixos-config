@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  unstable,
-  ...
-}: {
+{pkgs, ...}: {
   # Install firefox.
   programs.firefox.enable = true;
   programs.zsh.enable = true;
@@ -15,8 +9,8 @@
   environment.pathsToLink = ["/share/zsh"];
 
   nix.settings = {
-    substituters = ["https://wezterm.cachix.org"];
-    trusted-public-keys = ["wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="];
+    # substituters = ["https://wezterm.cachix.org"];
+    # trusted-public-keys = ["wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="];
   };
 
   fonts = {
@@ -94,7 +88,6 @@
     clipcat
     pick-colour-picker
     xournalpp
-    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   hardware.keyboard.qmk.enable = true;
