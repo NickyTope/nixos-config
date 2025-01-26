@@ -15,6 +15,8 @@
   environment.systemPackages = with pkgs; [
     blueman
     bluetuith
+    podman-compose
+    podman-desktop
   ];
 
   # Bootloader.
@@ -35,7 +37,7 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  virtualisation.docker.enable = true;
+  virtualisation.podman.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
