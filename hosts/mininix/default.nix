@@ -15,8 +15,6 @@
   environment.systemPackages = with pkgs; [
     blueman
     bluetuith
-    podman-compose
-    podman-desktop
   ];
 
   # Bootloader.
@@ -36,8 +34,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  virtualisation.podman.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -60,11 +56,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
-  services.syncthing = {
-    enable = true;
-    user = "nicky";
-    dataDir = "/home/nicky/Documents"; # Default folder for new synced folders
-    configDir = "/home/nicky/.config/syncthing"; # Folder for Syncthing's settings and keys
-  };
 }
