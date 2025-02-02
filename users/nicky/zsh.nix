@@ -113,7 +113,7 @@
 
     autosuggestion = {
       enable = true;
-      highlight = "fg=red";
+      highlight = "fg=#777777";
     };
 
     syntaxHighlighting = {
