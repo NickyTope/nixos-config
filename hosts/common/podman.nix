@@ -4,5 +4,8 @@
     podman-desktop
   ];
 
-  virtualisation.podman.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 }
