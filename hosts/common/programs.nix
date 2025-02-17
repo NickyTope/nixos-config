@@ -76,7 +76,6 @@
     slack
     teams-for-linux
     mongodb-compass
-    zed-editor
     bitwarden-desktop
     qmk
     qmk_hid

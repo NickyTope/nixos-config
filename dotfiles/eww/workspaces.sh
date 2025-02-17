@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 workspaces() {
   all=$(bspc query -D --names)

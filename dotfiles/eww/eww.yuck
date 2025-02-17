@@ -126,14 +126,14 @@
 
 
 (defwindow sidebar
-           :monitor 0
+           :monitor 1
            :geometry (geometry :x "-5px"
                                :y "0%"
                                :width "70px"
                                :height "96%"
-                               :anchor "center right")
+                               :anchor "center left")
            :windowtype "dock"
-           :reserve (struts :distance "75px" :side "right")
+           :reserve (struts :distance "75px" :side "left")
            :stacking "fg"
            :wm-ignore "false"
            (main)

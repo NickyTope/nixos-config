@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # ip a show scope global | grep inet | awk '{ print $2 }' | grep -v "\b172" | sed 's|/.*||'
 

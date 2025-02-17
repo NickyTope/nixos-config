@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # credits to adi1090x
 
