@@ -30,7 +30,7 @@ return {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			cmdline = {
-				sources = {},
+				enabled = false,
 			},
 			completion = {
 				documentation = {
