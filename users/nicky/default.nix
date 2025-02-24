@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstable,
+  ...
+}: {
   imports = [
     # ./wezterm.nix
     ./clipcat.nix
@@ -22,7 +26,7 @@
   };
   home.packages = with pkgs; [
     bat
-    affine
+    unstable.affine
   ];
 
   home.file.".local/share/applications/affine.desktop".text = ''
