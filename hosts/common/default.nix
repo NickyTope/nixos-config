@@ -1,14 +1,11 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./xfce-bspwm.nix
     ./programs.nix
     ./podman.nix
     ./dev-proxy.nix
+    ./isw-vpn.nix
+    ./secrets.nix
   ];
 
   # Enable networking
