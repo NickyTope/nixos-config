@@ -37,6 +37,16 @@
     MimeType=x-scheme-handler/affine;
   '';
 
+  home.file.".local/share/applications/polybar.desktop".text = ''
+    [Desktop Entry]
+    Name=Polybar
+    Comment=Polybar
+    Exec=/home/nicky/code/nixos-config/dotfiles/polybar/launch.sh
+    Terminal=false
+    Type=Application
+    Categories=Utility;
+  '';
+
   home.file.".local/share/applications/teams-for-linux.desktop".text = ''
     [Desktop Entry]
     Name=Teams for Linux
