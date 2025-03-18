@@ -20,6 +20,16 @@
       group = "nginx";
       path = "/var/lib/ssl/iswwckey.key";
     };
+    secrets.collabcert = {
+      owner = "nginx";
+      group = "nginx";
+      path = "/var/lib/ssl/collabcert.crt";
+    };
+    secrets.collabkey = {
+      owner = "nginx";
+      group = "nginx";
+      path = "/var/lib/ssl/collabkey.key";
+    };
   };
   services.nginx = {
     enable = true;
@@ -54,6 +64,26 @@
         sslCertificateKey = "/var/lib/ssl/iswwckey.key";
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001";
+          proxyWebsockets = true;
+        };
+      };
+      "collablocal.huddo.com" = {
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 443;
+            ssl = true;
+          }
+        ];
+        addSSL = true;
+        sslCertificate = "/var/lib/ssl/collabcert.crt";
+        sslCertificateKey = "/var/lib/ssl/collabkey.key";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3000";
+          proxyWebsockets = true;
+        };
+        locations."/editor" = {
+          proxyPass = "http://127.0.0.1:27012";
           proxyWebsockets = true;
         };
       };
