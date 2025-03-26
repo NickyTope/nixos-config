@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./xfce-bspwm.nix
+    ./esphome.nix
     ./programs.nix
     ./podman.nix
     ./dev-proxy.nix
