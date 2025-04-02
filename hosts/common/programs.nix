@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Install firefox.
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
@@ -38,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     # eww
     killall
+    brave
     polybar
     flameshot
     vim

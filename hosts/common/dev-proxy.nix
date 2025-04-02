@@ -91,6 +91,6 @@
   };
 
   networking.hosts = {
-    "127.0.0.1" = ["dev-client.isw.net.au" "dev-server.isw.net.au" "collablocal.huddo.com"];
+    "127.0.0.1" = ["dev-client.isw.net.au" "dev-server.isw.net.au" "collablocal.huddo.com" "host.docker.internal"];
   };
 }

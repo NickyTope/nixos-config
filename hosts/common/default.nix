@@ -13,11 +13,11 @@
   networking = {
     networkmanager = {
       enable = true;
-      insertNameservers = [
-        "8.8.8.8"
-        "45.248.78.99"
-      ];
     };
+    nameservers = [
+      "8.8.8.8"
+      "45.248.78.99"
+    ];
     extraHosts = ''
       127.0.0.1 mongo minio redis
     '';

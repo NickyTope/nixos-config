@@ -5,7 +5,7 @@
       add_newline = true;
       character = {
         success_symbol = "[](bold blue)[](yellow)";
-        error_symbol = "[](bold red)";
+        error_symbol = "💩";
         vimcmd_symbol = "[](bold green)";
       };
       battery.display = [

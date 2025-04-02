@@ -18,6 +18,10 @@ vim.cmd([[
 autocmd FileType scss setlocal commentstring=/*\ %s\ */
 ]])
 
+vim.cmd([[
+autocmd BufNewFile,BufRead .env.* set ft=sh
+]])
+
 local cmdline_group = vim.api.nvim_create_augroup("highlight_cmdline", {})
 vim.api.nvim_create_autocmd("CmdlineEnter", {
 	callback = function()

@@ -232,14 +232,9 @@ return {
 			cmd = { "/home/nicky/apps/lemminx/lemminx-linux" },
 		})
 
-
 		local config = vim.diagnostic.config()
 		config.underline = true
-		config.virtual_text = {
-			severity = {
-				min = vim.diagnostic.severity.ERROR,
-			},
-		}
+		config.virtual_lines = { current_line = true }
 		vim.diagnostic.config(config)
 	end,
 }

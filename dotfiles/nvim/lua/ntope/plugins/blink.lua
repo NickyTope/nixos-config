@@ -23,11 +23,8 @@ return {
 				["<C-b>"] = { "scroll_documentation_up", "fallback" },
 				["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			},
-			snippets = {
-				preset = "luasnip",
-			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "buffer" },
 			},
 			cmdline = {
 				enabled = false,
