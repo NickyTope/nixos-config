@@ -18,6 +18,7 @@
     eslint_d
     nodePackages.nodemon
     nodePackages.prettier
+    prettierd
     stylelint
     stylelint-lsp
     vim-language-server

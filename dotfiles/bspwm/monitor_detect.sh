@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-if [ "$HOSTNAME" == "nt-arch-sfc" ]; then
+echo "monitor detect"
+echo "hostname is $(hostname)"
+
+if [ "$(hostname)" == "nt-arch-sfc" ]; then
 
   xrandr --setprovideroutputsource modesetting NVIDIA-0
   xrandr --newmode "2400x1600_60"  326.00  2400 2584 2840 3280  1600 1603 1613 1658 -hsync +vsync
@@ -82,6 +85,8 @@ if [ "$(hostname)" == "nt-oryx" ]; then
     xrandr --output DP-1 --right-of eDP-1
   elif [ "hdmi" -eq "1" ]; then
     xrandr --output HDMI-0 --right-of eDP-1
+  else
+    xrandr --auto
   fi
 fi
 

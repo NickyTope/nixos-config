@@ -38,6 +38,7 @@
       fade = true;
       shadow = false;
       fadeDelta = 4;
+      package = pkgs.picom-pijulius;
     };
   };
 
@@ -63,6 +64,7 @@
   programs.file-roller.enable = true;
 
   environment.systemPackages = with pkgs; [
+    acpi
     xorg.xrandr
     bspwm
     sxhkd

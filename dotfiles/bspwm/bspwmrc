@@ -1,5 +1,7 @@
 #! /bin/sh
 
+~/code/nixos-config/dotfiles/bspwm/monitor_detect.sh
+
 killall sxhkd
 sxhkd &
 

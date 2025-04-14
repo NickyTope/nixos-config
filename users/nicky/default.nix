@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    # ./wezterm.nix
     ./clipcat.nix
     ./cloud.nix
     ./dotfiles.nix
@@ -12,6 +11,9 @@
     ./secrets.nix
     ./theme.nix
     ./zsh.nix
+
+    # ./wezterm.nix
+    # ./eww.nix
   ];
 
   home.username = "nicky";
