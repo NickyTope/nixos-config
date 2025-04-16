@@ -19,6 +19,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    cursor = {
+      url = "github:omarcresp/cursor-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
