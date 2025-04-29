@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  unstable,
   ...
 }: {
   programs.firefox.enable = true;
@@ -81,7 +82,7 @@
       python-pkgs.requests
       python-pkgs.python-lsp-server
     ]))
-    zoom-us
+    unstable.zoom-us
     slack
     teams-for-linux
     mongodb-compass
