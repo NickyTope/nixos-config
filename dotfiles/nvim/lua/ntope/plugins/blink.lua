@@ -1,10 +1,30 @@
 return {
 	{
+		"saghen/blink.compat",
+		-- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+		version = "*",
+		-- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+		lazy = true,
+		-- make sure to set opts so that lazy.nvim calls blink.compat's setup
+		opts = {},
+	},
+	{
 		"saghen/blink.cmp",
 		version = "*",
-		-- !Important! Make sure you're using the latest release of LuaSnip
-		-- `main` does not work at the moment
-		dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+		dependencies = {
+			{ "L3MON4D3/LuaSnip", version = "v2.*" },
+			{
+				"supermaven-inc/supermaven-nvim",
+				opts = {
+					disable_inline_completion = true,
+					disable_keymaps = true,
+				},
+			},
+			{
+				"huijiro/blink-cmp-supermaven",
+			},
+		},
+
 		opts = {
 			keymap = {
 				-- preset = "enter",
@@ -24,7 +44,14 @@ return {
 				["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			},
 			sources = {
-				default = { "lsp", "path", "buffer" },
+				default = { "supermaven", "lsp", "path", "buffer" },
+				providers = {
+					supermaven = {
+						name = "supermaven",
+						module = "blink-cmp-supermaven",
+						async = true,
+					},
+				},
 			},
 			cmdline = {
 				enabled = false,
