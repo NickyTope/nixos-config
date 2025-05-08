@@ -197,7 +197,7 @@ return {
 		-- installed from bun global
 		lsp.jsonls.setup({
 			on_attach = my_attach,
-			cmd = { "vscode-json-languageserver", "--stdio" },
+			cmd = { "vscode-json-language-server", "--stdio" },
 		})
 
 		-- installed from bun global
