@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstable,
+  ...
+}: {
   imports = [
     ./clipcat.nix
     ./cloud.nix
@@ -24,7 +28,7 @@
   };
   home.packages = with pkgs; [
     bat
-    affine
+    unstable.affine
   ];
 
   home.file.".local/share/applications/affine.desktop".text = ''
