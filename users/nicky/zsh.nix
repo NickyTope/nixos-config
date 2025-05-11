@@ -56,7 +56,7 @@
       docker-rmq = "docker ps -a -q -f status=exited | xargs docker rm";
       keys = "~/.config/sxhkd/keys.sh";
       nkeys = "n ~/.config/sxhkd/sxhkdrc";
-      lspbuninstall = "bun add --global cssmodules-language-server @vtsls/language-server";
+      lspbuninstall = "bun add --global cssmodules-language-server@latest @vtsls/language-server@latest @tailwindcss/language-server@latest";
       ssh = "TERM=linux ssh";
       ls = "ls --color";
       shares = "python ~/.config/bspwm/stocks.py";

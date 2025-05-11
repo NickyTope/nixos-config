@@ -23,7 +23,6 @@
     stylelint-lsp
     vim-language-server
     vscode-langservers-extracted
-    tailwindcss-language-server
     emmet-ls
     yaml-language-server
     dockerfile-language-server-nodejs
