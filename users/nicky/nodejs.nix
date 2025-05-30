@@ -11,7 +11,7 @@
     enable = true;
   };
 
-  home.file.".npmrc".text = ''
-    prefix=/home/nicky/.npm-global
-  '';
+  # home.file.".npmrc".text = ''
+  #   prefix=/home/nicky/.npm-global
+  # '';
 }

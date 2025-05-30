@@ -78,8 +78,16 @@
         addSSL = true;
         sslCertificate = "/var/lib/ssl/collabcert.crt";
         sslCertificateKey = "/var/lib/ssl/collabkey.key";
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:3000";
+        locations."/wikis" = {
+          proxyPass = "http://127.0.0.1:9454";
+          proxyWebsockets = true;
+        };
+        locations."/socketcluster" = {
+          proxyPass = "http://127.0.0.1:3456";
+          proxyWebsockets = true;
+        };
+        locations."/ideas" = {
+          proxyPass = "http://127.0.0.1:4332";
           proxyWebsockets = true;
         };
         locations."/editor" = {
