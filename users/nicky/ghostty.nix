@@ -5,6 +5,7 @@
       theme = "nightfox";
       font-size = 10;
       font-family = "FiraCode Nerd Font";
+      font-family-bold = "FiraCode Nerd Font Med";
       font-family-italic = "Victor Mono Nerd Font";
       background-opacity = 0.85;
 

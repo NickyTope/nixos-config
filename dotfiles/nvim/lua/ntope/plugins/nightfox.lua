@@ -15,9 +15,9 @@ return {
 						conditionals = "italic,bold",
 						-- constants = "NONE",
 						-- numbers = "NONE",
-						operators = "italic",
+						-- operators = "italic",
 						-- strings = "NONE",
-						types = "italic",
+						types = "bold",
 						variables = "bold",
 					},
 					inverse = {
