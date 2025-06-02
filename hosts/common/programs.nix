@@ -31,6 +31,7 @@
       nerd-fonts.noto
       nerd-fonts._0xproto
       nerd-fonts.fira-code
+      nerd-fonts.victor-mono
       roboto-mono
       icomoon-feather
       material-icons

@@ -10,15 +10,18 @@ return {
 					transparent = true,
 					styles = {
 						comments = "italic",
-						keywords = "bold",
+						keywords = "italic",
 						-- functions = "NONE",
-						-- conditionals = "NONE",
+						conditionals = "italic,bold",
 						-- constants = "NONE",
 						-- numbers = "NONE",
 						operators = "italic",
 						-- strings = "NONE",
 						types = "italic",
-						-- variables = "bold",
+						variables = "bold",
+					},
+					inverse = {
+						match_paren = true,
 					},
 				},
 			})

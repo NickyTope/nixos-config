@@ -1,10 +1,11 @@
-{pkgs, ...}: {
+{...}: {
   programs.ghostty = {
     enable = true;
     settings = {
       theme = "nightfox";
       font-size = 10;
-      font-family = "Hurmit Nerd Font";
+      font-family = "FiraCode Nerd Font";
+      font-family-italic = "Victor Mono Nerd Font";
       background-opacity = 0.85;
 
       window-decoration = false;
