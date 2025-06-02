@@ -126,7 +126,7 @@
       ];
     };
 
-    initExtra = ''
+    initContent = ''
       . ${pkgs.fzf}/share/fzf/completion.zsh
       # . ${pkgs.fzf}/share/fzf/key-bindings.zsh
       # alt+.

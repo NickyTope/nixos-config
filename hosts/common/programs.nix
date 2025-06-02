@@ -26,8 +26,11 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["Hermit" "JetBrainsMono" "Noto"];})
-      fira-code-nerdfont
+      nerd-fonts.hurmit
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
+      nerd-fonts._0xproto
+      nerd-fonts.fira-code
       roboto-mono
       icomoon-feather
       material-icons

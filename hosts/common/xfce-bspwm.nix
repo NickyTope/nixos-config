@@ -63,6 +63,11 @@
 
   programs.file-roller.enable = true;
 
+  programs.i3lock = {
+    enable = true;
+    package = pkgs.i3lock-fancy-rapid;
+  };
+
   environment.systemPackages = with pkgs; [
     acpi
     xorg.xrandr
@@ -76,6 +81,5 @@
     xdg-utils
     pavucontrol
     xorg.xbacklight
-    i3lock-fancy-rapid
   ];
 }

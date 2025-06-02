@@ -106,11 +106,10 @@
 
   # Screen lock
   services = {
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 10;
-      lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 10 15";
-    };
+    # screen-locker = {
+    #   enable = true;
+    #   inactiveInterval = 10;
+    # };
 
     # Auto mount devices
     udiskie = {
@@ -133,5 +132,4 @@
   # };
 
   programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfreePredicate = pkg: true;
 }
