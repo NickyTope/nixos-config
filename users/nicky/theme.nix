@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors-light";
+    package = pkgs.layan-cursors;
+    name = "layan-cursors";
     size = 16;
     gtk.enable = true;
     x11.enable = true;
@@ -41,6 +41,6 @@
 
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
-    Inherits=phinger-cursors-light
+    Inherits=layan-cursors
   '';
 }

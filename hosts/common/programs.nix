@@ -59,7 +59,6 @@
     fzf
     flameshot
     simplescreenrecorder
-    fuchsia-cursor
     libnotify
     cmake
     jq

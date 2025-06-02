@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = [
     # pkgs.nodejs => 20.18.1
     # unstable.nodejs_22 => 22.11.0
@@ -11,7 +15,9 @@
     enable = true;
   };
 
-  # home.file.".npmrc".text = ''
-  #   prefix=/home/nicky/.npm-global
-  # '';
+  home.activation.initnpmrc = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ ! -f /home/nicky/.npmrc ]; then
+      echo "prefix=/home/nicky/.npm-global" > ~/.npmrc
+    fi
+  '';
 }

@@ -9,8 +9,8 @@
     greeters.slick = {
       enable = true;
       cursorTheme = {
-        name = "phinger-cursors-light";
-        package = pkgs.phinger-cursors;
+        name = "layan-cursors";
+        package = pkgs.layan-cursors;
         size = 16;
       };
     };
@@ -81,5 +81,6 @@
     xdg-utils
     pavucontrol
     xorg.xbacklight
+    layan-cursors
   ];
 }
