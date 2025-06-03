@@ -9,12 +9,12 @@ return {
 				options = {
 					transparent = true,
 					styles = {
-						comments = "italic",
+						-- comments = "italic",
 						keywords = "italic",
 						-- functions = "NONE",
-						conditionals = "italic,bold",
-						-- constants = "NONE",
-						-- numbers = "NONE",
+						conditionals = "bold",
+						constants = "bold",
+						numbers = "bold",
 						-- operators = "italic",
 						-- strings = "NONE",
 						types = "bold",

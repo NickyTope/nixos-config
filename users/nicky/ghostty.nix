@@ -8,6 +8,7 @@
       font-family-bold = "FiraCode Nerd Font Med";
       font-family-italic = "Victor Mono Nerd Font";
       background-opacity = 0.85;
+      adjust-cell-height = "5%";
 
       window-decoration = false;
       gtk-titlebar = false;
@@ -17,21 +18,4 @@
       adw-toolbar-style = "flat";
     };
   };
-
-  # xdg.configFile."ghostty/config".text = ''
-  #   theme = nightfox
-  #   font-size = 10
-  #   font-family = Hurmit Nerd Font
-  #   background-opacity = 0.85
-  #
-  #   window-decoration = false
-  #   gtk-titlebar = false
-  #   gtk-tabs-location = bottom
-  #   window-theme = ghostty
-  #   gtk-wide-tabs = false
-  #   adw-toolbar-style = flat
-  #
-  #   keybind = global:super+y=toggle_quick_terminal
-  #   keybind = super+alt+,=reload_config
-  # '';
 }
