@@ -106,10 +106,11 @@
 
   # Screen lock
   services = {
-    # screen-locker = {
-    #   enable = true;
-    #   inactiveInterval = 10;
-    # };
+    screen-locker = {
+      enable = true;
+      inactiveInterval = 20;
+      lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 3 pixel";
+    };
 
     # Auto mount devices
     udiskie = {
