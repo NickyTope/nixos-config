@@ -68,6 +68,16 @@
   services.openssh.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.optimise = {
+    automatic = true;
+    dates = ["02:00"];
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicky = {
