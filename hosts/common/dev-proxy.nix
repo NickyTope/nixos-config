@@ -31,70 +31,61 @@
       path = "/var/lib/ssl/collabkey.key";
     };
   };
-  services.nginx = {
+  services.nginx = let
+    common = {
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 443;
+          ssl = true;
+        }
+      ];
+      addSSL = true;
+      sslCertificate = "/var/lib/ssl/iswwccertchain.crt";
+      sslCertificateKey = "/var/lib/ssl/iswwckey.key";
+    };
+  in {
     enable = true;
     recommendedProxySettings = true;
     virtualHosts = {
-      "dev-client.isw.net.au" = {
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 443;
-            ssl = true;
-          }
-        ];
-        addSSL = true;
-        sslCertificate = "/var/lib/ssl/iswwccertchain.crt";
-        sslCertificateKey = "/var/lib/ssl/iswwckey.key";
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:3000";
-          proxyWebsockets = true;
+      "dev-client.isw.net.au" =
+        common
+        // {
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3000";
+            proxyWebsockets = true;
+          };
         };
-      };
-      "dev-server.isw.net.au" = {
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 443;
-            ssl = true;
-          }
-        ];
-        addSSL = true;
-        sslCertificate = "/var/lib/ssl/iswwccertchain.crt";
-        sslCertificateKey = "/var/lib/ssl/iswwckey.key";
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:3001";
-          proxyWebsockets = true;
+      "dev-server.isw.net.au" =
+        common
+        // {
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3001";
+            proxyWebsockets = true;
+          };
         };
-      };
-      "collablocal.huddo.com" = {
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 443;
-            ssl = true;
-          }
-        ];
-        addSSL = true;
-        sslCertificate = "/var/lib/ssl/collabcert.crt";
-        sslCertificateKey = "/var/lib/ssl/collabkey.key";
-        locations."/wikis" = {
-          proxyPass = "http://127.0.0.1:9454";
-          proxyWebsockets = true;
+      "collablocal.huddo.com" =
+        common
+        // {
+          sslCertificate = "/var/lib/ssl/collabcert.crt";
+          sslCertificateKey = "/var/lib/ssl/collabkey.key";
+          locations."/wikis" = {
+            proxyPass = "http://127.0.0.1:9454";
+            proxyWebsockets = true;
+          };
+          locations."/socketcluster" = {
+            proxyPass = "http://127.0.0.1:3456";
+            proxyWebsockets = true;
+          };
+          locations."/ideas" = {
+            proxyPass = "http://127.0.0.1:4332";
+            proxyWebsockets = true;
+          };
+          locations."/editor" = {
+            proxyPass = "http://127.0.0.1:27012";
+            proxyWebsockets = true;
+          };
         };
-        locations."/socketcluster" = {
-          proxyPass = "http://127.0.0.1:3456";
-          proxyWebsockets = true;
-        };
-        locations."/ideas" = {
-          proxyPass = "http://127.0.0.1:4332";
-          proxyWebsockets = true;
-        };
-        locations."/editor" = {
-          proxyPass = "http://127.0.0.1:27012";
-          proxyWebsockets = true;
-        };
-      };
     };
   };
 

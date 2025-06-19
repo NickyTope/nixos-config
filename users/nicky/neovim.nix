@@ -2,6 +2,7 @@
   pkgs,
   config,
   inputs,
+  master,
   ...
 }: {
   # TODO: add other lsp servers here
@@ -16,6 +17,7 @@
     lemminx
     nodePackages.eslint
     eslint_d
+    master.biome
     nodePackages.nodemon
     nodePackages.prettier
     prettierd

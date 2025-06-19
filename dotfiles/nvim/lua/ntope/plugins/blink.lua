@@ -45,6 +45,9 @@ return {
 			},
 			sources = {
 				default = { "supermaven", "lsp", "path", "buffer" },
+				per_filetype = {
+					oil = {},
+				},
 				providers = {
 					supermaven = {
 						name = "supermaven",

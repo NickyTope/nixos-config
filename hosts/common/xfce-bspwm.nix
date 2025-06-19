@@ -36,7 +36,8 @@
     picom = {
       enable = true;
       fade = true;
-      shadow = false;
+      inactiveOpacity = 0.8;
+      shadow = true;
       fadeDelta = 4;
       package = pkgs.picom-pijulius;
     };
