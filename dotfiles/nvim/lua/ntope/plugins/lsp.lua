@@ -46,10 +46,18 @@ return {
 				my_attach(client)
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufnr,
-					command = "EslintFixAll",
+					-- command = "EslintFixAll",
+					callback = function()
+						local formatter = vim.fn.getenv("JSTS_FORMATTER")
+						if formatter == vim.NIL then
+							vim.cmd("EslintFixAll")
+						end
+					end,
 				})
 			end,
 		})
+
+		vim.lsp.enable("biome")
 
 		-- no nix package for this yet
 		lsp.groovyls.setup({

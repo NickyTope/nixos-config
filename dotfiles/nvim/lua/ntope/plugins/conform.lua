@@ -12,11 +12,11 @@ local formatters_by_ft = {
 -- export JSTS_FORMATTER=prettier
 -- direnv allow .
 local JSTS_FORMATTER_ENV = vim.fn.getenv("JSTS_FORMATTER")
-if JSTS_FORMATTER_ENV == "prettier" then
-	formatters_by_ft.typescript = { "prettierd" }
-	formatters_by_ft.typescriptreact = { "prettierd" }
-	formatters_by_ft.javascript = { "prettierd" }
-	formatters_by_ft.javascriptreact = { "prettierd" }
+if JSTS_FORMATTER_ENV ~= vim.NIL then
+	formatters_by_ft.typescript = { JSTS_FORMATTER_ENV }
+	formatters_by_ft.typescriptreact = { JSTS_FORMATTER_ENV }
+	formatters_by_ft.javascript = { JSTS_FORMATTER_ENV }
+	formatters_by_ft.javascriptreact = { JSTS_FORMATTER_ENV }
 end
 
 return {
