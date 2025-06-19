@@ -49,7 +49,7 @@ return {
 					-- command = "EslintFixAll",
 					callback = function()
 						local formatter = vim.fn.getenv("JSTS_FORMATTER")
-						if formatter == vim.NIL then
+						if formatter == vim.NIL or formatter == "prettierd" then
 							vim.cmd("EslintFixAll")
 						end
 					end,

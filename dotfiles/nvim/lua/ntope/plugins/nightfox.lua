@@ -16,12 +16,12 @@ return {
 						constants = "bold",
 						numbers = "bold",
 						-- operators = "italic",
-						-- strings = "NONE",
+						strings = "NONE",
 						types = "bold",
 						variables = "bold",
 					},
 					inverse = {
-						match_paren = true,
+						-- match_paren = true,
 					},
 				},
 			})
