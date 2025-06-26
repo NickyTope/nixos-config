@@ -34,6 +34,11 @@ return {
 		},
 	},
 	opts = {
+		formatters = {
+			["biome-check"] = {
+				command = "/etc/profiles/per-user/nicky/bin/biome",
+			},
+		},
 		formatters_by_ft = formatters_by_ft,
 		format_on_save = true,
 	},
