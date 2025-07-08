@@ -1,7 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstable,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     podman-compose
-    podman-desktop
+    unstable.podman-desktop
   ];
 
   virtualisation.podman = {
