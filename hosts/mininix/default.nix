@@ -12,9 +12,16 @@
   services.xserver.videoDrivers = ["amdgpu"];
   hardware.bluetooth.enable = true;
 
+  services.synergy = {
+    server = {
+      enable = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     blueman
     bluetuith
+    synergy
   ];
 
   # Bootloader.
@@ -26,6 +33,14 @@
     enable = true;
     cpuFreqGovernor = "schedutil";
   };
+
+  boot.kernel.sysctl = {
+    "vm.dirty_background_ratio" = 20;
+    "vm.dirty_ratio" = 40;
+  };
+  services.journald.extraConfig = ''
+    SyncIntervalSec=10s
+  '';
 
   networking.hostName = "mininix"; # Define your hostname.
   networking.enableIPv6 = false;
