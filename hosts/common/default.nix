@@ -11,12 +11,16 @@
 
   # Enable networking
   networking = {
+    # this only works for lan
+    # for wifi just disable ip6 when setting up the connections
+    enableIPv6 = false;
     networkmanager = {
       enable = true;
     };
     nameservers = [
-      "8.8.8.8"
-      "45.248.78.99"
+      "203.50.2.71"
+      "1.0.0.19"
+      "1.1.1.1"
     ];
     extraHosts = ''
       127.0.0.1 mongo minio redis
@@ -68,6 +72,7 @@
   services.openssh.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.trusted-users = [ "root" "nicky" ];
   nix.optimise = {
     automatic = true;
     dates = ["02:00"];

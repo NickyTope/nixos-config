@@ -23,6 +23,11 @@
     # trusted-public-keys = ["wezterm.cachix.org-1:kAbhjYUC9qvblTE+s7S+kl5XM1zVa4skO+E/1IDWdH0="];
   };
 
+  nix.extraOptions = ''
+         extra-substituters = https://devenv.cachix.org
+         extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+       '';
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -100,6 +105,7 @@
     clipcat
     pick-colour-picker
     xournalpp
+    unstable.devenv
   ];
 
   hardware.keyboard.qmk.enable = true;

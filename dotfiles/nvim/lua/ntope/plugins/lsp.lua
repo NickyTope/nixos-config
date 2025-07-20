@@ -23,6 +23,11 @@ return {
 
 		local lsp = require("lspconfig")
 
+		require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+		require("lspconfig").vtsls.setup({
+			on_attach = my_attach,
+		})
+
 		lsp.nixd.setup({
 			on_attach = function(client, bufnr)
 				my_attach(client)

@@ -67,7 +67,6 @@
   boot.initrd.kernelModules = ["nvidia"];
 
   networking.hostName = "nt-oryx";
-  networking.enableIPv6 = false;
   networking.search = ["internal.isw.net.au" "isw.net.au"];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

@@ -71,6 +71,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    DIRENV_WARN_TIMEOUT = "20s";
   };
 
   programs.git = {
