@@ -62,6 +62,9 @@ return {
 			end,
 		})
 
+		vim.lsp.config("biome", {
+			cmd = "/etc/profiles/per-user/nicky/bin/biome",
+		})
 		vim.lsp.enable("biome")
 
 		-- no nix package for this yet
