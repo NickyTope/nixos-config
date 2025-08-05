@@ -54,7 +54,7 @@
     polybar
     flameshot
     vim
-    libreoffice-fresh-unwrapped
+    libreoffice-fresh
     hunspell
     hunspellDicts.en-au-large
     meld
