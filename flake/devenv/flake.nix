@@ -25,6 +25,7 @@
         stylelint = ./modules/stylelint.nix;
         nix = ./modules/nix.nix;
         lua = ./modules/lua.nix;
+        terragrunt = ./modules/terragrunt.nix;
       };
 
       devShells = {
@@ -71,6 +72,14 @@
             ./modules/nix.nix
             ./modules/lua.nix
             ./combinations/nixos-config.nix
+          ];
+        };
+
+        terragrunt = devenv.lib.mkShell {
+          inherit pkgs inputs;
+          modules = [
+            ./modules/base.nix
+            ./modules/terragrunt.nix
           ];
         };
 
