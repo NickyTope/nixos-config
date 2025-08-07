@@ -149,7 +149,7 @@
 
         # Special functions
         "$mod, p, pin"
-        "$mod, u, exec, ghostty --class=ghostty-dropdown"
+        "$mod, u, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
         "$mod SHIFT, u, movetoworkspace, special:scratchpad"
 
         # System controls
@@ -257,11 +257,7 @@
         "float,class:^(wofi)$"
         "float,class:^(rofi)$" # Keep for rofi-pass
         
-        # Dropdown terminal
-        "float,class:^(ghostty-dropdown)$"
-        "size 1200 700,class:^(ghostty-dropdown)$"
-        "move 360 50,class:^(ghostty-dropdown)$"
-        "float,title:^(ghostty-dropdown)$"
+        # Dropdown terminal rules removed - using inline window rules instead
         "float,class:^(thunar)$"
         "float,class:^(Thunar)$"
         "float,class:^(nemo)$"
