@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  # Install clipcat package
+  home.packages = with pkgs; [
+    clipcat
+  ];
+
   xdg.configFile."clipcat/clipcatd.toml".text = ''
     daemonize = false
     pid_file = "/run/user/1000/clipcatd.pid"
@@ -76,7 +81,7 @@
     server_endpoint = "/run/user/1000/clipcat/grpc.sock"
 
     # The default finder to invoke when no "--finder=<finder>" option provided.
-    finder = "rofi"
+    finder = "wofi"
 
     [log]
     # Emit log message to a log file.
@@ -91,7 +96,18 @@
     # Log level.
     level = "INFO"
 
-    # Options for "rofi".
+    # Options for "wofi".
+    [wofi]
+    # Length of line.
+    line_length = 100
+    # Length of menu.
+    menu_length = 30
+    # Prompt of menu.
+    menu_prompt = "Clipcat"
+    # Extra arguments to pass to `wofi`.
+    extra_arguments = ["--prompt", "Clipcat"]
+
+    # Options for "rofi" (kept for compatibility).
     [rofi]
     # Length of line.
     line_length = 100

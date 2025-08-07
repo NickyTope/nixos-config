@@ -49,7 +49,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    inputs.cursor.packages.${pkgs.system}.default
     killall
     polybar
     flameshot
@@ -96,6 +95,8 @@
     slack
     teams-for-linux
     mongodb-compass
+    libsecret
+    gnome-keyring
     bitwarden-desktop
     qmk
     qmk_hid

@@ -20,11 +20,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    cursor = {
-      url = "github:omarcresp/cursor-flake/main";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs = {
@@ -42,6 +37,7 @@
       config.allowUnfree = true;
     };
   in {
+    # Original XFCE + bspwm configurations
     nixosConfigurations.mininix = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs unstable master;
@@ -55,11 +51,11 @@
           home-manager.extraSpecialArgs = {
             inherit inputs unstable master;
           };
-          home-manager.users.nicky = import ./users/nicky;
+          home-manager.users.nicky = import ./users/nicky/xfce-user.nix;
         }
       ];
     };
-    nixosConfigurations.nt-oryx = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nt-oryx-xfce = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs unstable master;
       };
@@ -72,7 +68,53 @@
           home-manager.extraSpecialArgs = {
             inherit inputs unstable master;
           };
-          home-manager.users.nicky = import ./users/nicky;
+          home-manager.users.nicky = import ./users/nicky/xfce-user.nix;
+        }
+      ];
+    };
+
+    # Hyprland test configurations
+    nixosConfigurations.mininix-hyprland = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs unstable master;
+      };
+      modules = [
+        ./hosts/mininix/hyprland.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit inputs unstable master;
+          };
+          home-manager.users.nicky = {
+            imports = [
+              ./users/nicky/hyprland-user.nix
+              ./users/nicky/hyprland-mininix.nix
+            ];
+          };
+        }
+      ];
+    };
+    nixosConfigurations.nt-oryx = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs unstable master;
+      };
+      modules = [
+        ./hosts/nt-oryx/hyprland.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit inputs unstable master;
+          };
+          home-manager.users.nicky = {
+            imports = [
+              ./users/nicky/hyprland-user.nix
+              ./users/nicky/hyprland-nt-oryx.nix
+            ];
+          };
         }
       ];
     };
