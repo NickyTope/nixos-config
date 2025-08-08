@@ -18,6 +18,7 @@
     ./theme.nix
     ./zsh.nix
     ./hyprland.nix # Add Hyprland configuration
+    ./waybar.nix   # Add Waybar configuration with host-specific settings
 
     # ./wezterm.nix
     # ./eww.nix

@@ -10,9 +10,10 @@ This is a NixOS configuration repository using Nix Flakes to manage system confi
 
 ### System Management
 - `sudo nixos-rebuild switch --flake .#<hostname>` - Apply system configuration
-- `sudo nixos-rebuild switch --flake .#mininix` - Apply config for mininix host (XFCE + bspwm)
+- `sudo nixos-rebuild switch --flake .#mininix` - Apply config for mininix host (Hyprland - DEFAULT)
 - `sudo nixos-rebuild switch --flake .#nt-oryx` - Apply config for nt-oryx host (Hyprland - DEFAULT)
-- `sudo nixos-rebuild switch --flake .#mininix-hyprland` - Apply Hyprland config for mininix
+- `sudo nixos-rebuild switch --flake .#mininix-xfce` - Apply legacy XFCE + bspwm config for mininix
+- `sudo nixos-rebuild switch --flake .#nt-oryx-xfce` - Apply legacy XFCE + bspwm config for nt-oryx
 - `./switch-wm.sh [xfce|hyprland] [hostname]` - Easy window manager switching
 - `nix flake update` - Update flake inputs
 - `nix-collect-garbage -d` - Clean up old generations
@@ -54,41 +55,44 @@ This is a NixOS configuration repository using Nix Flakes to manage system confi
 
 ### Host Configurations
 - **mininix**: Desktop system with AMD GPU, Synergy server enabled
-  - `mininix` - XFCE + bspwm configuration
-  - `mininix-hyprland` - Hyprland (Wayland) configuration
+  - `mininix` - Hyprland (Wayland) configuration (DEFAULT)
+  - `mininix-xfce` - Legacy XFCE + bspwm configuration
 - **nt-oryx**: System76 laptop with Nvidia GPU, TLP power management
   - `nt-oryx` - Hyprland (Wayland) configuration (DEFAULT)
+  - `nt-oryx-xfce` - Legacy XFCE + bspwm configuration
 
 ### User Configuration
 The `users/nicky/` directory contains modular Home Manager configurations:
-- `default.nix` - Main user configuration for XFCE + bspwm
-- `hyprland-user.nix` - User configuration variant for Hyprland
-- `hyprland.nix` - Hyprland-specific window manager configuration
-- `dotfiles.nix` - Links dotfiles to XDG config locations (XFCE/bspwm only)
+- `hyprland-user.nix` - Main user configuration for Hyprland (DEFAULT)
+- `xfce-user.nix` - Legacy user configuration for XFCE + bspwm
+- `hyprland.nix` - Hyprland window manager configuration
+- `hyprland-mininix.nix` - Desktop-specific Hyprland settings
+- `hyprland-nt-oryx.nix` - Laptop-specific Hyprland settings
+- `waybar.nix` - Waybar configuration with host-specific settings
 - `neovim.nix` - Neovim configuration and plugins
 - `theme.nix` - GTK and system theming
 - `secrets.nix` - Encrypted user secrets
 - Individual program configs (ghostty, rofi, zsh, etc.)
 
-### Dotfiles Management
-Dotfiles are stored in the `dotfiles/` directory and symlinked via Home Manager. Key configurations include:
-- **bspwm**: Tiling window manager with custom scripts
-- **polybar**: Status bar with modules for system monitoring
-- **nvim**: Lua-based Neovim configuration with lazy.nvim
-- **rofi**: Application launcher with custom themes
+### Configuration Management
+- **Hyprland**: Modern Wayland compositor with Nightfox theme integration
+- **Waybar**: Status bar with host-specific configuration via Home Manager
+- **Legacy dotfiles**: Stored in `dotfiles/` directory for XFCE/bspwm compatibility
+- **Home Manager**: Declarative user environment management
 
 ## Important Files
-- `flake.nix:45-61` - mininix system configuration
-- `flake.nix:62-78` - nt-oryx system configuration
-- `hosts/common/default.nix` - Shared system settings
-- `users/nicky/default.nix` - Main user configuration entry point
+- `flake.nix:41-62` - mininix system configuration (Hyprland default)
+- `flake.nix:120` - nt-oryx system configuration (Hyprland default)
+- `hosts/common/hyprland.nix` - Shared Hyprland system settings
+- `users/nicky/hyprland-user.nix` - Main Hyprland user configuration
+- `users/nicky/waybar.nix` - Host-specific Waybar configuration
 
 ## Development Notes
-- The configuration uses both stable (25.05) and unstable Nixpkgs channels
-- Secrets are managed with SOPS and require proper Age key setup
-- Two window manager setups available:
-  - **XFCE + bspwm**: Traditional X11 setup with tiling window manager
-  - **Hyprland**: Modern Wayland compositor with similar keybindings
-- Custom scripts are located in `dotfiles/bspwm/` and `dotfiles/polybar/scripts/`
-- Hyprland configuration maps all sxhkd keybindings to equivalent Hyprland binds
-- Use `./switch-wm.sh` for easy switching between window managers with rollback capability
+- **Default environment**: Hyprland (Wayland) with Nightfox theming
+- **Legacy support**: XFCE + bspwm available via `-xfce` configurations
+- **Host-specific features**: 
+  - Waybar automatically adapts to desktop vs laptop (battery module)
+  - Monitor configuration per host
+  - Hardware-specific optimizations
+- **Migration complete**: Hyprland is now the primary desktop environment
+- **Theme consistency**: Nightfox colors throughout Hyprland, Waybar, terminals, and editors

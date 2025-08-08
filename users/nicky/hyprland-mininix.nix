@@ -27,4 +27,10 @@
       "special:scratchpad, on-created-empty:ghostty --class=scratchterm"
     ];
   };
+
+  # mininix-specific waybar configuration
+  programs.waybar.settings.mainBar = {
+    output = [ "DP-2" ]; # Desktop monitor
+    modules-right = [ "memory" "cpu" "temperature" "pulseaudio" "network" "tray" ]; # No battery
+  };
 }

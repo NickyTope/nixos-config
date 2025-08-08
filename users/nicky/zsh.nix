@@ -156,5 +156,6 @@
     "/home/nicky/bin"
     "/home/nicky/.local/bin"
     "/home/nicky/.cache/.bun/bin"
+    "/home/nicky/.bun/bin"
   ];
 }

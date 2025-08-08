@@ -1,12 +1,18 @@
+/* Nightfox Color Palette */
+/* bg0: #131a24, bg1: #192330, bg2: #212e3f, bg3: #29394f, bg4: #39506d */
+/* fg0: #d6d6d7, fg1: #cdcecf, fg2: #aeafb0, fg3: #71839b */
+/* sel0: #2b3b51, sel1: #3c5372 */
+/* Accent colors: blue=#719cd6, green=#81b29a, red=#c94f6d, yellow=#dbc074, cyan=#63cdcf, magenta=#9d79d6, orange=#f4a261, pink=#d67ad2 */
+
 * {
     font-family: "FiraCode Nerd Font", "Iosevka", sans-serif;
     font-size: 14px;
 }
 
 window#waybar {
-    background-color: rgba(40, 40, 40, 0.85);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: rgba(25, 35, 48, 0.95); /* Nightfox bg1 with transparency */
+    border-bottom: 3px solid rgba(41, 57, 79, 0.8); /* Nightfox bg3 */
+    color: #cdcecf; /* Nightfox fg1 */
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -19,31 +25,34 @@ button {
 
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #719cd6; /* Nightfox blue */
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #aeafb0; /* Nightfox fg2 */
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(43, 59, 81, 0.6); /* Nightfox sel0 with transparency */
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #3c5372; /* Nightfox sel1 */
+    color: #d6d6d7; /* Nightfox fg0 */
+    box-shadow: inset 0 -3px #719cd6; /* Nightfox blue */
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #c94f6d; /* Nightfox red */
+    color: #d6d6d7; /* Nightfox fg0 */
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    background-color: #3c5372; /* Nightfox sel1 */
+    border-bottom: 3px solid #719cd6; /* Nightfox blue */
+    color: #d6d6d7; /* Nightfox fg0 */
 }
 
 #clock,
@@ -63,7 +72,7 @@ button:hover {
 #scratchpad,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #d6d6d7; /* Nightfox fg0 - ensure good contrast */
 }
 
 #window,
@@ -80,29 +89,30 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #719cd6; /* Nightfox blue - primary accent */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #dbc074; /* Nightfox yellow */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    background-color: #81b29a; /* Nightfox green */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #c94f6d; /* Nightfox red */
+        color: #d6d6d7; /* Nightfox fg0 */
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: #c94f6d; /* Nightfox red */
+    color: #d6d6d7; /* Nightfox fg0 */
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -111,54 +121,62 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: #2b3b51; /* Nightfox sel0 */
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: #81b29a; /* Nightfox green - performance indicator */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #9d79d6; /* Nightfox magenta - resource indicator */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #disk {
-    background-color: #964B00;
+    background-color: #f4a261; /* Nightfox orange */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: #dbc074; /* Nightfox yellow */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #63cdcf; /* Nightfox cyan - connectivity */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #c94f6d; /* Nightfox red */
+    color: #d6d6d7; /* Nightfox fg0 */
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: #d67ad2; /* Nightfox pink - multimedia */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    background-color: #71839b; /* Nightfox fg3 */
+    color: #d6d6d7; /* Nightfox fg0 */
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: #f4a261; /* Nightfox orange */
+    color: #131a24; /* Nightfox bg0 for contrast */
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #c94f6d; /* Nightfox red */
+    color: #d6d6d7; /* Nightfox fg0 */
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #29394f; /* Nightfox bg3 - subtle background */
+    color: #aeafb0; /* Nightfox fg2 */
 }
 
 #tray > .passive {

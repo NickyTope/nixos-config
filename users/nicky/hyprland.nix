@@ -226,8 +226,7 @@
 
       # Startup applications and scripts
       exec-once = [
-        # Wallpaper and waybar
-        "/home/nicky/code/nixos-config/dotfiles/hyprland/launch-waybar.sh"
+        # Wallpaper - waybar now managed by Home Manager
         "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
 
         "light -S 60" # Set screen brightness to 60%
@@ -309,9 +308,6 @@
 
     # Screen locker for Hyprland
     hyprlock
-
-    # Status bar for Wayland
-    waybar
 
     # Notification daemon
     dunst

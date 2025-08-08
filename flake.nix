@@ -37,8 +37,31 @@
       config.allowUnfree = true;
     };
   in {
-    # Original XFCE + bspwm configurations
+    # Default Hyprland configurations
     nixosConfigurations.mininix = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs unstable master;
+      };
+      modules = [
+        ./hosts/mininix/hyprland.nix
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit inputs unstable master;
+          };
+          home-manager.users.nicky = {
+            imports = [
+              ./users/nicky/hyprland-user.nix
+              ./users/nicky/hyprland-mininix.nix
+            ];
+          };
+        }
+      ];
+    };
+    # Legacy XFCE + bspwm configurations (for backward compatibility)
+    nixosConfigurations.mininix-xfce = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs unstable master;
       };
@@ -73,7 +96,7 @@
       ];
     };
 
-    # Hyprland test configurations
+    # Alternative Hyprland test configuration (now redundant since default is Hyprland)
     nixosConfigurations.mininix-hyprland = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs unstable master;

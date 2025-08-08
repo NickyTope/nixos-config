@@ -34,4 +34,10 @@
       "special:scratchpad, on-created-empty:ghostty --class=scratchterm"
     ];
   };
+
+  # nt-oryx-specific waybar configuration  
+  programs.waybar.settings.mainBar = {
+    output = [ "eDP-1" ]; # Laptop screen
+    modules-right = [ "memory" "cpu" "temperature" "battery" "pulseaudio" "network" "tray" ]; # Include battery
+  };
 }
