@@ -183,7 +183,7 @@
         "$mod SHIFT, m, exec, ~/.config/bspwm/monitor_detect.sh"
         "CTRL ALT, l, exec, hyprlock"
         "$mod ALT, q, exec, hyprctl dispatch exit"
-        "$mod ALT, c, exec, pick-colour-picker"
+        "$mod ALT, c, exec, hyprpicker -a"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"
         "$mod, r, exec, eruler"
         "CTRL ALT, v, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
@@ -279,7 +279,6 @@
         "float,class:^(.blueman-manager-wrapped)$"
         "size 400 800,class:^(.blueman-manager-wrapped)$"
         "move 1380 40,class:^(.blueman-manager-wrapped)$"
-        "float,class:^(.pick-colour-picker-wrapped)$"
         "float,class:^(AFFiNE)$"
         "float,class:^(bitwarden)$"
         "float,class:^(pavucontrol)$"
@@ -290,6 +289,7 @@
         "suppressevent maximize, class:^(firefox)$"
         "suppressevent fullscreen, class:^(firefox)$"
       ];
+
     };
   };
 
@@ -308,6 +308,12 @@
 
     # Screen locker for Hyprland
     hyprlock
+
+    # Idle management for Hyprland
+    hypridle
+
+    # Color picker for Hyprland
+    hyprpicker
 
     # Notification daemon
     dunst
@@ -357,6 +363,38 @@
     };
   };
 
+  # Configure hypridle for power management
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+
+      listener = [
+        # Dim screen after 5 minutes
+        {
+          timeout = 300;
+          on-timeout = "brightnessctl -s set 10%";
+          on-resume = "brightnessctl -r";
+        }
+        # Turn off screen after 10 minutes
+        {
+          timeout = 600;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        # Lock screen after 15 minutes
+        {
+          timeout = 900;
+          on-timeout = "loginctl lock-session";
+        }
+      ];
+    };
+  };
+
   # Configure mako for notifications
   services.mako = {
     enable = true;
@@ -369,4 +407,5 @@
       default-timeout = 5000;
     };
   };
+
 }
