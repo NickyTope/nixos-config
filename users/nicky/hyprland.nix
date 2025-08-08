@@ -232,6 +232,9 @@
 
       # Startup applications and scripts
       exec-once = [
+        # Always start on workspace 1
+        "hyprctl dispatch workspace 1"
+        
         # Wallpaper - waybar now managed by Home Manager
         "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
 

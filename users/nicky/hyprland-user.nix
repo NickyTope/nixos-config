@@ -8,6 +8,7 @@
     ./cloud.nix
     ./dunst.nix
     ./ghostty.nix
+    ./mongodb-compass.nix
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
