@@ -4,24 +4,19 @@
   ...
 }: {
   imports = [
-    ./clipcat.nix
+    ./cliphist.nix
     ./cloud.nix
-    # ./dotfiles.nix  # Comment out for now since it's XFCE/bspwm specific
     ./dunst.nix
     ./ghostty.nix
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
-    ./rofi.nix
     ./wofi.nix
     ./secrets.nix
     ./theme.nix
     ./zsh.nix
-    ./hyprland.nix # Add Hyprland configuration
-    ./waybar.nix   # Add Waybar configuration with host-specific settings
-
-    # ./wezterm.nix
-    # ./eww.nix
+    ./hyprland.nix
+    ./waybar.nix
   ];
 
   home.username = "nicky";
@@ -33,6 +28,10 @@
   home.packages = with pkgs; [
     bat
     unstable.affine
+
+    # Hyprcursor for improved Wayland cursor theming
+    hyprcursor
+    rose-pine-hyprcursor
   ];
 
   home.file.".local/share/applications/affine.desktop".text = ''

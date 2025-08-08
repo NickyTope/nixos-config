@@ -31,13 +31,13 @@
       "8, name:win, monitor:DP-1"
       "9, name:nine, monitor:DP-1"
       "10, name:ten, monitor:DP-1"
-      "special:scratchpad, on-created-empty:ghostty --class=scratchterm"
+      # "special:scratchpad, on-created-empty:ghostty --class=scratchterm"
     ];
   };
 
-  # nt-oryx-specific waybar configuration  
+  # nt-oryx-specific waybar configuration
   programs.waybar.settings.mainBar = {
-    output = [ "eDP-1" ]; # Laptop screen
-    modules-right = [ "memory" "cpu" "temperature" "battery" "pulseaudio" "network" "tray" ]; # Include battery
+    output = ["eDP-1"]; # Laptop screen
+    modules-right = ["memory" "cpu" "temperature" "battery" "pulseaudio" "network" "tray"]; # Include battery
   };
 }

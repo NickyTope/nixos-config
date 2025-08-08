@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.pointerCursor = {
-    package = pkgs.layan-cursors;
-    name = "layan-cursors";
+    package = pkgs.rose-pine-hyprcursor;
+    name = "rose-pine-hyprcursor";
     size = 16;
     gtk.enable = true;
     x11.enable = true;
@@ -41,6 +41,6 @@
 
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
-    Inherits=layan-cursors
+    Inherits=rose-pine-hyprcursor
   '';
 }

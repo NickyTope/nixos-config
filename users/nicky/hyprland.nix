@@ -14,6 +14,11 @@
       # Set the modifier key (Super/Windows key)
       "$mod" = "SUPER";
 
+      # Enable hyprcursor for improved Wayland cursor theming
+      cursor = {
+        enable_hyprcursor = true;
+      };
+
       # Monitor configuration will be overridden by host-specific modules
 
       # Input configuration
@@ -26,10 +31,17 @@
         };
       };
 
-      # Environment variables for proper X11 app integration and keyring
+      # Environment variables for cursor theming, keyring, and X11 app integration
       env = [
-        "XCURSOR_THEME,layan-cursors"
-        "XCURSOR_SIZE,16"
+        # Hyprcursor settings (primary for Wayland/server-side cursor apps) - TESTING WITH LARGE SIZE
+        "HYPRCURSOR_THEME,rose-pine"
+        "HYPRCURSOR_SIZE,24"
+
+        # XCursor fallback settings (for GTK and other legacy cursor apps)
+        # "XCURSOR_THEME,layan-cursors"
+        # "XCURSOR_SIZE,16"
+
+        # System integration
         "GNOME_KEYRING_CONTROL,/run/user/1000/keyring"
         "SSH_ASKPASS,/run/current-system/sw/bin/seahorse-ssh-askpass"
       ];
@@ -150,7 +162,6 @@
         # Special functions
         "$mod, p, pin"
         "$mod, u, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
-        "$mod SHIFT, u, movetoworkspace, special:scratchpad"
 
         # System controls
         "$mod ALT, r, exec, hyprctl reload"
@@ -175,7 +186,7 @@
         "$mod ALT, c, exec, pick-colour-picker"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"
         "$mod, r, exec, eruler"
-        "CTRL ALT, v, exec, clipcat-menu"
+        "CTRL ALT, v, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
 
         # Screenshot bindings
         "$mod ALT, p, exec, grim ~/Pictures/screens/Screenshot_$(date +%s).png"
@@ -219,11 +230,6 @@
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
-      # Base workspace configuration (will be extended by host-specific modules)
-      workspace = [
-        "special:scratchpad, on-created-empty:ghostty --class=scratchterm"
-      ];
-
       # Startup applications and scripts
       exec-once = [
         # Wallpaper - waybar now managed by Home Manager
@@ -255,7 +261,7 @@
         # General floating rules
         "float,class:^(wofi)$"
         "float,class:^(rofi)$" # Keep for rofi-pass
-        
+
         # Dropdown terminal rules removed - using inline window rules instead
         "float,class:^(thunar)$"
         "float,class:^(Thunar)$"
@@ -279,12 +285,6 @@
         "float,class:^(pavucontrol)$"
         "size 680 500,class:^(bitwarden)$"
         "center 1,class:^(bitwarden)$"
-
-        # Scratchpad terminal - smaller floating window in center
-        "float,title:^(scratchterm)$"
-        "size 1200 600,title:^(scratchterm)$"
-        "center 1,title:^(scratchterm)$"
-        "workspace special:scratchpad,title:^(scratchterm)$"
 
         # Firefox workspace restoration
         "suppressevent maximize, class:^(firefox)$"

@@ -50,19 +50,19 @@ if [ -n "$DROPDOWN_WINDOW" ]; then
         # Window is hidden on special workspace, bring it to current workspace
         hyprctl dispatch movetoworkspace $CURRENT_WORKSPACE,address:$DROPDOWN_WINDOW
         hyprctl dispatch focuswindow address:$DROPDOWN_WINDOW
-        notify-send "Dropdown" "Terminal shown" -t 1000
+        # notify-send "Dropdown" "Terminal shown" -t 1000
     elif [ "$WINDOW_WORKSPACE" = "$CURRENT_WORKSPACE" ]; then
         # Window is on current workspace, hide it
         hyprctl dispatch movetoworkspacesilent special:dropdown,address:$DROPDOWN_WINDOW
-        notify-send "Dropdown" "Terminal hidden" -t 1000
+        # notify-send "Dropdown" "Terminal hidden" -t 1000
     else
         # Window is on different workspace, bring it to current workspace
         hyprctl dispatch movetoworkspace $CURRENT_WORKSPACE,address:$DROPDOWN_WINDOW
         hyprctl dispatch focuswindow address:$DROPDOWN_WINDOW
-        notify-send "Dropdown" "Terminal moved to current workspace" -t 1000
+        # notify-send "Dropdown" "Terminal moved to current workspace" -t 1000
     fi
 else
     # No dropdown window exists, create one
     hyprctl dispatch exec "[float; size $DROPDOWN_SIZE; move $DROPDOWN_POS] ghostty"
-    notify-send "Dropdown" "Terminal created" -t 1000
+    # notify-send "Dropdown" "Terminal created" -t 1000
 fi

@@ -8,7 +8,7 @@
         follow = "mouse";
         width = 350;
         height = 300;
-        origin = "top-right";
+        origin = "bottom-center";
         offset = "10x50";
         notification_limit = 0;
 
