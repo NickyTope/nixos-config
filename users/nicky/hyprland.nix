@@ -89,9 +89,9 @@
       bind = [
         # Basic window management
         "$mod, Return, exec, ghostty"
-        "$mod, Space, exec, wofi --show drun"
-        "$mod, d, exec, wofi --show drun"
-        "$mod, e, exec, wofi --show drun" # Note: wofi doesn't have emoji support like rofi
+        "$mod, Space, exec, sherlock"
+        "$mod, d, exec, sherlock"
+        "$mod, e, exec, sherlock --sm emoji"
         "$mod, w, killactive"
         "$mod ALT, w, exec, kill -9 $(hyprctl activewindow -j | jq -r '.pid')"
 
@@ -234,7 +234,7 @@
       exec-once = [
         # Always start on workspace 1
         "hyprctl dispatch workspace 1"
-        
+
         # Wallpaper - waybar now managed by Home Manager
         "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
 
@@ -292,7 +292,6 @@
         "suppressevent maximize, class:^(firefox)$"
         "suppressevent fullscreen, class:^(firefox)$"
       ];
-
     };
   };
 
@@ -410,5 +409,4 @@
       default-timeout = 5000;
     };
   };
-
 }

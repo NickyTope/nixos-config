@@ -117,7 +117,7 @@
       };
     };
 
-    # Use our custom Nightfox styling
-    style = builtins.readFile ../../dotfiles/hyprland/waybar-style.css;
+    # Use Skxxtz-inspired styling
+    style = builtins.readFile ../../dotfiles/hyprland/waybar-style-skxxtz.css;
   };
 }

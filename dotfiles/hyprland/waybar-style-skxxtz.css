@@ -1,0 +1,166 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@define-color primary transparent;
+@define-color secondary #101010;
+@define-color text #f5f0f6;
+
+window#waybar {
+    background: linear-gradient(180deg, rgba(50, 50, 50, 0.8) 0%, rgba(50, 50, 50, 0) 100%);
+    color: #ffffff;
+}
+
+window#waybar.hidden {
+    opacity: 0;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    transition: 0.2s ease;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button:hover>* {
+    all: unset;
+    text-shadow: none;
+    transition: 0.2s ease;
+    color: #fff;
+}
+
+#workspaces {
+    border-radius: 6px;
+}
+
+#workspaces * {
+    font-size: 12px;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #a2a2a2;
+    margin: 0px;
+    padding: 0px 5px 0px 2px;
+    font-size: 5px;
+}
+
+#workspaces button.focused {
+    color: white;
+}
+
+#workspaces button.urgent {
+    color: #eb4d4b;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+#window {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 400;
+    margin: 0 8px;
+    padding: 0 8px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 4px 12px;
+    margin: 4px 2px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+#clock {
+    background: rgba(173, 216, 230, 0.2);
+}
+
+#battery {
+    background: rgba(144, 238, 144, 0.2);
+}
+
+#battery.charging {
+    background: rgba(50, 205, 50, 0.3);
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(255, 99, 71, 0.3);
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+}
+
+#cpu {
+    background: rgba(255, 182, 193, 0.2);
+}
+
+#memory {
+    background: rgba(221, 160, 221, 0.2);
+}
+
+#temperature {
+    background: rgba(255, 215, 0, 0.2);
+}
+
+#temperature.critical {
+    background: rgba(255, 99, 71, 0.3);
+}
+
+#network {
+    background: rgba(135, 206, 250, 0.2);
+}
+
+#network.disconnected {
+    background: rgba(255, 99, 71, 0.2);
+}
+
+#pulseaudio {
+    background: rgba(255, 228, 196, 0.2);
+}
+
+#pulseaudio.muted {
+    background: rgba(169, 169, 169, 0.2);
+}
+
+#tray {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+tooltip {
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tooltip label {
+    color: #ffffff;
+}

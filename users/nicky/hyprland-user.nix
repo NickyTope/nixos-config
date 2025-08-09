@@ -9,6 +9,7 @@
     ./dunst.nix
     ./ghostty.nix
     ./mongodb-compass.nix
+    ./sherlock.nix
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
