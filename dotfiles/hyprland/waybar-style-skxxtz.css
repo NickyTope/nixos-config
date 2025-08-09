@@ -11,7 +11,7 @@
 @define-color text #f5f0f6;
 
 window#waybar {
-    background: linear-gradient(180deg, rgba(50, 50, 50, 0.8) 0%, rgba(50, 50, 50, 0) 100%);
+    background: linear-gradient(180deg, rgba(35, 35, 35, 0.9) 0%, rgba(25, 25, 25, 0.4) 35%, rgba(20, 20, 20, 0) 100%);
     color: #ffffff;
 }
 
@@ -87,24 +87,12 @@ button:hover>* {
 #network,
 #pulseaudio,
 #tray {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     color: #ffffff;
     padding: 4px 12px;
     margin: 4px 2px;
     border-radius: 6px;
     font-weight: 500;
-}
-
-#clock {
-    background: rgba(173, 216, 230, 0.2);
-}
-
-#battery {
-    background: rgba(144, 238, 144, 0.2);
-}
-
-#battery.charging {
-    background: rgba(50, 205, 50, 0.3);
 }
 
 #battery.critical:not(.charging) {
@@ -118,41 +106,15 @@ button:hover>* {
     }
 }
 
-#cpu {
-    background: rgba(255, 182, 193, 0.2);
-}
-
-#memory {
-    background: rgba(221, 160, 221, 0.2);
-}
-
-#temperature {
-    background: rgba(255, 215, 0, 0.2);
-}
-
 #temperature.critical {
     background: rgba(255, 99, 71, 0.3);
 }
 
-#network {
-    background: rgba(135, 206, 250, 0.2);
-}
 
 #network.disconnected {
     background: rgba(255, 99, 71, 0.2);
 }
 
-#pulseaudio {
-    background: rgba(255, 228, 196, 0.2);
-}
-
-#pulseaudio.muted {
-    background: rgba(169, 169, 169, 0.2);
-}
-
-#tray {
-    background: rgba(255, 255, 255, 0.1);
-}
 
 tooltip {
     background: rgba(0, 0, 0, 0.9);
