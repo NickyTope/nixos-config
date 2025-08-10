@@ -64,6 +64,9 @@
     use-agent
   '';
 
+  # Ghostty dropdown terminal config
+  home.file.".config/ghostty/dropdown.config".source = ../dotfiles/ghostty/dropdown.config;
+
   home.sessionVariables = {
     EDITOR = "nvim";
     DIRENV_WARN_TIMEOUT = "20s";

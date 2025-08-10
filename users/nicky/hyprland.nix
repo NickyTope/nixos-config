@@ -14,6 +14,10 @@
       # Set the modifier key (Super/Windows key)
       "$mod" = "SUPER";
 
+      # Dropdown Terminal Settings
+      "$terminal_dropdown_class" = "dropdown-ghostty";
+      "$terminal_dropdown_workspace" = "special:dropdown";
+
       # Enable hyprcursor for improved Wayland cursor theming
       cursor = {
         enable_hyprcursor = true;
@@ -268,7 +272,6 @@
         # General floating rules
         "float,class:^(rofi)$"
 
-        # Dropdown terminal rules removed - using inline window rules instead
         "float,class:^(thunar)$"
         "float,class:^(Thunar)$"
         "float,class:^(nemo)$"
