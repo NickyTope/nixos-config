@@ -21,10 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    sherlock = {
-      url = "github:Skxxtz/sherlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

@@ -89,9 +89,10 @@
       bind = [
         # Basic window management
         "$mod, Return, exec, ghostty"
-        "$mod, Space, exec, sherlock"
-        "$mod, d, exec, sherlock"
-        "$mod, e, exec, sherlock --sm emoji"
+        "$mod, Space, exec, rofi -show run"
+        "$mod, d, exec, rofi -show drun"
+        "$mod, e, exec, rofi -modi emoji -show emoji"
+        "$mod, tab, exec, rofi -show window"
         "$mod, w, killactive"
         "$mod ALT, w, exec, kill -9 $(hyprctl activewindow -j | jq -r '.pid')"
 
@@ -138,10 +139,10 @@
         "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
         # Window cycling
-        "$mod, c, cyclenext"
-        "$mod SHIFT, c, cyclenext, prev"
-        "$mod, Tab, workspace, previous"
-        "$mod, grave, focusurgentorlast"
+        # "$mod, c, cyclenext"
+        # "$mod SHIFT, c, cyclenext, prev"
+        # "$mod, Tab, workspace, previous"
+        # "$mod, grave, focusurgentorlast"
 
         # Desktop/workspace cycling
         "$mod, v, workspace, +1"
@@ -182,16 +183,19 @@
         "$mod CTRL ALT, t, exec, rofi-pass" # Keep rofi-pass as it's a specific tool
         "$mod SHIFT, m, exec, ~/.config/bspwm/monitor_detect.sh"
         "CTRL ALT, l, exec, hyprlock"
-        "$mod ALT, q, exec, hyprctl dispatch exit"
+        "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
         "$mod ALT, c, exec, hyprpicker -a"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"
         "$mod, r, exec, eruler"
-        "CTRL ALT, v, exec, cliphist list | wofi -d | cliphist decode | wl-copy"
+        "CTRL ALT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # Screenshot bindings
         "$mod ALT, p, exec, grim ~/Pictures/screens/Screenshot_$(date +%s).png"
         "$mod SHIFT, p, exec, grim -g \"$(slurp)\" - | wl-copy"
         "$mod CTRL, p, exec, grim -g \"$(slurp)\" ~/Pictures/screens/Screenshot_$(date +%s).png"
+
+        # Screen recording menu
+        "$mod ALT, r, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
       ];
 
       # Resize mode bindings
@@ -262,8 +266,7 @@
       # Window rules (from bspwmrc)
       windowrulev2 = [
         # General floating rules
-        "float,class:^(wofi)$"
-        "float,class:^(rofi)$" # Keep for rofi-pass
+        "float,class:^(rofi)$"
 
         # Dropdown terminal rules removed - using inline window rules instead
         "float,class:^(thunar)$"
@@ -323,9 +326,6 @@
     # GNOME keyring integration
     libsecret
     seahorse
-
-    # App launcher (alternative to rofi)
-    wofi
   ];
 
   # Configure hyprlock

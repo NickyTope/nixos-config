@@ -1,19 +1,35 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.lib.formats.rasi) mkLiteral;
+in {
   home.packages = with pkgs; [
-    rofi-pass
-    rofi-systemd
+    rofi-emoji
+    noto-fonts-emoji
   ];
 
   programs.rofi = {
     enable = true;
-    plugins = with pkgs; [
-      rofi-emoji
-      rofi-calc
-    ];
-  };
+    package = pkgs.rofi-wayland;
+    plugins = [pkgs.rofi-emoji];
 
-  xdg.configFile.rofi = {
-    source = ../../dotfiles/rofi;
-    recursive = true;
+    extraConfig = {
+      modi = "drun,run,window";
+      show-icons = true;
+      terminal = "ghostty";
+      drun-display-format = "{name}";
+      location = 0;
+      disable-history = false;
+      hide-scrollbar = true;
+      display-drun = "󰍉";
+      display-run = "󰍉";
+      display-window = "";
+      display-combi = "󰍉";
+      sidebar-mode = false;
+    };
+
+    theme = ../../dotfiles/rofi/nightfox.rasi;
   };
 }

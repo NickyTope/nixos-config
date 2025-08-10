@@ -81,7 +81,7 @@
     server_endpoint = "/run/user/1000/clipcat/grpc.sock"
 
     # The default finder to invoke when no "--finder=<finder>" option provided.
-    finder = "wofi"
+    finder = "rofi"
 
     [log]
     # Emit log message to a log file.

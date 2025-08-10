@@ -1,15 +1,16 @@
 * {
-  background: #192330;
-  background-alt: #475072;
-
-  foreground: #9d79d6;
-
-  blue: #84cee4;
-
-  background-color: @background;
-  active-foreground: @blue;
-  normal-foreground: @foreground;
-  selected-foreground: @blue;
+  background: rgba(25, 35, 48, 0.95);
+  background-alt: rgba(35, 25, 50, 0.8);
+  background-selected: rgba(10, 8, 15, 0.8);
+  
+  foreground: #cdcecf;
+  foreground-alt: #aeafb0;
+  accent: #719cd6;
+  border-color: rgba(80, 60, 120, 0.4);
+  
+  font: "SF Pro Display 14";
+  
+  background-color: transparent;
   text-color: @foreground;
   
   border: 0;
@@ -18,48 +19,82 @@
   spacing: 0;
 }
 
-element {
-  padding: 12;
-}
-
-element-text {
-  background-color: inherit;
-  text-color:       inherit;
-}
-
-element.selected {
-  text-color: @blue;
-}
-
-entry {
-  background-color: @background-alt;
-  padding: 12 0 12 3;
-  text-color: @foreground;
-  normal-foreground: @foreground;
-}
-
-inputbar {
-  children: [prompt, entry];
-}
-
-listview {
-  columns: 1;
-  lines: 8;
+window {
+  background-color: @background;
+  border: 2px solid;
+  border-color: @border-color;
+  border-radius: 12px;
+  width: 600px;
+  height: 500px;
+  transparency: "real";
 }
 
 mainbox {
+  background-color: transparent;
+  padding: 8px;
   children: [inputbar, listview];
 }
 
-prompt {
+inputbar {
   background-color: @background-alt;
-  enabled: true;
-  font: "Cascadia Code 12";
-  padding: 12 0 0 12;
-  text-color: @foreground;
+  border-radius: 8px;
+  margin: 0px 0px 8px 0px;
+  padding: 8px 12px;
+  border: 1px solid;
+  border-color: rgba(80, 60, 120, 0.3);
+  children: [prompt, entry];
 }
 
-window {
-  transparency: "real";
-  width: 700;
+prompt {
+  background-color: transparent;
+  text-color: @accent;
+  margin: 0px 8px 0px 0px;
+  enabled: true;
+}
+
+entry {
+  background-color: transparent;
+  text-color: @foreground;
+  placeholder-color: @foreground-alt;
+  placeholder: "Search...";
+  expand: true;
+}
+
+listview {
+  background-color: transparent;
+  lines: 10;
+  margin: 8px 0px 0px 0px;
+  spacing: 2px;
+  columns: 1;
+}
+
+element {
+  background-color: transparent;
+  text-color: @foreground-alt;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 2px 0px;
+}
+
+element selected {
+  background-color: @background-selected;
+  text-color: @foreground;
+  border: 1px solid;
+  border-color: rgba(80, 60, 120, 0.5);
+}
+
+// element:hover {
+//   background-color: rgba(30, 20, 40, 0.6);
+//   text-color: @foreground;
+// }
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+}
+
+element-icon {
+  background-color: transparent;
+  size: 24px;
+  margin: 0px 8px 0px 0px;
 }

@@ -9,11 +9,10 @@
     ./dunst.nix
     ./ghostty.nix
     ./mongodb-compass.nix
-    ./sherlock.nix
     ./neovim.nix
     ./nodejs.nix
     ./openai.nix
-    ./wofi.nix
+    ./rofi.nix
     ./secrets.nix
     ./theme.nix
     ./zsh.nix
@@ -30,6 +29,7 @@
   home.packages = with pkgs; [
     bat
     unstable.affine
+    wl-screenrec
 
     # Hyprcursor for improved Wayland cursor theming
     hyprcursor
