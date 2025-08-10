@@ -64,10 +64,10 @@
       decoration = {
         rounding = 5;
         blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
+          enabled = false;
         };
+        inactive_opacity = 0.8;
+        active_opacity = 1.0;
       };
 
       # Animation settings - faster animations
@@ -246,7 +246,6 @@
         # Wallpaper - waybar now managed by Home Manager
         "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
 
-        "light -S 60" # Set screen brightness to 60%
         "sudo sys76-kb set -c purple -b 90" # Set keyboard backlight
 
         # Volume control
@@ -297,6 +296,15 @@
         # Firefox workspace restoration
         "suppressevent maximize, class:^(firefox)$"
         "suppressevent fullscreen, class:^(firefox)$"
+
+        # Zoom window rules - prevent focus stealing
+        "nofocus, class:^(zoom)$, title:^(Chat)$"
+        "nofocus, class:^(zoom)$, title:^(Zoom Chat)$"
+        "nofocus, class:^(zoom)$, title:^(zoom)$"
+        "nofocus, class:^(zoom)$, title:^(Zoom)$"
+        "nofocus, class:^(zoom)$, title:.*notification.*"
+        "nofocus, class:^(zoom)$, title:.*message.*"
+        "nofocus, class:^(zoom)$, title:.*popup.*"
       ];
     };
   };
@@ -397,19 +405,6 @@
           on-timeout = "loginctl lock-session";
         }
       ];
-    };
-  };
-
-  # Configure mako for notifications
-  services.mako = {
-    enable = true;
-    settings = {
-      background-color = "#2e3440";
-      border-color = "#88c0d0";
-      border-radius = 5;
-      border-size = 2;
-      text-color = "#eceff4";
-      default-timeout = 5000;
     };
   };
 }
