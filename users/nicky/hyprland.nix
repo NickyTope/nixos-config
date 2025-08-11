@@ -8,7 +8,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    
+
     # Install hy3 plugin for better tiling
     plugins = [
       pkgs.hyprlandPlugins.hy3
@@ -87,14 +87,10 @@
         ];
       };
 
-      # Dwindle layout settings
+      # Dwindle layout settings (defaults)
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        smart_split = true;
-        smart_resizing = true;
-        default_split_ratio = 1.0; # Default to equal splits (1:1 ratio)
-        split_width_multiplier = 1.0;
       };
 
       # Key bindings - mapped from your sxhkd configuration
@@ -151,55 +147,34 @@
         "$mod SHIFT, 9, movetoworkspacesilent, 9"
         "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
-        # Window cycling
-        # "$mod, c, cyclenext"
-        # "$mod SHIFT, c, cyclenext, prev"
-        # "$mod, Tab, workspace, previous"
-        # "$mod, grave, focusurgentorlast"
+        # Clipboard management
+        "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        # Desktop/workspace cycling
-        "$mod, v, workspace, +1"
-        "$mod SHIFT, v, workspace, -1"
-
-        # Window manipulation
-        "$mod, g, layoutmsg, swapwithmaster"
-        "$mod, m, layoutmsg, orientationnext"
-        "$mod, apostrophe, layoutmsg, resetarea"
-        "$mod, y, layoutmsg, swapwithmaster"
-
-        # Layout helpers  
+        # Layout helpers
         "$mod, equal, exec, hyprctl dispatch splitratio exact 1" # Reset current split to equal
-        "$mod CTRL, 1, exec, hyprctl dispatch splitratio -0.1" # Make focused window smaller
-        "$mod CTRL, 2, exec, hyprctl dispatch splitratio +0.1" # Make focused window larger
-        "$mod CTRL, 3, exec, hyprctl dispatch resizewindowpixel exact 1706 1440" # Resize to 1/3 width
+        "$mod, minus, exec, hyprctl dispatch splitratio -0.1" # Make focused window smaller
+        "$mod, plus, exec, hyprctl dispatch splitratio +0.1" # Make focused window larger
+        "$mod, backslash, exec, hyprctl dispatch resizewindowpixel exact 1706 1440" # Resize to 1/3 width
+        "$mod, s, layoutmsg, togglesplit" # Toggle split direction
+        "$mod, x, layoutmsg, swapsplit" # Swap split
+        "$mod, m, layoutmsg, movetoroot" # Move window to root
 
         # Special functions
-        # "$mod, p, pin"
         "$mod, u, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
         "$mod, i, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/affine-dropdown-toggle.sh"
         "$mod, o, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/thunar-dropdown-toggle.sh"
-        "$mod, question, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/show-keybinds.sh"
+        "$mod, slash, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/show-keybinds.sh"
 
         # System controls
         "$mod ALT, r, exec, hyprctl reload"
-        "$mod ALT, q, exec, ~/.config/bspwm/logout.sh" # reuse existing logout script
-        "$mod, Escape, exec, pkill -USR1 -x sxhkd" # keep for compatibility
-
-        # Applications (from your launcher bindings)
-        "$mod o, f, exec, firefox-developer-edition"
-        "$mod o, s, exec, slack"
-        "$mod o, z, exec, zoom"
-        "$mod o, t, exec, teams"
+        "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
 
         # Utilities
         "$mod SHIFT, w, exec, ~/code/nixos-config/dotfiles/hyprland/setwall.sh"
         "$mod, n, exec, notify-send 'Network menu not implemented yet'"
-        "$mod CTRL ALT, t, exec, rofi-pass" # Keep rofi-pass as it's a specific tool
         "CTRL ALT, l, exec, hyprlock"
-        "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
         "$mod ALT, c, exec, hyprpicker -a"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"
-        "CTRL ALT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # Screenshot bindings
         "$mod ALT, p, exec, grim ~/Pictures/screens/Screenshot_$(date +%s).png"
@@ -212,17 +187,11 @@
 
       # Resize mode bindings
       binde = [
-        # Resize windows
+        # Resize windows with Super + Alt + hjkl (keeping familiar position)
         "$mod ALT, h, resizeactive, -20 0"
         "$mod ALT, l, resizeactive, 20 0"
         "$mod ALT, k, resizeactive, 0 -20"
         "$mod ALT, j, resizeactive, 0 20"
-
-        # Contract windows (opposite direction)
-        "$mod ALT SHIFT, h, resizeactive, 20 0"
-        "$mod ALT SHIFT, l, resizeactive, -20 0"
-        "$mod ALT SHIFT, k, resizeactive, 0 20"
-        "$mod ALT SHIFT, j, resizeactive, 0 -20"
 
         # Move floating windows with arrow keys
         "$mod, left, moveactive, -20 0"

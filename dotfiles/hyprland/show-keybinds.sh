@@ -1,108 +1,112 @@
 #!/usr/bin/env bash
 
-# Hyprland Keybind Viewer - Shows all current keybinds in rofi
-# This script extracts keybinds from Hyprland and displays them in a searchable rofi menu
+# Hyprland Keybind Viewer - Shows all current keybinds in rofi and executes selected commands
+# This script displays keybinds and can execute the selected command
 
-# Function to format keybind for display
-format_keybind() {
-    local bind="$1"
-    local command="$2"
-    
-    # Replace common key names for better readability
-    bind=$(echo "$bind" | sed 's/SUPER/Super/g' | sed 's/ALT/Alt/g' | sed 's/CTRL/Ctrl/g' | sed 's/SHIFT/Shift/g')
-    
-    # Format the output
-    printf "%-25s | %s\n" "$bind" "$command"
-}
+# Create associative array to map display text to commands
+declare -A COMMANDS
 
 # Create temporary file for keybinds
 TEMP_FILE=$(mktemp)
 
-# Header
-echo "=== HYPRLAND KEYBINDS ===" > "$TEMP_FILE"
-echo "" >> "$TEMP_FILE"
+# Function to add keybind with command
+add_keybind() {
+    local display="$1"
+    local command="$2"
+    echo "$display" >> "$TEMP_FILE"
+    COMMANDS["$display"]="$command"
+}
 
-# Get all keybinds from hyprctl and parse them
+# Create keybinds list
+: > "$TEMP_FILE"
+
+# Add keybinds with their commands
 {
     echo "📋 WINDOW MANAGEMENT"
-    echo "Super + Return          | Open terminal (ghostty)"
-    echo "Super + Space           | Run launcher (rofi)"
-    echo "Super + d               | App launcher (rofi drun)"
-    echo "Super + w               | Kill active window"
-    echo "Super + Alt + w         | Force kill active window"
-    echo "Super + t               | Toggle floating"
-    echo "Super + f               | Fullscreen"
-    echo "Super + Shift + f       | Fake fullscreen"
-    echo ""
-    
-    echo "🔄 FOCUS & MOVEMENT"
-    echo "Super + h/j/k/l         | Focus left/down/up/right"
-    echo "Super + Shift + h/j/k/l | Move window left/down/up/right"
-    echo "Super + Alt + h/j/k/l   | Resize window"
-    echo "Super + Arrow keys      | Move floating window"
+    add_keybind "Super + Return          | Open terminal" "ghostty"
+    add_keybind "Super + Space           | Run launcher" "rofi -show run"
+    add_keybind "Super + d               | App launcher" "rofi -show drun"
+    add_keybind "Super + w               | Kill active window" "hyprctl dispatch killactive"
+    add_keybind "Super + Alt + w         | Force kill active window" "kill -9 \$(hyprctl activewindow -j | jq -r '.pid')"
+    add_keybind "Super + t               | Toggle floating" "hyprctl dispatch togglefloating"
+    add_keybind "Super + f               | Fullscreen" "hyprctl dispatch fullscreen 0"
+    add_keybind "Super + Shift + f       | Fake fullscreen" "hyprctl dispatch fullscreen 1"
     echo ""
     
     echo "💻 WORKSPACES"
-    echo "Super + 1-9,0           | Switch to workspace 1-10"
-    echo "Super + Shift + 1-9,0   | Move window to workspace 1-10"
-    echo "Super + v               | Next workspace"
-    echo "Super + Shift + v       | Previous workspace"
+    add_keybind "Super + 1               | Switch to workspace 1" "hyprctl dispatch workspace 1"
+    add_keybind "Super + 2               | Switch to workspace 2" "hyprctl dispatch workspace 2"
+    add_keybind "Super + 3               | Switch to workspace 3" "hyprctl dispatch workspace 3"
+    add_keybind "Super + 4               | Switch to workspace 4" "hyprctl dispatch workspace 4"
+    add_keybind "Super + 5               | Switch to workspace 5" "hyprctl dispatch workspace 5"
+    add_keybind "Super + 6               | Switch to workspace 6" "hyprctl dispatch workspace 6"
+    add_keybind "Super + 7               | Switch to workspace 7" "hyprctl dispatch workspace 7"
+    add_keybind "Super + 8               | Switch to workspace 8" "hyprctl dispatch workspace 8"
+    add_keybind "Super + 9               | Switch to workspace 9" "hyprctl dispatch workspace 9"
+    add_keybind "Super + 0               | Switch to workspace 10" "hyprctl dispatch workspace 10"
     echo ""
     
     echo "🎯 SPECIAL FUNCTIONS"
-    echo "Super + u               | Terminal dropdown (ghostty)"
-    echo "Super + i               | Notes dropdown (Affine)"
-    echo "Super + o               | File manager dropdown (Thunar)"
-    echo "Super + p               | Pin window"
+    add_keybind "Super + u               | Terminal dropdown" "/home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
+    add_keybind "Super + i               | Notes dropdown" "/home/nicky/code/nixos-config/dotfiles/hyprland/affine-dropdown-toggle.sh"
+    add_keybind "Super + o               | File manager dropdown" "/home/nicky/code/nixos-config/dotfiles/hyprland/thunar-dropdown-toggle.sh"
+    add_keybind "Super + v               | Clipboard history" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
     echo ""
     
     echo "🚀 APPLICATIONS"
-    echo "Super + e               | Emoji picker (rofi)"
-    echo "Super + c               | Calculator (rofi)"
-    echo "Super + Tab             | Window switcher (rofi)"
-    echo "Super + r               | Screen ruler"
+    add_keybind "Super + e               | Emoji picker" "rofi -modi emoji -show emoji"
+    add_keybind "Super + c               | Calculator" "rofi -modi calc -show calc -no-sort -no-show-match"
+    add_keybind "Super + Tab             | Window switcher" "rofi -show window"
+    add_keybind "Super + r               | Screen recording menu" "/home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
     echo ""
     
     echo "🎨 UTILITIES"
-    echo "Super + Alt + c         | Color picker"
-    echo "Super + Alt + p         | Screenshot (fullscreen)"
-    echo "Super + Shift + p       | Screenshot to clipboard"
-    echo "Super + Ctrl + p        | Screenshot (selection)"
-    echo "Super + Shift + w       | Change wallpaper"
-    echo "Ctrl + Alt + v          | Clipboard history"
+    add_keybind "Super + Shift + w       | Change wallpaper" "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
+    add_keybind "Super + Alt + c         | Color picker" "hyprpicker -a"
+    add_keybind "Super + Alt + p         | Screenshot (fullscreen)" "grim ~/Pictures/screens/Screenshot_\$(date +%s).png"
+    add_keybind "Super + Shift + p       | Screenshot to clipboard" "grim -g \"\$(slurp)\" - | wl-copy"
+    add_keybind "Super + Ctrl + p        | Screenshot (selection)" "grim -g \"\$(slurp)\" ~/Pictures/screens/Screenshot_\$(date +%s).png"
     echo ""
     
     echo "🔐 SYSTEM"
-    echo "Ctrl + Alt + l          | Lock screen"
-    echo "Super + Alt + q         | Power menu"
-    echo "Super + Alt + r         | Reload Hyprland"
-    echo ""
-    
-    echo "🎵 MEDIA"
-    echo "XF86AudioMute           | Toggle mute"
-    echo "XF86AudioRaise/Lower    | Volume up/down"
-    echo "XF86MonBrightnessUp/Down| Brightness up/down"
+    add_keybind "Ctrl + Alt + l          | Lock screen" "hyprlock"
+    add_keybind "Super + Alt + q         | Power menu" "/home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
+    add_keybind "Super + Alt + r         | Reload Hyprland" "hyprctl reload"
     echo ""
     
     echo "💡 LAYOUT HELPERS"
-    echo "Super + g/y             | Swap with master"
-    echo "Super + m               | Next orientation"
-    echo "Super + '               | Reset layout"
-    echo "Super + Ctrl + =        | Reset split ratios"
-    echo "Super + Ctrl + 1/2      | Adjust split ratio"
+    add_keybind "Super + =               | Reset split ratios" "hyprctl dispatch splitratio exact 1"
+    add_keybind "Super + -               | Make focused window smaller" "hyprctl dispatch splitratio -0.1"
+    add_keybind "Super + +               | Make focused window larger" "hyprctl dispatch splitratio +0.1"
+    add_keybind "Super + \\               | Resize to 1/3 width" "hyprctl dispatch resizewindowpixel exact 1706 1440"
+    add_keybind "Super + s               | Toggle split direction" "hyprctl dispatch layoutmsg togglesplit"
+    add_keybind "Super + x               | Swap split" "hyprctl dispatch layoutmsg swapsplit"
+    add_keybind "Super + m               | Move window to root" "hyprctl dispatch layoutmsg movetoroot"
     echo ""
-    
-} >> "$TEMP_FILE"
+}
 
-# Show in rofi with custom formatting
-rofi -dmenu \
+# Show in rofi with custom formatting and execute selected command
+SELECTED=$(rofi -dmenu \
     -i \
     -p "Keybinds" \
-    -theme-str "window { width: 80%; height: 70%; }" \
-    -theme-str "listview { columns: 1; lines: 20; }" \
-    -theme-str "element { padding: 5px; }" \
+    -theme-str "window { width: 85%; height: 80%; }" \
+    -theme-str "listview { columns: 2; lines: 30; spacing: 5px; }" \
+    -theme-str "element { padding: 3px 5px; }" \
+    -theme-str "element-text { horizontal-align: 0.0; font: \"monospace 12\"; }" \
+    -theme-str "inputbar { margin: 2px; }" \
     -no-custom \
-    < "$TEMP_FILE"
+    < "$TEMP_FILE")
 
-# Clean up
+# Clean up temp file
 rm "$TEMP_FILE"
+
+# Execute the selected command if one was chosen
+if [[ -n "$SELECTED" && -n "${COMMANDS[$SELECTED]}" ]]; then
+    # Replace escaped characters for proper execution
+    COMMAND="${COMMANDS[$SELECTED]}"
+    COMMAND="${COMMAND//\\\$/\$}"  # Replace \$ with $
+    COMMAND="${COMMAND//\\\"/\"}"  # Replace \" with "
+    
+    # Execute the command
+    eval "$COMMAND" &
+fi
