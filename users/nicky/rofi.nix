@@ -32,6 +32,7 @@ in {
       display-window = " 🪟 ";
       display-combi = " 󰍉 ";
       display-emoji = " 😀 ";
+      display-calc = " 🧮 ";
       sidebar-mode = false;
     };
 
