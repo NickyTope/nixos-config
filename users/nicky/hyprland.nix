@@ -8,6 +8,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    
+    # Install hy3 plugin for better tiling
+    plugins = [
+      pkgs.hyprlandPlugins.hy3
+    ];
 
     settings = {
       # Set the modifier key (Super/Windows key)
@@ -86,6 +91,10 @@
       dwindle = {
         pseudotile = true;
         preserve_split = true;
+        smart_split = true;
+        smart_resizing = true;
+        default_split_ratio = 1.0; # Default to equal splits (1:1 ratio)
+        split_width_multiplier = 1.0;
       };
 
       # Key bindings - mapped from your sxhkd configuration
@@ -158,16 +167,18 @@
         "$mod, apostrophe, layoutmsg, resetarea"
         "$mod, y, layoutmsg, swapwithmaster"
 
-        # Ultrawide 3-window layout helpers
-        "$mod CTRL, equal, exec, hyprctl dispatch splitratio 0" # Reset split ratios to equal
+        # Layout helpers  
+        "$mod, equal, exec, hyprctl dispatch splitratio exact 1" # Reset current split to equal
         "$mod CTRL, 1, exec, hyprctl dispatch splitratio -0.1" # Make focused window smaller
         "$mod CTRL, 2, exec, hyprctl dispatch splitratio +0.1" # Make focused window larger
         "$mod CTRL, 3, exec, hyprctl dispatch resizewindowpixel exact 1706 1440" # Resize to 1/3 width
 
         # Special functions
-        "$mod, p, pin"
+        # "$mod, p, pin"
         "$mod, u, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
         "$mod, i, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/affine-dropdown-toggle.sh"
+        "$mod, o, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/thunar-dropdown-toggle.sh"
+        "$mod, question, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/show-keybinds.sh"
 
         # System controls
         "$mod ALT, r, exec, hyprctl reload"
@@ -188,7 +199,6 @@
         "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
         "$mod ALT, c, exec, hyprpicker -a"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"
-        "$mod, r, exec, eruler"
         "CTRL ALT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # Screenshot bindings
@@ -197,7 +207,7 @@
         "$mod CTRL, p, exec, grim -g \"$(slurp)\" ~/Pictures/screens/Screenshot_$(date +%s).png"
 
         # Screen recording menu
-        "$mod ALT, r, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
+        "$mod, r, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
       ];
 
       # Resize mode bindings

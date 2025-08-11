@@ -12,12 +12,20 @@
   programs.regreet = {
     enable = true;
     settings = {
+      background = {
+        path = "/home/nicky/Pictures/walls/current/blu.jpg";
+        fit = "Cover";
+      };
       GTK = {
         application_prefer_dark_theme = true;
+        cursor_theme_name = lib.mkForce "rose-pine-hyprcursor";
+      };
+      widget.clock = {
+        timezone = "Australia/Hobart";
       };
     };
   };
-  
+
   # Enable required services for Wayland
   services.greetd = {
     enable = true;
@@ -74,7 +82,7 @@
     wlroots
     xwayland
     waybar
-    cage  # Compositor for regreet
+    cage # Compositor for regreet
 
     # Session management
     gtklock
