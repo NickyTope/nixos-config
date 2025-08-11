@@ -5,10 +5,10 @@
 
 options="󰹑 Start Recording\n󰙧 Stop Recording"
 
-chosen=$(echo -e "$options" | rofi -dmenu -i -p "Screen Recording" -theme-str '
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "  " -theme-str '
 window {
     width: 350px;
-    height: 150px;
+    height: 200px;
 }
 listview {
     lines: 2;

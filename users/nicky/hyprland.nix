@@ -38,12 +38,12 @@
       # Environment variables for cursor theming, keyring, and X11 app integration
       env = [
         # Hyprcursor settings (primary for Wayland/server-side cursor apps) - TESTING WITH LARGE SIZE
-        "HYPRCURSOR_THEME,rose-pine"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,24"
 
         # XCursor fallback settings (for GTK and other legacy cursor apps)
-        # "XCURSOR_THEME,layan-cursors"
-        # "XCURSOR_SIZE,16"
+        "XCURSOR_THEME,rose-pine-hyprcursor"
+        "XCURSOR_SIZE,24"
 
         # System integration
         "GNOME_KEYRING_CONTROL,/run/user/1000/keyring"
@@ -95,7 +95,7 @@
         "$mod, Return, exec, ghostty"
         "$mod, Space, exec, rofi -show run"
         "$mod, d, exec, rofi -show drun"
-        "$mod, e, exec, rofi -modi emoji -show emoji"
+        "$mod, e, exec, rofi -modi emoji  -show emoji"
         "$mod, tab, exec, rofi -show window"
         "$mod, w, killactive"
         "$mod ALT, w, exec, kill -9 $(hyprctl activewindow -j | jq -r '.pid')"
@@ -260,8 +260,7 @@
         # Welcome message
         "/home/nicky/code/nixos-config/dotfiles/bspwm/welcome.sh"
 
-        # Launch Firefox on startup
-        "firefox-developer-edition"
+        "nm-applet"
       ];
 
       # Host-specific startup will be added via separate modules

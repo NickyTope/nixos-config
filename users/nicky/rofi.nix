@@ -13,7 +13,11 @@ in {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = [pkgs.rofi-emoji];
+    plugins = [
+      pkgs.rofi-emoji
+      pkgs.rofi-calc
+      pkgs.rofi-pass
+    ];
 
     extraConfig = {
       modi = "drun,run,window";
@@ -23,10 +27,11 @@ in {
       location = 0;
       disable-history = false;
       hide-scrollbar = true;
-      display-drun = "󰍉";
-      display-run = "󰍉";
-      display-window = "";
-      display-combi = "󰍉";
+      display-drun = " 🚀 ";
+      display-run = " 🚀 ";
+      display-window = " 🪟 ";
+      display-combi = " 󰍉 ";
+      display-emoji = " 😀 ";
       sidebar-mode = false;
     };
 

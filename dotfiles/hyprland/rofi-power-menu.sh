@@ -5,10 +5,10 @@
 
 options="󰐥 Shutdown\n󰤄 Sleep\n󰍃 Lock\n󰜉 Reboot\n󰍂 Logout"
 
-chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power Menu" -theme-str '
+chosen=$(echo -e "$options" | rofi -dmenu -i -p " ⏻ " -theme-str '
 window {
     width: 300px;
-    height: 250px;
+    height: 350px;
 }
 listview {
     lines: 5;
