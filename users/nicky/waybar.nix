@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     systemd.enable = true; # Enable waybar systemd service
@@ -6,12 +11,12 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 24;
         spacing = 4;
         output = []; # Let waybar auto-detect outputs
-        
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-        modules-center = [ "clock" ];
+
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-center = ["clock"];
         # modules-right will be defined by host-specific configuration
 
         # Workspace configuration
@@ -69,7 +74,7 @@
           critical-threshold = 80;
           format-critical = "{temperatureC}°C 󰸁";
           format = "{temperatureC}°C 󰔏";
-          format-icons = [ "󰔏" "󰔐" "󰸁" ];
+          format-icons = ["󰔏" "󰔐" "󰸁"];
         };
 
         # Battery (will be enabled by host-specific config)
@@ -82,7 +87,7 @@
           format-charging = "{capacity}% 󰂄";
           format-plugged = "{capacity}% 󰚥";
           format-alt = "{time} {icon}";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         };
 
         # Network
@@ -110,7 +115,7 @@
             phone = "󰏲";
             portable = "󰦧";
             car = "󰄋";
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = ["󰕿" "󰖀" "󰕾"];
           };
           on-click = "pavucontrol";
         };

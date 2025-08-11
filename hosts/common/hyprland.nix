@@ -1,16 +1,29 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
+  programs.regreet = {
+    enable = true;
+    settings = {
+      GTK = {
+        application_prefer_dark_theme = true;
+      };
+    };
+  };
+  
   # Enable required services for Wayland
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet";
         user = "greeter";
       };
     };
@@ -52,6 +65,7 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}";
   };
 
   # Additional packages needed for Hyprland
@@ -60,9 +74,16 @@
     wlroots
     xwayland
     waybar
+    cage  # Compositor for regreet
 
     # Session management
     gtklock
+
+    # GTK for regreet
+    gtk3
+    gtk4
+    glib
+    gsettings-desktop-schemas
 
     # Clipboard and file operations
     wl-clipboard

@@ -8,7 +8,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    systemd.enable = true;
 
     settings = {
       # Set the modifier key (Super/Windows key)
@@ -168,6 +167,7 @@
         # Special functions
         "$mod, p, pin"
         "$mod, u, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/dropdown-toggle.sh"
+        "$mod, i, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/affine-dropdown-toggle.sh"
 
         # System controls
         "$mod ALT, r, exec, hyprctl reload"
@@ -183,10 +183,7 @@
         # Utilities
         "$mod SHIFT, w, exec, ~/code/nixos-config/dotfiles/hyprland/setwall.sh"
         "$mod, n, exec, notify-send 'Network menu not implemented yet'"
-        "$mod CTRL, b, exec, ~/.config/polybar/scripts/btmenu.sh"
-        "$mod CTRL, a, exec, ~/.config/polybar/scripts/pamenu.sh"
         "$mod CTRL ALT, t, exec, rofi-pass" # Keep rofi-pass as it's a specific tool
-        "$mod SHIFT, m, exec, ~/.config/bspwm/monitor_detect.sh"
         "CTRL ALT, l, exec, hyprlock"
         "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
         "$mod ALT, c, exec, hyprpicker -a"
