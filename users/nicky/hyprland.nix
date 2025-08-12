@@ -177,8 +177,8 @@
         "$mod SHIFT, p, exec, grim -g \"$(slurp)\" - | wl-copy"
         "$mod CTRL, p, exec, grim -g \"$(slurp)\" ~/Pictures/screens/Screenshot_$(date +%s).png"
 
-        # Screen recording menu
-        "$mod, r, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
+        # Toggle screen recording
+        "$mod, r, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/toggle-recording.sh"
       ];
 
       # Resize mode bindings
