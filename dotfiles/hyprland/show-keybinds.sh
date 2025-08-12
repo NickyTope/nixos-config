@@ -57,7 +57,7 @@ add_keybind() {
     add_keybind "Super + e               | Emoji picker" "rofi -modi emoji -show emoji"
     add_keybind "Super + c               | Calculator" "rofi -modi calc -show calc -no-sort -no-show-match"
     add_keybind "Super + Tab             | Window switcher" "rofi -show window"
-    add_keybind "Super + r               | Screen recording menu" "/home/nicky/code/nixos-config/dotfiles/hyprland/rofi-screenrec-menu.sh"
+    add_keybind "Super + r               | Toggle screen recording" "/home/nicky/code/nixos-config/dotfiles/hyprland/toggle-recording.sh"
     echo ""
     
     echo "🎨 UTILITIES"
