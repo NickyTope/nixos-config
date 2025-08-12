@@ -13,7 +13,7 @@
     enable = true;
     settings = {
       background = {
-        path = "/home/nicky/Pictures/walls/current/blu.jpg";
+        path = "/etc/regreet/background.jpg";
         fit = "Cover";
       };
       GTK = {
@@ -31,11 +31,14 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet";
+        command = "env WLR_BACKENDS=drm ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet";
         user = "greeter";
       };
     };
   };
+
+  # Copy background image to system location
+  environment.etc."regreet/background.jpg".source = ../../assets/regreet-background.jpg;
 
   # XDG Desktop Portal for Wayland
   xdg.portal = {

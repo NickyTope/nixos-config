@@ -265,15 +265,15 @@
         # Dropdown window rules - center on active monitor
         "float,title:^(dropdown-ghostty)$"
         "size 1200 700,title:^(dropdown-ghostty)$"
-        "center 1,title:^(dropdown-ghostty)$"
+        "center,title:^(dropdown-ghostty)$"
 
         "float,class:^(AFFiNE)$"
         "size 1200 700,title:^(AFFINE)$"
-        "center 1,title:^(AFFINE)$"
+        "center,title:^(AFFINE)$"
 
         "float,class:^(thunar)$"
         "size 1200 700,title:^(thunar)$"
-        "center 1,title:^(thunar)$"
+        "center,title:^(thunar)$"
 
         # Firefox workspace restoration
         "suppressevent maximize, class:^(firefox)$"
