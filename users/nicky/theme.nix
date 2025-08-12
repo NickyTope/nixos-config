@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.pointerCursor = {
     package = pkgs.rose-pine-hyprcursor;
-    name = "rose-pine-hyprcursor";
+    name = "BreezeX-RosePine-Linux";
     size = 16;
     gtk.enable = true;
     x11.enable = true;
@@ -41,6 +41,6 @@
 
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
-    Inherits=rose-pine-hyprcursor
+    Inherits=BreezeX-RosePine-Linux
   '';
 }

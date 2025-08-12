@@ -34,6 +34,9 @@
     # Hyprcursor for improved Wayland cursor theming
     hyprcursor
     rose-pine-hyprcursor
+    rose-pine-cursor
+    rose-pine-gtk-theme
+    rose-pine-icon-theme
   ];
 
   home.file.".local/share/applications/affine.desktop".text = ''
@@ -70,6 +73,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     DIRENV_WARN_TIMEOUT = "20s";
+    BROWSER = "firefox";
   };
 
   programs.git = {
@@ -100,6 +104,8 @@
   };
 
   programs.mpv.enable = true;
+  
+  programs.firefox.enable = true;
 
   services.remmina.enable = true;
 

@@ -1,12 +1,13 @@
 {pkgs, ...}: {
   imports = [
-    ./xfce-bspwm.nix
-    ./esphome.nix
-    ./programs.nix
-    ./podman.nix
+    ./dconf.nix
     ./dev-proxy.nix
+    ./esphome.nix
     ./isw-vpn.nix
+    ./podman.nix
+    ./programs.nix
     ./secrets.nix
+    ./xfce-bspwm.nix
   ];
 
   # Enable networking
@@ -72,7 +73,7 @@
   services.openssh.enable = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings.trusted-users = [ "root" "nicky" ];
+  nix.settings.trusted-users = ["root" "nicky"];
   nix.optimise = {
     automatic = true;
     dates = ["02:00"];

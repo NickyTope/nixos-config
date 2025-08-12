@@ -42,7 +42,7 @@
         "HYPRCURSOR_SIZE,24"
 
         # XCursor fallback settings (for GTK and other legacy cursor apps)
-        "XCURSOR_THEME,rose-pine-hyprcursor"
+        "XCURSOR_THEME,BreezeX-RosePine-Linux"
         "XCURSOR_SIZE,24"
 
         # System integration
@@ -150,7 +150,7 @@
         "$mod, equal, exec, hyprctl dispatch splitratio exact 1" # Reset current split to equal
         "$mod, minus, exec, hyprctl dispatch splitratio -0.1" # Make focused window smaller
         "$mod, plus, exec, hyprctl dispatch splitratio +0.1" # Make focused window larger
-        "$mod, backslash, exec, hyprctl dispatch resizewindowpixel exact 1706 1440" # Resize to 1/3 width
+        "$mod SHIFT, r, exec, hyprctl dispatch resizeactive exact 67% 67%" # Resize to 2/3 current size
         "$mod, s, layoutmsg, togglesplit" # Toggle split direction
         "$mod, x, layoutmsg, swapsplit" # Swap split
         "$mod, m, layoutmsg, movetoroot" # Move window to root

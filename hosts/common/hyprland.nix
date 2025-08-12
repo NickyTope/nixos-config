@@ -18,7 +18,7 @@
       };
       GTK = {
         application_prefer_dark_theme = true;
-        cursor_theme_name = lib.mkForce "rose-pine-hyprcursor";
+        cursor_theme_name = lib.mkForce "BreezeX-RosePine-Linux";
       };
       widget.clock = {
         timezone = "Australia/Hobart";
@@ -31,7 +31,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "env WLR_BACKENDS=drm ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet";
+        command = "${pkgs.cage}/bin/cage -s -mlast -- ${pkgs.greetd.regreet}/bin/regreet";
         user = "greeter";
       };
     };
