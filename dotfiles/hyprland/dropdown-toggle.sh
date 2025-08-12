@@ -3,14 +3,12 @@
 # Dropdown terminal toggle script for Hyprland
 # This script toggles the visibility of a dropdown terminal
 
-DROPDOWN_CLASS="com.mitchellh.ghostty"
-DROPDOWN_SIZE="1200 700"
-DROPDOWN_POS="360 50"
+DROPDOWN_TITLE="dropdown-ghostty"
 
 # Function to get dropdown terminal window ID
 get_dropdown_window() {
     # Look for a floating ghostty window at our specific position and size
-    hyprctl clients -j | jq -r ".[] | select(.class == \"$DROPDOWN_CLASS\" and .floating == true and .size[0] == 1200 and .size[1] == 700) | .address"
+    hyprctl clients -j | jq -r ".[] | select(.title == \"$DROPDOWN_TITLE\" and .floating == true) | .address"
 }
 
 # Function to get window's current workspace
@@ -63,6 +61,6 @@ if [ -n "$DROPDOWN_WINDOW" ]; then
     fi
 else
     # No dropdown window exists, create one
-    hyprctl dispatch exec "[float; size $DROPDOWN_SIZE; move $DROPDOWN_POS] ghostty"
+    hyprctl dispatch exec "[float] ghostty --title=$DROPDOWN_TITLE"
     # notify-send "Dropdown" "Terminal created" -t 1000
 fi

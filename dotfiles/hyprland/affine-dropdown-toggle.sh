@@ -4,8 +4,6 @@
 # This script toggles the visibility of a dropdown Affine notes app
 
 DROPDOWN_CLASS="AFFiNE"
-DROPDOWN_SIZE="1400 900"
-DROPDOWN_POS="260 90"
 
 # Function to get dropdown Affine window ID
 get_dropdown_window() {
@@ -60,5 +58,5 @@ if [ -n "$DROPDOWN_WINDOW" ]; then
     fi
 else
     # No Affine window exists, create one
-    hyprctl dispatch exec "[float; size $DROPDOWN_SIZE; move $DROPDOWN_POS] affine"
+    hyprctl dispatch exec "[float] affine"
 fi

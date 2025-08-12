@@ -4,8 +4,6 @@
 # This script toggles the visibility of a dropdown Thunar file manager
 
 DROPDOWN_CLASS="thunar"
-DROPDOWN_SIZE="1000 600"
-DROPDOWN_POS="460 200"
 
 # Function to get dropdown Thunar window ID
 get_dropdown_window() {
@@ -60,5 +58,5 @@ if [ -n "$DROPDOWN_WINDOW" ]; then
     fi
 else
     # No Thunar window exists, create one
-    hyprctl dispatch exec "[float; size $DROPDOWN_SIZE; move $DROPDOWN_POS] thunar"
+    hyprctl dispatch exec "[float] thunar"
 fi

@@ -11,9 +11,8 @@
 
     # Host-specific startup commands
     exec-once = [
-      # System76 laptop specific settings
-      "sudo system76-power profile battery"
-      "light -S 60" # Set screen brightness to 60%
+      # System76 laptop specific settings with proper ordering
+      "sleep 2 && sudo system76-power profile battery && sleep 1 && light -S 60"
       "sudo sys76-kb set -c purple -b 90" # Set keyboard backlight
     ];
 

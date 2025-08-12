@@ -18,10 +18,6 @@
       # Set the modifier key (Super/Windows key)
       "$mod" = "SUPER";
 
-      # Dropdown Terminal Settings
-      "$terminal_dropdown_class" = "dropdown-ghostty";
-      "$terminal_dropdown_workspace" = "special:dropdown";
-
       # Enable hyprcursor for improved Wayland cursor theming
       cursor = {
         enable_hyprcursor = true;
@@ -247,8 +243,6 @@
         # General floating rules
         "float,class:^(rofi)$"
 
-        "float,class:^(thunar)$"
-        "float,class:^(Thunar)$"
         "float,class:^(nemo)$"
         "float,class:^(Nemo)$"
         "float,class:^(org.gnome.Calculator)$"
@@ -263,11 +257,23 @@
         "float,class:^(.blueman-manager-wrapped)$"
         "size 400 800,class:^(.blueman-manager-wrapped)$"
         "move 1380 40,class:^(.blueman-manager-wrapped)$"
-        "float,class:^(AFFiNE)$"
         "float,class:^(bitwarden)$"
         "float,class:^(pavucontrol)$"
         "size 680 500,class:^(bitwarden)$"
         "center 1,class:^(bitwarden)$"
+
+        # Dropdown window rules - center on active monitor
+        "float,title:^(dropdown-ghostty)$"
+        "size 1200 700,title:^(dropdown-ghostty)$"
+        "center 1,title:^(dropdown-ghostty)$"
+
+        "float,class:^(AFFiNE)$"
+        "size 1200 700,title:^(AFFINE)$"
+        "center 1,title:^(AFFINE)$"
+
+        "float,class:^(thunar)$"
+        "size 1200 700,title:^(thunar)$"
+        "center 1,title:^(thunar)$"
 
         # Firefox workspace restoration
         "suppressevent maximize, class:^(firefox)$"
