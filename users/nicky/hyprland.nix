@@ -147,10 +147,9 @@
         "$mod, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # Layout helpers
-        "$mod, equal, exec, hyprctl dispatch splitratio exact 1" # Reset current split to equal
+        "$mod, apostrophe, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/auto-layout.sh" # Auto-layout for 2/3 windows
         "$mod, minus, exec, hyprctl dispatch splitratio -0.1" # Make focused window smaller
         "$mod, plus, exec, hyprctl dispatch splitratio +0.1" # Make focused window larger
-        "$mod SHIFT, r, exec, hyprctl dispatch resizeactive exact 67% 67%" # Resize to 2/3 current size
         "$mod, s, layoutmsg, togglesplit" # Toggle split direction
         "$mod, x, layoutmsg, swapsplit" # Swap split
         "$mod, m, layoutmsg, movetoroot" # Move window to root

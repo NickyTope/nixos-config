@@ -9,9 +9,7 @@ This is a NixOS configuration repository using Nix Flakes to manage system confi
 ## Key Commands
 
 ### System Management
-- `sudo nixos-rebuild switch --flake .#<hostname>` - Apply system configuration
-- `sudo nixos-rebuild switch --flake .#mininix` - Apply config for mininix host (Hyprland - DEFAULT)
-- `sudo nixos-rebuild switch --flake .#nt-oryx` - Apply config for nt-oryx host (Hyprland - DEFAULT)
+- `sudo nixos-rebuild switch --flake .` - Apply system configuration (auto-detects hostname)
 - `nix flake update` - Update flake inputs
 - `nix-collect-garbage -d` - Clean up old generations
 
