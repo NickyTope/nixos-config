@@ -33,7 +33,7 @@
         # Text
         font = "JetBrainsMono Medium 10";
         line_height = 0;
-        markup = "full";
+        markup = "basic";
         format = "<b>%s</b>\\n%b";
         alignment = "left";
         vertical_alignment = "center";

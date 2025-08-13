@@ -83,6 +83,9 @@
 
   # Use dbus-broker for better UWSM compatibility
   services.dbus.implementation = "broker";
+  
+  # Enable thumbnail service for Thunar
+  services.tumbler.enable = true;
 
   # Fonts for Wayland
   fonts = {
@@ -146,6 +149,8 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
+    xfce.tumbler # Thumbnail service for Thunar
+    gvfs # Virtual filesystem support for Thunar
     file-roller # Archive manager for thunar-archive-plugin
 
     # XDG and Desktop Integration

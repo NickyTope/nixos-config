@@ -106,7 +106,7 @@
 
   programs.mpv.enable = true;
   
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true; # Disabled - using system Firefox with passff-host
 
   services.remmina.enable = true;
 
