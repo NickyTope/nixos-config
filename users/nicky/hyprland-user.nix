@@ -122,5 +122,21 @@
     components = ["secrets" "pkcs11" "ssh"];
   };
 
+  # XDG user directories and configuration
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      templates = null;
+      desktop = null;
+      publicShare = null;
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "$HOME/Pictures/Screenshots";
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
 }

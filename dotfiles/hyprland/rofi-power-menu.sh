@@ -125,11 +125,21 @@ confirm_action() {
     local action="$1"
     local message="$2"
     
-    result=$(echo -e "󰄬 Yes\n󰜺 No" | rofi -dmenu -i -p "${message}" -theme-str '
+    result=$(echo -e "󰄬 Yes" | rofi -dmenu -i -mesg "${message}" -theme-str '
     window {
         width: 300px;
         height: 140px;
         border-radius: 8px;
+    }
+    mainbox {
+        enabled: true;
+        background-color: transparent;
+        spacing: 10px;
+        children: [ "message", "listview" ];
+    }
+    message {
+      enabled: true;
+      padding: 10px;
     }
     listview {
         lines: 2;
