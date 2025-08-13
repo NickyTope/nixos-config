@@ -268,12 +268,12 @@
         "center,title:^(dropdown-ghostty)$"
 
         "float,class:^(AFFiNE)$"
-        "size 1200 700,title:^(AFFINE)$"
-        "center,title:^(AFFINE)$"
+        "size 1200 700,class:^(AFFINE)$"
+        "center,class:^(AFFINE)$"
 
         "float,class:^(thunar)$"
-        "size 1200 700,title:^(thunar)$"
-        "center,title:^(thunar)$"
+        "size 1200 700,class:^(thunar)$"
+        "center,class:^(thunar)$"
 
         # Firefox workspace restoration
         "suppressevent maximize, class:^(firefox)$"
@@ -379,7 +379,7 @@
         {
           timeout = 600;
           on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          on-resume = "hyprctl dispatch dpms on && light -S 60";
         }
         # Lock screen after 15 minutes
         {
