@@ -166,7 +166,7 @@
 
         # Utilities
         "$mod SHIFT, w, exec, ~/code/nixos-config/dotfiles/hyprland/setwall.sh"
-        "$mod, n, exec, notify-send 'Network menu not implemented yet'"
+        "$mod, n, exec, ~/code/nixos-config/dotfiles/hyprland/vpn-menu.sh"
         "CTRL ALT, l, exec, hyprlock"
         "$mod ALT, c, exec, hyprpicker -a"
         "$mod ALT, s, exec, /home/nicky/apps/ticker.sh/notify-shares"

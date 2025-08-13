@@ -108,6 +108,9 @@
     clipcat
     pick-colour-picker
     xournalpp
+    oath-toolkit
+    openvpn
+    expect
     unstable.devenv
   ];
 
