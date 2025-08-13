@@ -74,6 +74,7 @@
     EDITOR = "nvim";
     DIRENV_WARN_TIMEOUT = "20s";
     BROWSER = "firefox";
+    PATH = "$HOME/.local/bin:$PATH";
   };
 
   programs.git = {

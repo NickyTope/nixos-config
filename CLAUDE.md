@@ -12,9 +12,6 @@ This is a NixOS configuration repository using Nix Flakes to manage system confi
 - `sudo nixos-rebuild switch --flake .#<hostname>` - Apply system configuration
 - `sudo nixos-rebuild switch --flake .#mininix` - Apply config for mininix host (Hyprland - DEFAULT)
 - `sudo nixos-rebuild switch --flake .#nt-oryx` - Apply config for nt-oryx host (Hyprland - DEFAULT)
-- `sudo nixos-rebuild switch --flake .#mininix-xfce` - Apply legacy XFCE + bspwm config for mininix
-- `sudo nixos-rebuild switch --flake .#nt-oryx-xfce` - Apply legacy XFCE + bspwm config for nt-oryx
-- `./switch-wm.sh [xfce|hyprland] [hostname]` - Easy window manager switching
 - `nix flake update` - Update flake inputs
 - `nix-collect-garbage -d` - Clean up old generations
 
@@ -54,17 +51,12 @@ This is a NixOS configuration repository using Nix Flakes to manage system confi
 - **Modular design**: Configuration split into logical modules for maintainability
 
 ### Host Configurations
-- **mininix**: Desktop system with AMD GPU, Synergy server enabled
-  - `mininix` - Hyprland (Wayland) configuration (DEFAULT)
-  - `mininix-xfce` - Legacy XFCE + bspwm configuration
-- **nt-oryx**: System76 laptop with Nvidia GPU, TLP power management
-  - `nt-oryx` - Hyprland (Wayland) configuration (DEFAULT)
-  - `nt-oryx-xfce` - Legacy XFCE + bspwm configuration
+- **mininix**: Desktop system with AMD GPU, Synergy server enabled using Hyprland (Wayland)
+- **nt-oryx**: System76 laptop with Nvidia GPU, TLP power management using Hyprland (Wayland)
 
 ### User Configuration
 The `users/nicky/` directory contains modular Home Manager configurations:
-- `hyprland-user.nix` - Main user configuration for Hyprland (DEFAULT)
-- `xfce-user.nix` - Legacy user configuration for XFCE + bspwm
+- `hyprland-user.nix` - Main user configuration for Hyprland
 - `hyprland.nix` - Hyprland window manager configuration
 - `hyprland-mininix.nix` - Desktop-specific Hyprland settings
 - `hyprland-nt-oryx.nix` - Laptop-specific Hyprland settings
@@ -77,22 +69,19 @@ The `users/nicky/` directory contains modular Home Manager configurations:
 ### Configuration Management
 - **Hyprland**: Modern Wayland compositor with Nightfox theme integration
 - **Waybar**: Status bar with host-specific configuration via Home Manager
-- **Legacy dotfiles**: Stored in `dotfiles/` directory for XFCE/bspwm compatibility
 - **Home Manager**: Declarative user environment management
 
 ## Important Files
-- `flake.nix:41-62` - mininix system configuration (Hyprland default)
-- `flake.nix:120` - nt-oryx system configuration (Hyprland default)
+- `flake.nix:42-63` - mininix system configuration
+- `flake.nix:64-84` - nt-oryx system configuration
 - `hosts/common/hyprland.nix` - Shared Hyprland system settings
 - `users/nicky/hyprland-user.nix` - Main Hyprland user configuration
 - `users/nicky/waybar.nix` - Host-specific Waybar configuration
 
 ## Development Notes
-- **Default environment**: Hyprland (Wayland) with Nightfox theming
-- **Legacy support**: XFCE + bspwm available via `-xfce` configurations
+- **Desktop environment**: Hyprland (Wayland) with Nightfox theming
 - **Host-specific features**: 
   - Waybar automatically adapts to desktop vs laptop (battery module)
   - Monitor configuration per host
   - Hardware-specific optimizations
-- **Migration complete**: Hyprland is now the primary desktop environment
 - **Theme consistency**: Nightfox colors throughout Hyprland, Waybar, terminals, and editors

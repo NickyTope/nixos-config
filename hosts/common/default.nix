@@ -7,7 +7,6 @@
     ./podman.nix
     ./programs.nix
     ./secrets.nix
-    ./xfce-bspwm.nix
   ];
 
   # Enable networking
