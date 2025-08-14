@@ -39,6 +39,15 @@
    git -C ~/.password-store remote set-url origin git@gitlab.com:nicky.tope/pass.git
    ```
 
+7. **Set up wallpaper sync** with Google Drive:
+   ```bash
+   setup-wallpaper-sync.sh
+   ```
+   This will:
+   - Configure rclone with your Google account
+   - Download wallpapers from Google Drive to ~/Pictures/walls/
+   - Set up automatic daily sync via systemd timer
+
 ## Notes
 - SSH keys for GitLab are already configured in the NixOS config via SOPS secrets
 - After rebuilding on nt-oryx, SSH authentication should work automatically

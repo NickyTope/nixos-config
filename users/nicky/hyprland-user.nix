@@ -15,6 +15,7 @@
     ./rofi.nix
     ./secrets.nix
     ./theme.nix
+    ./wallpaper-sync.nix
     ./zsh.nix
     ./hyprland.nix
     ./waybar.nix

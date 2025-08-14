@@ -112,6 +112,7 @@
     openvpn
     expect
     glab
+    rclone
     unstable.devenv
   ];
 
