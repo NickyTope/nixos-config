@@ -7,7 +7,7 @@ set -euo pipefail
 
 FLAKE_DIR="/home/nicky/code/nixos-config"
 LOG_FILE="/tmp/nixos-rebuild-$(date +%s).log"
-CLAUDE_API_KEY_FILE="$HOME/.config/claude/api_key"
+CLAUDE_API_KEY_FILE="/run/secrets/claude-api-key"
 
 # Colors for output
 RED='\033[0;31m'
@@ -60,12 +60,13 @@ Please focus on the most likely cause and specific steps to fix it."
     
     # Send request to Claude API
     local response
-    response=$(curl -s -X POST "https://api.anthropic.com/v1/messages" \
+    local http_code
+    response=$(curl -s -w "%{http_code}" -X POST "https://api.anthropic.com/v1/messages" \
         -H "Content-Type: application/json" \
         -H "x-api-key: $api_key" \
         -H "anthropic-version: 2023-06-01" \
         -d "{
-            \"model\": \"claude-3-sonnet-20240229\",
+            \"model\": \"claude-sonnet-4-20250514\",
             \"max_tokens\": 200,
             \"messages\": [{
                 \"role\": \"user\",
@@ -73,11 +74,18 @@ Please focus on the most likely cause and specific steps to fix it."
             }]
         }" 2>/dev/null)
     
-    if [[ $? -eq 0 && -n "$response" ]]; then
+    # Extract HTTP code and response body
+    http_code="${response: -3}"
+    response_body="${response%???}"
+    
+    if [[ "$http_code" == "200" && -n "$response_body" ]]; then
         # Extract the content from Claude's response
-        echo "$response" | jq -r '.content[0].text' 2>/dev/null || echo "Failed to parse Claude response"
+        echo "$response_body" | jq -r '.content[0].text' 2>/dev/null || echo "Failed to parse Claude response: $response_body"
     else
-        echo "Failed to get response from Claude API"
+        warn "Claude API request failed with HTTP $http_code"
+        if [[ -n "$response_body" ]]; then
+            warn "Response: $response_body"
+        fi
         return 1
     fi
 }

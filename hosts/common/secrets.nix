@@ -14,5 +14,9 @@
       path = "/var/lib/ssl/iswwckey.key";
     };
     secrets.isw-vpn = {};
+    secrets.claude-api-key = {
+      owner = "nicky";
+      group = "users";
+    };
   };
 }
