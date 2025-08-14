@@ -62,6 +62,7 @@ add_keybind() {
     
     echo "🎨 UTILITIES"
     add_keybind "Super + Shift + w       | Change wallpaper" "/home/nicky/code/nixos-config/dotfiles/hyprland/setwall.sh"
+    add_keybind "Super + n               | VPN menu" "/home/nicky/code/nixos-config/dotfiles/hyprland/vpn-menu.sh"
     add_keybind "Super + Alt + c         | Color picker" "hyprpicker -a"
     add_keybind "Super + Alt + p         | Screenshot (fullscreen)" "grim ~/Pictures/screens/Screenshot_\$(date +%s).png"
     add_keybind "Super + Shift + p       | Screenshot to clipboard" "grim -g \"\$(slurp)\" - | wl-copy"
@@ -70,6 +71,7 @@ add_keybind() {
     
     echo "🔐 SYSTEM"
     add_keybind "Ctrl + Alt + l          | Lock screen" "hyprlock"
+    add_keybind "Super + Alt + b         | NixOS rebuild" "/home/nicky/code/nixos-config/dotfiles/hyprland/nixos-rebuild.sh"
     add_keybind "Super + Alt + q         | Power menu" "/home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
     add_keybind "Super + Alt + r         | Reload Hyprland" "hyprctl reload"
     echo ""

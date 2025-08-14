@@ -162,6 +162,7 @@
 
         # System controls
         "$mod ALT, r, exec, hyprctl reload"
+        "$mod ALT, b, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/nixos-rebuild.sh"
         "$mod ALT, q, exec, /home/nicky/code/nixos-config/dotfiles/hyprland/rofi-power-menu.sh"
 
         # Utilities

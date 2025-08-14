@@ -83,3 +83,6 @@ The `users/nicky/` directory contains modular Home Manager configurations:
   - Monitor configuration per host
   - Hardware-specific optimizations
 - **Theme consistency**: Nightfox colors throughout Hyprland, Waybar, terminals, and editors
+
+## Important Reminders
+- **Keybind Documentation**: When adding new keybinds to `users/nicky/hyprland.nix`, ALWAYS update `dotfiles/hyprland/show-keybinds.sh` so they appear in the keybind help menu (Super + /)
