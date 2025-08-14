@@ -2,9 +2,10 @@
 
 ## Completed on mininix
 - ✅ GitLab SSH keys configured via SOPS
-- ✅ Repository migrated to GitLab
+- ✅ NixOS config repository migrated to GitLab
 - ✅ GitLab CI workflow merged
 - ✅ Origin remote updated to GitLab
+- ✅ Password-store migrated to GitLab
 
 ## Instructions for nt-oryx
 
@@ -33,6 +34,11 @@
    ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
    ```
 
+6. **Update password-store remote** to GitLab:
+   ```bash
+   git -C ~/.password-store remote set-url origin git@gitlab.com:nicky.tope/pass.git
+   ```
+
 ## Notes
 - SSH keys for GitLab are already configured in the NixOS config via SOPS secrets
 - After rebuilding on nt-oryx, SSH authentication should work automatically
@@ -40,5 +46,11 @@
 - GitHub remote has been kept temporarily for transition purposes
 
 ## Repository URLs
+
+### NixOS Config
 - **GitLab (new primary)**: git@gitlab.com:nicky.tope/nixos-config.git
 - **GitHub (legacy)**: git@github.com:NickyTope/nixos-config.git
+
+### Password Store
+- **GitLab (new primary)**: git@gitlab.com:nicky.tope/pass.git
+- **GitHub (legacy)**: git@github.com:NickyTope/pass.git

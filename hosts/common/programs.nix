@@ -111,6 +111,7 @@
     oath-toolkit
     openvpn
     expect
+    glab
     unstable.devenv
   ];
 
