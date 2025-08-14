@@ -15,6 +15,8 @@
       notes-share = {};
       github = {path = "/home/nicky/.ssh/github";};
       github-pub = {path = "/home/nicky/.ssh/github.pub";};
+      gitlab = {path = "/home/nicky/.ssh/gitlab";};
+      gitlab-pub = {path = "/home/nicky/.ssh/gitlab.pub";};
     };
   };
 

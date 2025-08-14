@@ -101,6 +101,10 @@
         user = "git";
         identityFile = "~/.ssh/github";
       };
+      "gitlab.com" = {
+        user = "git";
+        identityFile = "~/.ssh/gitlab";
+      };
     };
   };
 
